@@ -1,0 +1,1488 @@
+{
+  "generated": "2026-09-29",
+  "elixhauser_missing_columns": [
+    "CBVD"
+  ],
+  "elixhauser_codes_not_in_fy2024_27": [
+    "I6020",
+    "I6021",
+    "I6022"
+  ],
+  "ccw_otcc_2026_08": {
+    "ccw_adhd_conduct_disorders_and_hyperkinetic_syndrome": {
+      "name": "ADHD, Conduct Disorders, and Hyperkinetic Syndrome",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 18,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_alcohol_use_disorders": {
+      "name": "Alcohol Use Disorders",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type codes only one to qualify",
+      "counts": {
+        "ICD10CM": 75,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_anxiety_disorders": {
+      "name": "Anxiety Disorders",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 49,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_autism_spectrum_disorders": {
+      "name": "Autism Spectrum Disorders",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 5,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_bipolar_disorder": {
+      "name": "Bipolar Disorder",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 42,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_cerebral_palsy": {
+      "name": "Cerebral Palsy",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 7,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_chronic_pain": {
+      "name": "Chronic Pain",
+      "period": "3 Years",
+      "qualify": "least 1 claim of service type",
+      "counts": {
+        "ICD10CM": 453,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_cystic_fibrosis_and_other_metabolic_developmental_disorders": {
+      "name": "Cystic Fibrosis and Other Metabolic Developmental Disorders",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 80,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_depressive_disorders": {
+      "name": "Depressive Disorders",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 19,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_drug_use_disorders": {
+      "name": "Drug Use Disorders",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type codes only one to qualify",
+      "counts": {
+        "ICD10CM": 442,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": [
+        "T40.4X1A",
+        "T40.4X2A",
+        "T40.4X3A",
+        "T40.4X4A",
+        "T40.7X1A"
+      ]
+    },
+    "ccw_epilepsy": {
+      "name": "Epilepsy",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 59,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_fibromyalgia_chronic_pain_and_fatigue": {
+      "name": "Fibromyalgia, Chronic Pain and Fatigue",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 48,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_human_immunodeficiency_virus_and_or_acquired_immunodeficienc": {
+      "name": "Human Immunodeficiency Virus and/or Acquired Immunodeficiency Syndrome (HIV/AIDS)",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 6,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_intellectual_disabilities_and_related_conditions": {
+      "name": "Intellectual Disabilities and Related Conditions",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 67,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_learning_disabilities": {
+      "name": "Learning Disabilities",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 16,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_leukemias_and_lymphomas": {
+      "name": "Leukemias and Lymphomas",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 516,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_liver_disease_cirrhosis_and_other_liver_conditions_except_vi": {
+      "name": "Liver Disease, Cirrhosis and Other Liver Conditions (except Viral Hepatitis)",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type must at least one liver diagnosis on",
+      "counts": {
+        "ICD10CM": 62,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_migraine_and_other_chronic_headache": {
+      "name": "Migraine and Other Chronic Headache",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 88,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_mobility_impairments": {
+      "name": "Mobility Impairments",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 175,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_multiple_sclerosis_and_transverse_myelitis": {
+      "name": "Multiple Sclerosis and Transverse Myelitis",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 21,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_muscular_dystrophy": {
+      "name": "Muscular Dystrophy",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 23,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_obesity": {
+      "name": "Obesity",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 28,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_opioid_use_disorder_oud_1_overarching_opioid_use_disorder": {
+      "name": "Opioid Use Disorder (OUD) #1: Overarching Opioid Use Disorder",
+      "period": "2 Years",
+      "qualify": "",
+      "counts": {
+        "ICD10CM": 0,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_oud_2_diagnosis_and_procedure_code_basis_for_oud": {
+      "name": "OUD #2: Diagnosis- and Procedure-code basis for OUD",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type DX (or ICD-10- procedure)",
+      "counts": {
+        "ICD10CM": 82,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": [
+        "T40.4X1A",
+        "T40.4X2A",
+        "T40.4X3A",
+        "T40.4X4A"
+      ]
+    },
+    "ccw_oud_3_opioid_related_hospitalizations_ed_visits": {
+      "name": "OUD #3: Opioid- related Hospitalizations/ED Visits",
+      "period": "2 Years",
+      "qualify": "inpatient claim one emergency (ED)",
+      "counts": {
+        "ICD10CM": 174,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": [
+        "T40.4X1A",
+        "T40.4X1D",
+        "T40.4X1S",
+        "T40.4X2A",
+        "T40.4X2D",
+        "T40.4X2S",
+        "T40.4X3A",
+        "T40.4X3D",
+        "T40.4X3S",
+        "T40.4X4A",
+        "T40.4X4D",
+        "T40.4X4S",
+        "T40.4X5A",
+        "T40.4X5D",
+        "T40.4X5S"
+      ]
+    },
+    "ccw_oud_4_utilization_of_medication_assisted_therapy_mat": {
+      "name": "OUD #4: Utilization of Medication-Assisted Therapy (MAT)",
+      "period": "2 Years",
+      "qualify": "or more drug with an NDC opioid-MAT OR or more non- claim with a code. Naltrexone are excluded there is evidence an alcohol or drug use where #2 is not",
+      "counts": {
+        "ICD10CM": 0,
+        "HCPCS": 24,
+        "NDC": 348
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_other_developmental_delays": {
+      "name": "Other Developmental Delays",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 4,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_peripheral_vascular_disease_pvd": {
+      "name": "Peripheral Vascular Disease (PVD)",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 53,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_personality_disorders": {
+      "name": "Personality Disorders",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 19,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_post_traumatic_stress_disorder_ptsd": {
+      "name": "Post-Traumatic Stress Disorder (PTSD)",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 3,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_pressure_ulcers_and_chronic_ulcers": {
+      "name": "Pressure Ulcers and Chronic Ulcers",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 569,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_schizophrenia": {
+      "name": "Schizophrenia",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 12,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_schizophrenia_and_other_psychotic_disorders": {
+      "name": "Schizophrenia and Other Psychotic Disorders",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 23,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_sensory_blindness_and_visual_impairment": {
+      "name": "Sensory - Blindness and Visual Impairment",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 32,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_sensory_deafness_and_hearing_impairment": {
+      "name": "Sensory - Deafness and Hearing Impairment",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 25,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_sickle_cell_disease": {
+      "name": "Sickle Cell Disease",
+      "period": "5 Years",
+      "qualify": "or more non-drug of any type",
+      "counts": {
+        "ICD10CM": 42,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_spina_bifida_and_other_congenital_anomalies_of_the_nervous_s": {
+      "name": "Spina Bifida and Other Congenital Anomalies of the Nervous System",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 46,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_spinal_cord_injury": {
+      "name": "Spinal Cord Injury",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 272,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": [
+        "S13.113A"
+      ]
+    },
+    "ccw_tobacco_use_disorders": {
+      "name": "Tobacco Use Disorders",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type codes only one to qualify",
+      "counts": {
+        "ICD10CM": 39,
+        "HCPCS": 2,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_traumatic_brain_injury_and_nonpsychotic_mental_disorders_due": {
+      "name": "Traumatic Brain Injury and Nonpsychotic Mental Disorders due to Brain Damage",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 219,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": [
+        "S06.0X2S",
+        "S06.0X3S",
+        "S06.0X4S",
+        "S06.0X5S",
+        "S06.0X6S",
+        "S06.0X7S",
+        "S06.0X8S",
+        "S06.1X7S",
+        "S06.1X8S",
+        "S06.2X7S",
+        "S06.2X8S",
+        "S06.307S",
+        "S06.308S",
+        "S06.317S",
+        "S06.318S",
+        "S06.327S",
+        "S06.328S",
+        "S06.337S",
+        "S06.338S",
+        "S06.347S",
+        "S06.348S",
+        "S06.357S",
+        "S06.358S",
+        "S06.367S",
+        "S06.368S",
+        "S06.377S",
+        "S06.378S",
+        "S06.387S",
+        "S06.388S",
+        "S06.4X7S",
+        "S06.4X8S",
+        "S06.5X7S",
+        "S06.5X8S",
+        "S06.6X7S",
+        "S06.6X8S",
+        "S06.817S",
+        "S06.818S",
+        "S06.827S",
+        "S06.828S",
+        "S06.897S",
+        "S06.898S",
+        "S06.9X7S",
+        "S06.9X8S"
+      ]
+    },
+    "ccw_viral_hepatitis_general": {
+      "name": "Viral Hepatitis (General) , including:",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 23,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": [
+        "Z22.50",
+        "Z22.51",
+        "Z22.52",
+        "Z22.59"
+      ]
+    },
+    "ccw_hepatitis_a": {
+      "name": "Hepatitis A",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 2,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_hepatitis_b_acute_or_unspecified": {
+      "name": "Hepatitis B (acute or unspecified)",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 6,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_hepatitis_b_chronic": {
+      "name": "Hepatitis B (chronic)",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 2,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": [
+        "Z22.51"
+      ]
+    },
+    "ccw_hepatitis_c_acute": {
+      "name": "Hepatitis C (acute)",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 2,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_hepatitis_c_chronic": {
+      "name": "Hepatitis C (chronic)",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 1,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": [
+        "Z22.52"
+      ]
+    },
+    "ccw_hepatitis_c_unspecified": {
+      "name": "Hepatitis C (unspecified)",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 2,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw_hepatitis_d": {
+      "name": "Hepatitis D",
+      "period": "2 Years",
+      "qualify": "least 1 inpatient OR 2 other claims of service type",
+      "counts": {
+        "ICD10CM": 4,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    }
+  },
+  "ccw_chronic30_2026_08": {
+    "ccw30_acute_myocardial_infarction": {
+      "name": "Acute Myocardial Infarction",
+      "period": "1 year",
+      "qualify": "1 inpatient with DX codes",
+      "counts": {
+        "ICD10CM": 27,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_alzheimer_s_disease": {
+      "name": "Alzheimer's Disease",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 4,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_anemia": {
+      "name": "Anemia",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 143,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_asthma": {
+      "name": "Asthma",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 18,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_atrial_fibrillation_and_flutter": {
+      "name": "Atrial Fibrillation and Flutter",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 10,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_benign_prostatic_hyperplasia": {
+      "name": "Benign Prostatic Hyperplasia",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 5,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_cancer_breast": {
+      "name": "Cancer, Breast",
+      "period": "2 years",
+      "qualify": "1 inpatient/SNF OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 83,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_cancer_colorectal": {
+      "name": "Cancer, Colorectal",
+      "period": "2 years",
+      "qualify": "1 inpatient/SNF OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 21,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_cancer_endometrial": {
+      "name": "Cancer, Endometrial",
+      "period": "2 years",
+      "qualify": "1 inpatient/SNF OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 8,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_cancer_lung": {
+      "name": "Cancer, Lung",
+      "period": "2 years",
+      "qualify": "1 inpatient/SNF OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 21,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_cancer_prostate": {
+      "name": "Cancer, Prostate",
+      "period": "2 years",
+      "qualify": "1 inpatient/SNF OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 3,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_cancer_urologic_kidney_renal_pelvis_and_ureter": {
+      "name": "Cancer, Urologic (Kidney, Renal Pelvis, and Ureter)",
+      "period": "2 years",
+      "qualify": "1 inpatient/SNF OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 18,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_cataract": {
+      "name": "Cataract",
+      "period": "1 year",
+      "qualify": "1 HOP or claim with DX",
+      "counts": {
+        "ICD10CM": 101,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_chronic_kidney_disease": {
+      "name": "Chronic Kidney Disease",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 186,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_chronic_obstructive_pulmonary_disease": {
+      "name": "Chronic Obstructive Pulmonary Disease",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 19,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_depression_bipolar_or_other_depressive_mood_disorders": {
+      "name": "Depression, Bipolar, or Other Depressive Mood Disorders",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 50,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_diabetes": {
+      "name": "Diabetes",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 468,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_glaucoma": {
+      "name": "Glaucoma",
+      "period": "2 years",
+      "qualify": "1 HOP or claim with DX",
+      "counts": {
+        "ICD10CM": 250,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": [
+        "H40.11X0",
+        "H40.11X1",
+        "H40.11X2",
+        "H40.11X3",
+        "H40.11X4"
+      ]
+    },
+    "ccw30_heart_failure_and_non_ischemic_heart_disease": {
+      "name": "Heart Failure and Non- Ischemic Heart Disease",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 34,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_hip_pelvic_fracture": {
+      "name": "Hip/Pelvic Fracture",
+      "period": "1 year",
+      "qualify": "1 inpatient, HOP or carrier with DX codes",
+      "counts": {
+        "ICD10CM": 433,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_hyperlipidemia": {
+      "name": "Hyperlipidemia",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 13,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_hypertension": {
+      "name": "Hypertension",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 21,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_hypothyroidism": {
+      "name": "Hypothyroidism",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 14,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_ischemic_heart_disease": {
+      "name": "Ischemic Heart Disease",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 65,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_non_alzheimer_s_dementia": {
+      "name": "Non- Alzheimer's Dementia",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 84,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_osteoporosis_with_or_without_pathological_fracture": {
+      "name": "Osteoporosis With or Without Pathological Fracture",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 57,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_parkinson_s_disease_and_secondary_parkinsonism": {
+      "name": "Parkinson's Disease and Secondary Parkinsonism",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/Carrier with DX codes",
+      "counts": {
+        "ICD10CM": 13,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_pneumonia_all_cause": {
+      "name": "Pneumonia, All- cause",
+      "period": "1 year",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 93,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_rheumatoid_arthritis_osteoarthritis": {
+      "name": "Rheumatoid Arthritis/ Osteoarthritis",
+      "period": "2 years",
+      "qualify": "1 OR 2 HOP/carrier with DX codes",
+      "counts": {
+        "ICD10CM": 632,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": []
+    },
+    "ccw30_stroke_transient_ischemic_attack": {
+      "name": "Stroke/ Transient Ischemic Attack",
+      "period": "1 year",
+      "qualify": "1 inpatient, or carrier claim DX codes",
+      "counts": {
+        "ICD10CM": 270,
+        "HCPCS": 0,
+        "NDC": 0
+      },
+      "rejected_tokens_not_in_official_code_sets": [
+        "I60.20",
+        "I60.21",
+        "I60.22"
+      ]
+    }
+  },
+  "selections": {
+    "ifc_sarcoidosis": {
+      "n": 15,
+      "include": [
+        "D86"
+      ],
+      "exclude": []
+    },
+    "ifc_als": {
+      "n": 1,
+      "include": [
+        "G12.21"
+      ],
+      "exclude": []
+    },
+    "ifc_huntington": {
+      "n": 1,
+      "include": [
+        "G10"
+      ],
+      "exclude": []
+    },
+    "ifc_parkinson": {
+      "n": 8,
+      "include": [
+        "G20"
+      ],
+      "exclude": []
+    },
+    "ifc_hereditary_ataxia": {
+      "n": 13,
+      "include": [
+        "G11"
+      ],
+      "exclude": []
+    },
+    "ifc_hemophilia": {
+      "n": 2,
+      "include": [
+        "D66",
+        "D67"
+      ],
+      "exclude": []
+    },
+    "ifc_beta_thalassemia": {
+      "n": 1,
+      "include": [
+        "D56.1"
+      ],
+      "exclude": []
+    },
+    "ifc_hiv_disease": {
+      "n": 1,
+      "include": [
+        "B20"
+      ],
+      "exclude": []
+    },
+    "ifc_esrd_dialysis": {
+      "n": 2,
+      "include": [
+        "N18.6",
+        "Z99.2"
+      ],
+      "exclude": []
+    },
+    "ifc_cystic_fibrosis": {
+      "n": 7,
+      "include": [
+        "E84"
+      ],
+      "exclude": []
+    },
+    "ifc_transplant_status": {
+      "n": 9,
+      "include": [
+        "Z94.0",
+        "Z94.1",
+        "Z94.2",
+        "Z94.3",
+        "Z94.4",
+        "Z94.81",
+        "Z94.82",
+        "Z94.83",
+        "Z94.84"
+      ],
+      "exclude": []
+    },
+    "ifc_down_fragilex_prader_willi": {
+      "n": 7,
+      "include": [
+        "Q90",
+        "Q99.2",
+        "Q87.11"
+      ],
+      "exclude": []
+    },
+    "ifc_major_amputation": {
+      "n": 53,
+      "include": [
+        "Z89.1",
+        "Z89.2",
+        "Z89.43",
+        "Z89.44",
+        "Z89.5",
+        "Z89.6",
+        "Z89.9"
+      ],
+      "exclude": []
+    },
+    "fs_adl_dependence": {
+      "n": 5,
+      "include": [
+        "Z74.01",
+        "Z74.1",
+        "Z74.2",
+        "Z74.3",
+        "Z99.3"
+      ],
+      "exclude": []
+    },
+    "fs_reduced_mobility": {
+      "n": 1,
+      "include": [
+        "Z74.09"
+      ],
+      "exclude": []
+    },
+    "fs_life_support_dependence": {
+      "n": 4,
+      "include": [
+        "Z99.11",
+        "Z99.81",
+        "Z93.0",
+        "Z93.1"
+      ],
+      "exclude": []
+    },
+    "redesign_f10_f19": {
+      "n": 590,
+      "include": [
+        "F10-F19"
+      ],
+      "exclude": []
+    },
+    "redesign_f20_f29": {
+      "n": 21,
+      "include": [
+        "F20-F29"
+      ],
+      "exclude": []
+    },
+    "redesign_f30_f39": {
+      "n": 76,
+      "include": [
+        "F30-F39"
+      ],
+      "exclude": []
+    },
+    "redesign_f40_f48": {
+      "n": 92,
+      "include": [
+        "F40-F48"
+      ],
+      "exclude": []
+    },
+    "redesign_c00_d49": {
+      "n": 2181,
+      "include": [
+        "C00-D49"
+      ],
+      "exclude": []
+    },
+    "redesign_g10_g99": {
+      "n": 888,
+      "include": [
+        "G10-G99"
+      ],
+      "exclude": []
+    },
+    "redesign_m00_m99": {
+      "n": 8707,
+      "include": [
+        "M00-M99"
+      ],
+      "exclude": []
+    },
+    "redesign_i00_i99": {
+      "n": 1807,
+      "include": [
+        "I00-I99"
+      ],
+      "exclude": []
+    },
+    "redesign_j00_j99": {
+      "n": 478,
+      "include": [
+        "J00-J99"
+      ],
+      "exclude": []
+    },
+    "redesign_n00_n99": {
+      "n": 1047,
+      "include": [
+        "N00-N99"
+      ],
+      "exclude": []
+    },
+    "redesign_e00_e89": {
+      "n": 1270,
+      "include": [
+        "E00-E89"
+      ],
+      "exclude": []
+    },
+    "redesign_z59": {
+      "n": 33,
+      "include": [
+        "Z59"
+      ],
+      "exclude": []
+    },
+    "redesign_z60": {
+      "n": 8,
+      "include": [
+        "Z60"
+      ],
+      "exclude": []
+    },
+    "hc_personal_care_attendant": {
+      "n": 4,
+      "include": [
+        "T1019",
+        "T1020",
+        "S5125",
+        "S5126"
+      ],
+      "exclude": []
+    },
+    "hc_home_health_aide": {
+      "n": 1,
+      "include": [
+        "G0156"
+      ],
+      "exclude": []
+    },
+    "hc_home_health_skilled": {
+      "n": 17,
+      "include": [
+        "G0151-G0155",
+        "G0157-G0162",
+        "G0299",
+        "G0300",
+        "G0493-G0496"
+      ],
+      "exclude": []
+    },
+    "hc_adult_day": {
+      "n": 4,
+      "include": [
+        "S5100-S5105"
+      ],
+      "exclude": []
+    },
+    "hc_habilitation_waiver": {
+      "n": 4,
+      "include": [
+        "T2016",
+        "T2017",
+        "T2020",
+        "T2021"
+      ],
+      "exclude": []
+    },
+    "hc_iadl_supports": {
+      "n": 10,
+      "include": [
+        "S5120",
+        "S5121",
+        "S5130",
+        "S5131",
+        "S5135",
+        "S5136",
+        "S5170",
+        "S5160-S5162"
+      ],
+      "exclude": []
+    },
+    "hc_respite": {
+      "n": 3,
+      "include": [
+        "S5150",
+        "S5151",
+        "T1005"
+      ],
+      "exclude": []
+    },
+    "hc_wheelchair": {
+      "n": 135,
+      "include": [
+        "K0001-K0014",
+        "K0800-K0899",
+        "E1050-E1298"
+      ],
+      "exclude": []
+    },
+    "hc_patient_lift": {
+      "n": 4,
+      "include": [
+        "E0630",
+        "E0635",
+        "E0639",
+        "E0640"
+      ],
+      "exclude": []
+    },
+    "hc_hospital_bed": {
+      "n": 23,
+      "include": [
+        "E0250-E0304",
+        "E0328",
+        "E0329"
+      ],
+      "exclude": []
+    },
+    "hc_commode": {
+      "n": 5,
+      "include": [
+        "E0163",
+        "E0165",
+        "E0168",
+        "E0170",
+        "E0171"
+      ],
+      "exclude": []
+    },
+    "hc_home_oxygen": {
+      "n": 15,
+      "include": [
+        "E0424-E0444",
+        "E1390-E1392"
+      ],
+      "exclude": []
+    },
+    "hc_home_ventilator": {
+      "n": 4,
+      "include": [
+        "E0465-E0468"
+      ],
+      "exclude": []
+    },
+    "hc_enteral_parenteral": {
+      "n": 50,
+      "include": [
+        "B4034-B9999"
+      ],
+      "exclude": []
+    },
+    "hc_hospice": {
+      "n": 10,
+      "include": [
+        "Q5001-Q5010"
+      ],
+      "exclude": []
+    },
+    "hc_dialysis": {
+      "n": 9,
+      "include": [
+        "G0491",
+        "G0492",
+        "E1590",
+        "E1592",
+        "E1594",
+        "E1629",
+        "E1630",
+        "E1632",
+        "E1635"
+      ],
+      "exclude": []
+    },
+    "hc_antineoplastic_drugs": {
+      "n": 237,
+      "include": [
+        "J9000-J9999"
+      ],
+      "exclude": []
+    },
+    "hc_sud_treatment": {
+      "n": 16,
+      "include": [
+        "H0005",
+        "H0007-H0016",
+        "H0020",
+        "H0047",
+        "H2034-H2036"
+      ],
+      "exclude": []
+    },
+    "hc_mh_intensive": {
+      "n": 18,
+      "include": [
+        "H0017-H0019",
+        "H0035",
+        "H0036",
+        "H0037",
+        "H0039",
+        "H0040",
+        "H2011",
+        "H2012",
+        "H2013",
+        "H2017",
+        "H2018",
+        "H2040",
+        "H2041",
+        "S9480",
+        "S9484",
+        "S9485"
+      ],
+      "exclude": []
+    },
+    "hc_lai_antipsychotic": {
+      "n": 20,
+      "include": [
+        "J0401",
+        "J0402",
+        "J1631",
+        "J1943",
+        "J1944",
+        "J2358",
+        "J2426",
+        "J2427",
+        "J2428",
+        "J2680",
+        "J2794",
+        "J2798",
+        "J2799",
+        "J2801",
+        "J1942",
+        "C9035",
+        "C9037",
+        "C9152",
+        "C9158",
+        "C9470"
+      ],
+      "exclude": []
+    },
+    "pos_inpatient": {
+      "n": 3,
+      "include": [
+        21,
+        51,
+        61
+      ],
+      "exclude": []
+    },
+    "pos_inpatient_psych": {
+      "n": 1,
+      "include": [
+        51
+      ],
+      "exclude": []
+    },
+    "pos_psych_partial_hosp": {
+      "n": 1,
+      "include": [
+        52
+      ],
+      "exclude": []
+    },
+    "pos_residential_bh": {
+      "n": 2,
+      "include": [
+        55,
+        56
+      ],
+      "exclude": []
+    },
+    "pos_sud_nonresidential": {
+      "n": 2,
+      "include": [
+        57,
+        58
+      ],
+      "exclude": []
+    },
+    "pos_nursing_facility": {
+      "n": 3,
+      "include": [
+        31,
+        32,
+        33
+      ],
+      "exclude": []
+    },
+    "pos_icf_iid": {
+      "n": 1,
+      "include": [
+        54
+      ],
+      "exclude": []
+    },
+    "pos_hospice": {
+      "n": 1,
+      "include": [
+        34
+      ],
+      "exclude": []
+    },
+    "pos_esrd": {
+      "n": 1,
+      "include": [
+        65
+      ],
+      "exclude": []
+    },
+    "pos_emergency": {
+      "n": 1,
+      "include": [
+        23
+      ],
+      "exclude": []
+    }
+  }
+}

@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the software and the paper it extends."
+title: "Medicaid Frailty Toolkit: claims-based screening for the medically frail exclusion"
+version: 0.1.0
+date-released: "2026-09-29"
+license: PolyForm-Noncommercial-1.0.0
+type: software
+authors:
+  - name: "Waymark, Inc."
+    website: "https://www.waymarkcare.com"
+  - family-names: Basu
+    given-names: Sanjay
+    email: sanjay.basu@ucsf.edu
+    affiliation: "Waymark; University of California San Francisco"
+repository-code: "https://github.com/sanjaybasu/medicaid-frailty-toolkit"
+keywords: [Medicaid, "community engagement", "medically frail", "work requirements", claims, "Tuva Project"]
+preferred-citation:
+  type: article
+  title: "Redesigning Medicaid frailty algorithms: improved identification of medically frail adults under community engagement"
+  authors:
+    - family-names: Basu
+      given-names: Sanjay
+    - family-names: Berkowitz
+      given-names: Seth A.
+  journal: "Health Affairs Scholar"
+  year: 2026
+  volume: 4
+  issue: 6
+  number: qxag108
+  doi: 10.1093/haschl/qxag108
+  url: "https://academic.oup.com/healthaffairsscholar/article/4/6/qxag108/8672780"

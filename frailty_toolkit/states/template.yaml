@@ -1,0 +1,71 @@
+# Template state configuration: the federal floor under 42 CFR 435.554(c)(5) and
+# 435.557(f)(1). Copy this file to <state>.yaml, or write `extends: template` and override
+# only what differs. Every value here is a documented choice; see "Adapting to a state" in README.md.
+
+# REQUIRED. Bump on any change to lists or logic. The medically frail definition is
+# contested in litigation; record which rule text this version implements.
+rule_version: "federal-floor-2026.09.0 (CMS-2454-IFC as published 2026-06-03)"
+
+state: TEMPLATE
+state_name: "Template (federal floor)"
+program: "Expansion adults subject to SSA 1902(xx)"
+policy_status: "Federal defaults only. Replace with the state's published list when available."
+requirement_start: "2027-01-01"
+sources:
+  - label: "CMS-2454-IFC, 91 FR 33348 (June 3, 2026)"
+    url: "https://www.govinfo.gov/content/pkg/FR-2026-06-03/html/2026-11094.htm"
+    accessed: "2026-09-29"
+
+# Look-back window ending on the evaluation date. Maximum 12 (91 FR 33405).
+lookback_months: 12
+
+# A diagnosis counts when it appears on claims with at least this many distinct service
+# dates in the window ...
+min_distinct_dates: 2
+# ... or on a single inpatient claim when this is true (the CCW convention: "at least 1
+# inpatient claim OR 2 other non-drug claims").
+single_inpatient_sufficient: true
+
+# People with no qualifying evidence AND fewer than this many distinct service dates in the
+# window (medical plus pharmacy), or no claims at all, go to the thin_record_outreach tier:
+# absence of claims evidence is not evidence of absence. 0 disables the tier.
+thin_record_max_service_dates: 2
+
+# 42 CFR 435.557(f)(1): paid, pended, and denied adjudicated claims. Used only when the
+# input has a claim_status column.
+include_claim_statuses: [paid, pended, denied]
+
+# Per-category settings. Omitted keys take the defaults in definitions/categories.yaml.
+# Available keys per category:
+#   enabled: true|false
+#   require_impairment_evidence: true   # diagnosis alone -> attestation tier (IFC 435.554(c)(5)(i))
+#   min_distinct_dates / single_inpatient_sufficient: category-level overrides
+#   add_dx_components / remove_dx_components (and the same for impairment_, sufficient_,
+#   possible_components): component ids from definitions/codelists/components.csv
+#   extra_codes: [{code, code_system, role: dx|impairment|sufficient|possible, citation}]
+#   use_optional_dx_components: true    # e.g., PTSD and personality disorders
+#   remission_codes: count|possible_only (substance_use_disorder only)
+categories:
+  blind_or_disabled: {enabled: true}
+  substance_use_disorder: {enabled: true, remission_codes: count}
+  disabling_mental_disorder: {enabled: true}
+  physical_idd_disability_adl: {enabled: true}
+  serious_or_complex_medical: {enabled: true}
+
+# Non-federal domains from Basu & Berkowitz 2026. Off by default; when on, hits route to
+# the attestation tier only (counts_toward_flag: false).
+optional_domains:
+  redesign_expanded_icd10_families: {enabled: false, counts_toward_flag: false}
+  redesign_social_determinants: {enabled: false, counts_toward_flag: false}
+
+# Claims-identifiable provisions that are not medical frailty.
+related_provisions:
+  sud_treatment_program: {enabled: true}          # 42 CFR 435.554(c)(8), mandatory exclusion
+  short_term_hardship_inpatient: {enabled: false} # 42 CFR 435.555(d)(1), state option
+
+# Eligibility-file markers, e.g. a disability-based aid category, for blind_or_disabled.
+# Values are state-specific; each entry must cite the state document that defines it.
+# Example:
+#   - {category: blind_or_disabled, column: aid_category, values: ["XX"], label: "...",
+#      citation: "State eligibility manual sec. ..."}
+eligibility_markers: []

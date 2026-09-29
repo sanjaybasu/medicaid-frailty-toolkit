@@ -1,0 +1,42 @@
+# Ohio: Group VIII (expansion adults 19-64, income at or below 138% FPL).
+# Parameters mirror ODM's published description of its method; the code lists are the
+# toolkit's federal-floor lists because ODM's 1,935-code list was not yet posted.
+extends: template
+rule_version: "oh-2026.09.0 (ODM partner packet v2 Aug 2026 parameters; toolkit federal lists; CMS-2454-IFC 2026-06-03)"
+state: OH
+state_name: Ohio
+program: "Group VIII"
+requirement_start: "2027-01-01 (renewals under the requirement from March-April 2027 per ODM)"
+policy_status: >-
+  ODM: "ODM identified 1,935 codes (including sub codes) that are associated with a medically
+  frail classification. Individuals will be classified as medically frail if - in the past year
+  (or past 5 years for SUD diagnoses) - they have a diagnosis code(s) identified." Webinar Q&A:
+  only primary or secondary diagnoses count, and one claim is sufficient. ODM's list had not
+  been posted as of 2026-09-29.
+sources:
+  - label: "ODM Group VIII Partner Packet, Version 2 (August 2026)"
+    url: "https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Families,%20Individuals/Programs/Community/Group_VIII_Partner_Packet_08132026.pdf"
+    accessed: "2026-09-29"
+  - label: "ODM Group VIII informational webinar Q&A (August 25-26, 2026)"
+    url: "https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Families,%20Individuals/Programs/Community/Group_VIII_Informational_Webinar_Q_A.pdf"
+    accessed: "2026-09-29"
+notes: >-
+  Two documented departures. (1) ODM describes a 5-year look-back for SUD diagnoses; this
+  config keeps 12 months because the IFC preamble states "States may not consider information
+  older than 12 months" (91 FR 33405), and the loader rejects longer windows. (2) ODM describes
+  a diagnosis-only rule; this config sets require_impairment_evidence: false to reproduce it,
+  and the loader warns because the IFC preamble reads the statute as requiring functional
+  impairment. Compare results with the template config to see the effect. Ohio is not a
+  plaintiff in Massachusetts v. Oz. ODM is not implementing the optional short-term hardship
+  exception.
+min_distinct_dates: 1
+single_inpatient_sufficient: true
+diagnosis_positions: 2
+categories:
+  blind_or_disabled: {require_impairment_evidence: false}
+  substance_use_disorder: {require_impairment_evidence: false}
+  disabling_mental_disorder: {require_impairment_evidence: false}
+  physical_idd_disability_adl: {require_impairment_evidence: false}
+  serious_or_complex_medical: {require_impairment_evidence: false}
+related_provisions:
+  short_term_hardship_inpatient: {enabled: false}

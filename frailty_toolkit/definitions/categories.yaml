@@ -1,0 +1,270 @@
+# Federal medically frail categories and the code-list components that serve as
+# evidence for each. Component ids refer to codelists/components.csv.
+#
+# Legal basis
+#   Statute:     SSA sec. 1902(xx)(9)(A)(ii)(V), added by P.L. 119-21 sec. 71119.
+#   Regulation:  42 CFR 435.554(c)(5), CMS-2454-IFC, 91 FR 33348 (June 3, 2026),
+#                effective July 31, 2026; states implement by January 1, 2027.
+#   Verification: 42 CFR 435.557(f)(1): the state must attempt to verify medical
+#                frailty from reliable information, "including claim(s) relevant to the
+#                individual that have been adjudicated in the preceding 12 months,
+#                including those that have been paid, pended or denied, and encounter
+#                data". Preamble: "States may not consider information older than 12
+#                months" (91 FR 33405); information "should include multiple domains ...
+#                their condition(s), utilization of services ... and their level of
+#                impairment", and "the absence of adjudicated claims or encounter data ...
+#                may not be used to determine ineligibility for the exclusion" (91 FR 33406).
+#
+# How evidence combines (engine.py):
+#   dx_components         diagnosis codes that place a person in the category
+#   strong_dx_prefixes    diagnosis codes that are themselves evidence of impairment
+#   impairment_components utilization or functional markers; with a qualifying dx they
+#                         make the category "met"
+#   sufficient_components markers that make the category "met" on their own
+#   possible_components   weaker markers that only ever yield the attestation tier
+#
+# Every default below is a documented configurable choice. The IFC declines to define
+# the categories further (91 FR 33374-33376) and requires each state to maintain an
+# "auditable, justifiable" list (42 CFR 435.554(c)(5)(ii)).
+
+schema_version: 1
+
+federal_categories:
+
+  blind_or_disabled:
+    label: "Blind or disabled (as defined in section 1614 of the Social Security Act)"
+    statute: "SSA 1902(xx)(9)(A)(ii)(V)(aa)"
+    cfr: "42 CFR 435.554(c)(5)(i)(A)"
+    dx_components: [ccw_sensory_blindness_and_visual_impairment]
+    # H54.8 = legal blindness as defined in USA; H54.0 = blindness, both eyes. Section 1614
+    # blindness is central acuity 20/200 or less in the better eye (91 FR 33374).
+    strong_dx_prefixes: [H548, H540]
+    impairment_components: [fs_adl_dependence, hc_personal_care_attendant, hc_home_health_aide]
+    sufficient_components: []
+    possible_components: []
+    # ADL markers without a vision diagnosis are evidence for category (D), not (A).
+    marker_alone_is_partial: false
+    notes: >-
+      Disability under section 1614 is a Social Security determination and cannot be
+      established from claims. States should supply eligibility markers (e.g., SSI or
+      SSDI status, a pending disability application, or a state disability aid category)
+      through the state config `eligibility_markers`. People entitled to Medicare are not
+      applicable individuals (SSA 1902(xx)(9)(A)(i)(II)(bb)).
+
+  substance_use_disorder:
+    label: "Substance use disorder, excluding stable recovery of 5 or more years"
+    statute: "SSA 1902(xx)(9)(A)(ii)(V)(bb)"
+    cfr: "42 CFR 435.554(c)(5)(i)(B)"
+    dx_components:
+      - ccw_alcohol_use_disorders
+      - ccw_drug_use_disorders
+      - ccw_oud_2_diagnosis_and_procedure_code_basis_for_oud
+    # Tobacco (F17) is inside the CCW drug-use list. The IFC names alcohol, opioid, and
+    # stimulant use disorder as examples (91 FR 33374); tobacco is excluded by default.
+    exclude_dx_prefixes: [F17]
+    strong_dx_prefixes: []
+    impairment_components:
+      - hc_sud_treatment
+      - ccw_oud_4_utilization_of_medication_assisted_therapy_mat
+      - ccw_oud_4_utilization_of_medication_assisted_therapy_mat__ndc_buprenorphine
+      - ccw_oud_4_utilization_of_medication_assisted_therapy_mat__ndc_naltrexone
+      # Opioid poisoning codes (T40) from CCW OUD #3 are severity evidence; the OUD
+      # diagnosis codes in that algorithm are already in the dx lists.
+      - ccw_oud_3_opioid_related_hospitalizations_ed_visits:T40
+      - pos_residential_bh
+      - pos_sud_nonresidential
+      - tob_otp
+    sufficient_components: []
+    possible_components: []
+    notes: >-
+      A qualifying diagnosis inside a 12-month window is evidence against 5-year stable
+      recovery, but ICD-10-CM "in remission" codes can be recorded for long remissions.
+      Set `substance_use_disorder.remission_codes: possible_only` in a state config to
+      route remission-only evidence to the attestation tier.
+
+  disabling_mental_disorder:
+    label: "Disabling mental disorder"
+    statute: "SSA 1902(xx)(9)(A)(ii)(V)(cc)"
+    cfr: "42 CFR 435.554(c)(5)(i)(C)"
+    # IFC examples (91 FR 33375): schizophrenia, schizotypal disorder, delusional disorder,
+    # other non-mood psychotic disorders, moderate or severe bipolar disorder, major
+    # depressive disorder, panic disorder.
+    dx_components:
+      - ccw_schizophrenia_and_other_psychotic_disorders
+      - ccw_bipolar_disorder
+      - ccw_depressive_disorders
+      - ccw_anxiety_disorders:F410
+    strong_dx_prefixes: []
+    impairment_components:
+      - pos_inpatient_psych
+      - pos_psych_partial_hosp
+      - pos_residential_bh
+      - hc_mh_intensive
+      - hc_lai_antipsychotic
+    sufficient_components: []
+    possible_components: []
+    optional_dx_components:
+      - ccw_post_traumatic_stress_disorder_ptsd
+      - ccw_personality_disorders
+    notes: >-
+      `component:PREFIX` restricts a component to codes starting with PREFIX
+      (ccw_anxiety_disorders:F410 = panic disorder only).
+
+  physical_idd_disability_adl:
+    label: "Physical, intellectual, or developmental disability that significantly impairs one or more ADLs"
+    statute: "SSA 1902(xx)(9)(A)(ii)(V)(dd)"
+    cfr: "42 CFR 435.554(c)(5)(i)(D)"
+    # IFC examples (91 FR 33375): muscular dystrophy, cerebral palsy, cystic fibrosis,
+    # spina bifida, spinal cord injury, brain injury, amputation, Down syndrome,
+    # Fragile X syndrome, Prader-Willi syndrome.
+    dx_components:
+      - ccw_intellectual_disabilities_and_related_conditions
+      - ccw_cerebral_palsy
+      - ccw_spina_bifida_and_other_congenital_anomalies_of_the_nervous_s
+      - ccw_spinal_cord_injury
+      - ccw_muscular_dystrophy
+      - ccw_mobility_impairments
+      - ccw_multiple_sclerosis_and_transverse_myelitis
+      - ccw_traumatic_brain_injury_and_nonpsychotic_mental_disorders_due
+      - ccw_autism_spectrum_disorders
+      - ccw_cystic_fibrosis_and_other_metabolic_developmental_disorders
+      - ifc_down_fragilex_prader_willi
+      - ifc_major_amputation
+      - elix_paralysis
+    strong_dx_prefixes: []
+    # The statute requires ADL impairment; these markers are the ADL evidence.
+    impairment_components:
+      - fs_adl_dependence
+      - hc_personal_care_attendant
+      - hc_home_health_aide
+      - hc_habilitation_waiver
+      - hc_wheelchair
+      - hc_patient_lift
+      - hc_hospital_bed
+      - hc_commode
+      - pos_icf_iid
+      - pos_nursing_facility
+      - tob_snf_icf
+    sufficient_components: []
+    # The IFC counts ADLs, not IADLs (91 FR 33375).
+    possible_components:
+      - hc_iadl_supports
+      - hc_adult_day
+      - fs_reduced_mobility
+    inpatient_with_dx_counts_as_impairment: false
+
+  serious_or_complex_medical:
+    label: "Serious or complex medical condition"
+    statute: "SSA 1902(xx)(9)(A)(ii)(V)(ee)"
+    cfr: "42 CFR 435.554(c)(5)(i)(E)"
+    # IFC examples (91 FR 33376): cancer, ESRD, viral hepatitis, sickle cell disease, COPD,
+    # HIV/AIDS, sarcoidosis, cognitive impairment, heart disease, ALS, Parkinson's disease,
+    # Huntington's disease, cystic fibrosis, multiple sclerosis, spinocerebellar ataxias,
+    # muscular dystrophy, hemophilia, trauma disorders, thalassemia major.
+    # Not mapped: "trauma disorders" (ambiguous between PTSD and physical trauma).
+    dx_components:
+      - elix_cancer_mets
+      - elix_cancer_solid
+      - ccw_leukemias_and_lymphomas
+      - ifc_esrd_dialysis
+      - ccw_hepatitis_b_chronic
+      - ccw_hepatitis_c_chronic
+      - ccw_hepatitis_d
+      - ccw_sickle_cell_disease
+      - ccw30_chronic_obstructive_pulmonary_disease
+      - ifc_hiv_disease
+      - elix_aids
+      - ifc_sarcoidosis
+      - elix_dementia
+      - ccw30_heart_failure_and_non_ischemic_heart_disease
+      - ifc_als
+      - ifc_parkinson
+      - ifc_huntington
+      - ifc_cystic_fibrosis
+      - ccw_multiple_sclerosis_and_transverse_myelitis
+      - ifc_hereditary_ataxia
+      - ccw_muscular_dystrophy
+      - ifc_hemophilia
+      - ifc_beta_thalassemia
+      - ifc_transplant_status
+      - elix_liver_sev
+      - elix_pulmcirc
+    strong_dx_prefixes: []
+    impairment_components:
+      - hc_home_oxygen
+      - hc_home_ventilator
+      - fs_life_support_dependence
+      - hc_enteral_parenteral
+      - hc_antineoplastic_drugs
+      - hc_home_health_skilled
+      - tob_home_health
+      - rev_home_health
+      - pos_nursing_facility
+      - tob_snf_icf
+    # Hospice and maintenance dialysis each meet several of the IFC's (E) criteria
+    # (life threatening; requiring frequent monitoring; tight physiological parameters).
+    sufficient_components:
+      - hc_hospice
+      - tob_hospice
+      - rev_hospice
+      - pos_hospice
+      - hc_dialysis
+      - cpt_dialysis
+      - tob_esrd
+      - rev_dialysis
+      - pos_esrd
+    possible_components: []
+    inpatient_with_dx_counts_as_impairment: true
+    notes: >-
+      The IFC lists asthma, hypertension, anemia, generalized pain, pre-diabetes, type 1 or
+      2 diabetes, obesity, psoriasis, headaches, and ADHD as conditions it would not
+      typically expect to qualify (91 FR 33376). None are in the default lists.
+
+# Optional domains from Basu & Berkowitz, Health Affairs Scholar 2026 (redesigned
+# algorithm: CA+NY union of 13 ICD-10 families). These are NOT federal categories. The
+# IFC does not permit states to add categories (91 FR 33373) and says homelessness alone
+# is not a medical condition. Hits route to the attestation tier only, as an outreach aid.
+optional_domains:
+  redesign_expanded_icd10_families:
+    label: "Paper redesign: expanded ICD-10 families (CA+NY union)"
+    source: basu_berkowitz_2026
+    dx_components:
+      - redesign_f10_f19
+      - redesign_f20_f29
+      - redesign_f30_f39
+      - redesign_f40_f48
+      - redesign_c00_d49
+      - redesign_g10_g99
+      - redesign_m00_m99
+      - redesign_i00_i99
+      - redesign_j00_j99
+      - redesign_n00_n99
+      - redesign_e00_e89
+  redesign_social_determinants:
+    label: "Paper redesign: Z59 housing/economic and Z60 social-environment codes"
+    source: basu_berkowitz_2026
+    dx_components: [redesign_z59, redesign_z60]
+
+# Claims-identifiable exclusions and exceptions that are NOT medical frailty but are
+# evaluated from the same claims. Reported in separate columns.
+related_provisions:
+  sud_treatment_program:
+    label: "Participating in a drug addiction or alcoholic treatment and rehabilitation program"
+    cfr: "42 CFR 435.554(c)(8)"
+    components:
+      - hc_sud_treatment
+      - ccw_oud_4_utilization_of_medication_assisted_therapy_mat
+      - pos_residential_bh
+      - pos_sud_nonresidential
+      - tob_otp
+    notes: "States may set a minimum time commitment (435.554(c)(8)); the engine reports the most recent service date."
+  short_term_hardship_inpatient:
+    label: "Short-term hardship: inpatient hospital, nursing facility, ICF/IID, or inpatient psychiatric care (state option)"
+    cfr: "42 CFR 435.555(d)(1)"
+    components: [pos_inpatient, pos_nursing_facility, pos_icf_iid, tob_inpatient_hospital, tob_snf_icf]
+    notes: "Reported as calendar months with any qualifying claim; a state must elect the option."
+
+# Inpatient claim definition used for the single-inpatient rule.
+inpatient_definition:
+  pos_components: [pos_inpatient]
+  tob_components: [tob_inpatient_hospital]

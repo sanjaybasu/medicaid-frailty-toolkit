@@ -1,0 +1,171 @@
+{
+  "hcup_cmr_v2026_1": {
+    "title": "Elixhauser Comorbidity Software Refined for ICD-10-CM, v2026.1 (reference file)",
+    "publisher": "Agency for Healthcare Research and Quality, Healthcare Cost and Utilization Project",
+    "url": "https://hcup-us.ahrq.gov/toolssoftware/comorbidityicd10/CMR-Reference-File-v2026-1.xlsx",
+    "landing_page": "https://hcup-us.ahrq.gov/toolssoftware/comorbidityicd10/comorbidity_icd10.jsp",
+    "version": "v2026.1",
+    "file": "CMR-Reference-File-v2026-1.xlsx",
+    "sha256": "5f6171844e450ac36cd7403c4662af7b43a0e540c00328687819b5a9ca69dba1",
+    "access_date": "2026-09-29"
+  },
+  "ccw_otcc_2026_08": {
+    "title": "CCW Other Chronic Health, Mental Health, and Potentially Disabling Chronic Conditions Algorithms (MBSF_OTCC)",
+    "publisher": "Centers for Medicare & Medicaid Services, Chronic Conditions Data Warehouse",
+    "url": "https://www2.ccwdata.org/documents/10280/19139421/other-condition-algorithms.pdf",
+    "landing_page": "https://www2.ccwdata.org/web/guest/condition-categories-other",
+    "version": "Revised 08/2026",
+    "file": "other-condition-algorithms.pdf",
+    "sha256": "4e34e72edf8c7700ba034035c74e04b85004fb874800eff8824a20a97de6bdfd",
+    "access_date": "2026-09-29"
+  },
+  "ccw_chronic30_2026_08": {
+    "title": "30 CCW Chronic Conditions Algorithms (MBSF_CHRONIC)",
+    "publisher": "Centers for Medicare & Medicaid Services, Chronic Conditions Data Warehouse",
+    "url": "https://www2.ccwdata.org/documents/10280/19139421/chr-chronic-condition-algorithms.pdf",
+    "landing_page": "https://www2.ccwdata.org/web/guest/condition-categories-chronic",
+    "version": "Revised 08/2026",
+    "file": "chr-chronic-condition-algorithms.pdf",
+    "sha256": "86bb112be52a491fbef8afe0fcd6cafafc9f33a540aa3f8f7263f952ef3002b7",
+    "access_date": "2026-09-29"
+  },
+  "cms_icd10cm_fy2027": {
+    "title": "ICD-10-CM FY2027 code descriptions in tabular order (order file)",
+    "publisher": "Centers for Medicare & Medicaid Services / NCHS",
+    "url": "https://www.cms.gov/files/zip/2027-code-descriptions-tabular-order.zip",
+    "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
+    "version": "FY2027 (effective 2026-10-01)",
+    "file": "2027-code-descriptions-tabular-order.zip",
+    "sha256": "91c6c9d1117764ce72375a0f3a5493b1725dafbc1ab283b55799076c9e194965",
+    "access_date": "2026-09-29"
+  },
+  "cms_icd10cm_fy2026": {
+    "title": "ICD-10-CM FY2026 code descriptions in tabular order (order file)",
+    "publisher": "Centers for Medicare & Medicaid Services / NCHS",
+    "url": "https://www.cms.gov/files/zip/2026-code-descriptions-tabular-order.zip",
+    "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
+    "version": "FY2026 (effective 2025-10-01)",
+    "file": "2026-code-descriptions-tabular-order.zip",
+    "sha256": "55a9124a27ca78a4a5c41e1101eda064ec2e08d105ff9e78d1fbd1a83298ef11",
+    "access_date": "2026-09-29"
+  },
+  "cms_icd10cm_fy2025": {
+    "title": "ICD-10-CM FY2025 code descriptions in tabular order (order file)",
+    "publisher": "Centers for Medicare & Medicaid Services / NCHS",
+    "url": "https://www.cms.gov/files/zip/2025-code-descriptions-tabular-order.zip",
+    "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
+    "version": "FY2025 (effective 2024-10-01)",
+    "file": "2025-code-descriptions-tabular-order.zip",
+    "sha256": "4f6c65f0034736d2b02fa9eb1128aab564fa673dd4d99363f8b2167af3994816",
+    "access_date": "2026-09-29"
+  },
+  "cms_icd10cm_fy2024": {
+    "title": "ICD-10-CM FY2024 code descriptions in tabular order (order file, updated 02/01/2024)",
+    "publisher": "Centers for Medicare & Medicaid Services / NCHS",
+    "url": "https://www.cms.gov/files/zip/2024-code-descriptions-tabular-order-updated-02/01/2024.zip",
+    "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
+    "version": "FY2024 (effective 2023-10-01)",
+    "file": "2024-code-descriptions-tabular-order.zip",
+    "sha256": "4b30a68a011edb4aaa5ad3747971ef26f3be09eb925821d78b0d4584be977e3e",
+    "access_date": "2026-09-29"
+  },
+  "cms_hcpcs_2026_oct": {
+    "title": "HCPCS Level II alpha-numeric file, October 2026 quarterly update",
+    "publisher": "Centers for Medicare & Medicaid Services",
+    "url": "https://www.cms.gov/files/zip/october-2026-alpha-numeric-hcpcs-file.zip",
+    "landing_page": "https://www.cms.gov/medicare/coding-billing/healthcare-common-procedure-system/quarterly-update",
+    "version": "2026 October (HCPC2026_OCT_ANWEB_09232026)",
+    "file": "october-2026-alpha-numeric-hcpcs-file.zip",
+    "sha256": "08c2202fa92c1d1fb6f31b808b61c767bc487954f6930b6a0f8d09c89af5992f",
+    "access_date": "2026-09-29"
+  },
+  "cms_pos": {
+    "title": "Place of Service Code Set",
+    "publisher": "Centers for Medicare & Medicaid Services",
+    "url": "https://www.cms.gov/medicare/coding-billing/place-of-service-codes/code-sets",
+    "landing_page": "https://www.cms.gov/medicare/coding-billing/place-of-service-codes/code-sets",
+    "version": "web page as accessed",
+    "file": "pos.html",
+    "sha256": "f5ccd35efc625b2fc97cfe31ce237dbe53655ed33f0c60f8b0beaa4fe3002ff3",
+    "access_date": "2026-09-29"
+  },
+  "resdac_fac_type": {
+    "title": "ResDAC: Claim Facility Type Code (FFS) and Claim Service Classification Type Code (FFS) tables (type-of-bill digits)",
+    "publisher": "Research Data Assistance Center (CMS contractor)",
+    "url": "https://resdac.org/cms-data/variables/claim-facility-type-code-ffs",
+    "landing_page": "https://resdac.org/cms-data/variables/claim-service-classification-type-code-ffs",
+    "version": "web page as accessed",
+    "file": "resdac_fac.html",
+    "sha256": "ba8bf17b9bd2e8fa894d799b5fdfe6ec5ae0c7af12db9e1f231b6d4c3dc26577",
+    "access_date": "2026-09-29"
+  },
+  "resdac_srvc_cls": {
+    "title": "ResDAC: Claim Service Classification Type Code Table",
+    "publisher": "Research Data Assistance Center (CMS contractor)",
+    "url": "https://resdac.org/sites/default/files/Claim%20Service%20Classification%20Type%20Code%20Table.txt",
+    "landing_page": "https://resdac.org/cms-data/variables/claim-service-classification-type-code-ffs",
+    "version": "file as accessed",
+    "file": "resdac_cls_table.txt",
+    "sha256": "491af91c96ba4999b87eb6c38f1bd61e3c10b7a2d862b73002a6bdf04d083479",
+    "access_date": "2026-09-29"
+  },
+  "cms_mcpm_ch8": {
+    "title": "Medicare Claims Processing Manual, Chapter 8 - Outpatient ESRD Hospital, Independent Facility, and Physician/Supplier Claims",
+    "publisher": "Centers for Medicare & Medicaid Services",
+    "url": "https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/clm104c08.pdf",
+    "landing_page": "https://www.cms.gov/medicare/regulations-guidance/manuals/internet-only-manuals-ioms",
+    "version": "PDF as accessed",
+    "file": "clm104c08.pdf",
+    "sha256": "022a1be1c16d9a2ac8002f18f628288ffea382786601b1a19b6d293b3fdd984d",
+    "access_date": "2026-09-29"
+  },
+  "cms_mcpm_ch10": {
+    "title": "Medicare Claims Processing Manual, Chapter 10 - Home Health Agency Billing",
+    "publisher": "Centers for Medicare & Medicaid Services",
+    "url": "https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/clm104c10.pdf",
+    "landing_page": "https://www.cms.gov/medicare/regulations-guidance/manuals/internet-only-manuals-ioms",
+    "version": "PDF as accessed",
+    "file": "clm104c10.pdf",
+    "sha256": "9fac4786be8af36ba5fb6a26f4f3c86092b6166737ff0e203e207619d34ebc6c",
+    "access_date": "2026-09-29"
+  },
+  "cms_mcpm_ch11": {
+    "title": "Medicare Claims Processing Manual, Chapter 11 - Processing Hospice Claims",
+    "publisher": "Centers for Medicare & Medicaid Services",
+    "url": "https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/clm104c11.pdf",
+    "landing_page": "https://www.cms.gov/medicare/regulations-guidance/manuals/internet-only-manuals-ioms",
+    "version": "PDF as accessed",
+    "file": "clm104c11.pdf",
+    "sha256": "74dc3e248b24a7973b2dde707f043fae71083ac71f8a7fdcc2ba75d0ff6aec03",
+    "access_date": "2026-09-29"
+  },
+  "cms_2454_ifc": {
+    "title": "Medicaid Program; Community Engagement Requirement for Certain Individuals (CMS-2454-IFC), 91 FR 33348, June 3, 2026, FR Doc. 2026-11094",
+    "publisher": "Centers for Medicare & Medicaid Services (Federal Register via GovInfo)",
+    "url": "https://www.govinfo.gov/content/pkg/FR-2026-06-03/html/2026-11094.htm",
+    "landing_page": "https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals",
+    "version": "Interim final rule, effective 2026-07-31",
+    "file": "fr_gi.html",
+    "sha256": "93b42b54ce901df32542a1d65b5c8597d4976e25cfb085390c785d75f4067e95",
+    "access_date": "2026-09-29"
+  },
+  "obbba_sec71119": {
+    "title": "Public Law 119-21 (H.R. 1), Sec. 71119, enrolled text reproduced by CHCS",
+    "publisher": "Center for Health Care Strategies (reproduction of enrolled bill text, H.R. 1 pp. 235-242)",
+    "url": "https://www.chcs.org/media/OBBBA-Work-Requirements_Sec.-71119.pdf",
+    "landing_page": "https://www.congress.gov/bill/119th-congress/house-bill/1/text",
+    "version": "Enrolled bill text",
+    "file": "chcs_sec71119.pdf",
+    "sha256": "c99f94ca83b92c56a3dd52a60b0bb5c320b5d40850167b87a3e57385cb40c7f5",
+    "access_date": "2026-09-29"
+  },
+  "basu_berkowitz_2026": {
+    "title": "Basu S, Berkowitz SA. Redesigning Medicaid frailty algorithms: improved identification of medically frail adults under community engagement. Health Aff Sch. 2026;4(6):qxag108 (redesign families = union of CA and NY recognized_conditions in sanjaybasu/medicaid-frailty-bias frailty_definitions/state_definitions.py)",
+    "publisher": "Health Affairs Scholar (Oxford University Press)",
+    "url": "https://doi.org/10.1093/haschl/qxag108",
+    "landing_page": "https://academic.oup.com/healthaffairsscholar/article/4/6/qxag108/8672780",
+    "version": "vol 4 issue 6, published 2026-05-08",
+    "file": null,
+    "access_date": "2026-09-29"
+  }
+}

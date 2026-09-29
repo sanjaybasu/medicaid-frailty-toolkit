@@ -1,0 +1,219 @@
+# Selections of codes from official code files by prefix or range.
+# The prefixes/ranges and the rationale are choices made by the toolkit authors;
+# every resulting code, and its description, is read from the official file named
+# in `source` (ICD-10-CM FY2026+FY2027 order files, HCPCS October 2026 file, CMS POS
+# code set). build_codelists.py fails if a selection resolves to zero codes.
+# Each rationale cites the primary document that motivates the selection.
+
+components:
+
+  # ---------------- ICD-10-CM: conditions named in CMS-2454-IFC preamble --------------
+  # 91 FR 33373-33376 (sec. II.E.5.b) lists conditions it "would be reasonable for States
+  # to consider" in each category. Where a named condition maps to a whole ICD-10-CM
+  # category whose official title matches the name, we select that category.
+  ifc_sarcoidosis:
+    code_system: ICD10CM
+    label: "Sarcoidosis (IFC-named serious or complex condition)"
+    include: [D86]
+    rationale: "91 FR 33376 names sarcoidosis; ICD-10-CM D86 = Sarcoidosis."
+  ifc_als:
+    code_system: ICD10CM
+    label: "Amyotrophic lateral sclerosis (IFC-named)"
+    include: [G12.21]
+    rationale: "91 FR 33376 names ALS; ICD-10-CM G12.21 = Amyotrophic lateral sclerosis."
+  ifc_huntington:
+    code_system: ICD10CM
+    label: "Huntington's disease (IFC-named)"
+    include: [G10]
+    rationale: "91 FR 33376 names Huntington's disease; ICD-10-CM G10."
+  ifc_parkinson:
+    code_system: ICD10CM
+    label: "Parkinson's disease (IFC-named)"
+    include: [G20]
+    rationale: "91 FR 33376 names Parkinson's disease; ICD-10-CM G20 (Parkinson's disease). Secondary parkinsonism G21 is not selected."
+  ifc_hereditary_ataxia:
+    code_system: ICD10CM
+    label: "Hereditary ataxia incl. spinocerebellar ataxias (IFC-named)"
+    include: [G11]
+    rationale: "91 FR 33376 names spinocerebellar ataxias; ICD-10-CM G11 = Hereditary ataxia (includes spinocerebellar ataxias). Broader than the named condition; documented choice."
+  ifc_hemophilia:
+    code_system: ICD10CM
+    label: "Hemophilia A and B (IFC-named)"
+    include: [D66, D67]
+    rationale: "91 FR 33376 names hemophilia; ICD-10-CM D66 Hereditary factor VIII deficiency, D67 Hereditary factor IX deficiency."
+  ifc_beta_thalassemia:
+    code_system: ICD10CM
+    label: "Beta thalassemia (IFC names 'Thalassemia major')"
+    include: [D56.1]
+    rationale: "91 FR 33376 names thalassemia major; ICD-10-CM has no code titled thalassemia major. D56.1 Beta thalassemia includes it and milder forms; documented choice, severity marker required by default."
+  ifc_hiv_disease:
+    code_system: ICD10CM
+    label: "HIV disease (IFC-named HIV/AIDS)"
+    include: [B20]
+    rationale: "91 FR 33375-33376 names HIV/AIDS; ICD-10-CM B20 = HIV disease. Z21 (asymptomatic HIV status) is not selected."
+  ifc_esrd_dialysis:
+    code_system: ICD10CM
+    label: "End stage renal disease or dialysis dependence (IFC-named ESRD)"
+    include: [N18.6, Z99.2]
+    rationale: "91 FR 33376 names ESRD; ICD-10-CM N18.6 End stage renal disease, Z99.2 Dependence on renal dialysis."
+  ifc_cystic_fibrosis:
+    code_system: ICD10CM
+    label: "Cystic fibrosis (IFC-named)"
+    include: [E84]
+    rationale: "91 FR 33375-33376 names cystic fibrosis; ICD-10-CM E84."
+  ifc_transplant_status:
+    code_system: ICD10CM
+    label: "Transplanted organ status"
+    include: [Z94.0, Z94.1, Z94.2, Z94.3, Z94.4, Z94.81, Z94.82, Z94.83, Z94.84]
+    rationale: "IFC criterion 'requiring treatment that carries a risk of serious complications' (42 CFR 435.554(c)(5)(i)(E)); solid-organ and marrow/stem-cell transplant status codes. Z94.5-Z94.7 (skin, bone, cornea) not selected."
+  ifc_down_fragilex_prader_willi:
+    code_system: ICD10CM
+    label: "Down syndrome, Fragile X, Prader-Willi (IFC-named developmental disabilities)"
+    include: [Q90, Q99.2, Q87.11]
+    rationale: "91 FR 33375 names Down syndrome, Fragile X syndrome, Prader-Willi syndrome."
+  ifc_major_amputation:
+    code_system: ICD10CM
+    label: "Acquired absence of limb at or above hand/wrist or foot/ankle (IFC-named amputation)"
+    include: [Z89.1, Z89.2, Z89.43, Z89.44, Z89.5, Z89.6, Z89.9]
+    rationale: "91 FR 33375 names amputation. Finger/thumb (Z89.0) and toe (Z89.41, Z89.42) absence not selected; documented choice."
+
+  # ---------------- ICD-10-CM: functional-status codes (impairment evidence) -----------
+  fs_adl_dependence:
+    code_system: ICD10CM
+    label: "Functional-status codes indicating ADL dependence"
+    include: [Z74.01, Z74.1, Z74.2, Z74.3, Z99.3]
+    rationale: "ICD-10-CM titles: bed confinement status; need for assistance with personal care; need for assistance at home and no other household member able to render care; need for continuous supervision; dependence on wheelchair. Used as impairment evidence for 42 CFR 435.554(c)(5)(i)(D) (ADL) and the (c)(5)(i) 'significantly impairs' standard."
+  fs_reduced_mobility:
+    code_system: ICD10CM
+    label: "Other reduced mobility"
+    include: [Z74.09]
+    rationale: "ICD-10-CM Z74.09 Other reduced mobility. Weaker impairment evidence; used for the possible tier only by default."
+  fs_life_support_dependence:
+    code_system: ICD10CM
+    label: "Dependence on ventilator, oxygen, tracheostomy or gastrostomy"
+    include: [Z99.11, Z99.81, Z93.0, Z93.1]
+    rationale: "ICD-10-CM titles: dependence on respirator [ventilator] status; dependence on supplemental oxygen; tracheostomy status; gastrostomy status. IFC criterion 'requiring management to tight physiological parameters' / 'requiring frequent monitoring'."
+
+  # ---------------- ICD-10-CM: paper redesign domains (optional; not IFC categories) ----
+  # Basu & Berkowitz 2026 redesigned algorithm: union of the California and New York
+  # recognized ICD-10 families (13 families), from frailty_definitions/state_definitions.py.
+  redesign_f10_f19: {code_system: ICD10CM, label: "Redesign family F10-F19 (substance use)", include: ["F10-F19"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family."}
+  redesign_f20_f29: {code_system: ICD10CM, label: "Redesign family F20-F29 (schizophrenia spectrum)", include: ["F20-F29"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family."}
+  redesign_f30_f39: {code_system: ICD10CM, label: "Redesign family F30-F39 (mood)", include: ["F30-F39"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family."}
+  redesign_f40_f48: {code_system: ICD10CM, label: "Redesign family F40-F48 (anxiety and related)", include: ["F40-F48"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family."}
+  redesign_c00_d49: {code_system: ICD10CM, label: "Redesign family C00-D49 (neoplasms)", include: ["C00-D49"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family."}
+  redesign_g10_g99: {code_system: ICD10CM, label: "Redesign family G10-G99 (nervous system)", include: ["G10-G99"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family."}
+  redesign_m00_m99: {code_system: ICD10CM, label: "Redesign family M00-M99 (musculoskeletal)", include: ["M00-M99"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family."}
+  redesign_i00_i99: {code_system: ICD10CM, label: "Redesign family I00-I99 (circulatory)", include: ["I00-I99"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family. Includes hypertension, which the IFC (91 FR 33376) says it would not typically expect to qualify."}
+  redesign_j00_j99: {code_system: ICD10CM, label: "Redesign family J00-J99 (respiratory)", include: ["J00-J99"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family. Includes asthma, which the IFC says it would not typically expect to qualify."}
+  redesign_n00_n99: {code_system: ICD10CM, label: "Redesign family N00-N99 (genitourinary)", include: ["N00-N99"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family."}
+  redesign_e00_e89: {code_system: ICD10CM, label: "Redesign family E00-E90 as written in the paper; ICD-10-CM chapter 4 ends at E89", include: ["E00-E89"], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family. Includes diabetes and obesity, which the IFC says it would not typically expect to qualify."}
+  redesign_z59: {code_system: ICD10CM, label: "Redesign family Z59 (housing and economic circumstances)", include: [Z59], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family. The IFC (91 FR 33373) states homelessness alone is not a medical condition; outreach prioritization only."}
+  redesign_z60: {code_system: ICD10CM, label: "Redesign family Z60 (social environment)", include: [Z60], source: cms_icd10cm_fy2027, rationale: "Basu & Berkowitz 2026 redesign family; outreach prioritization only."}
+
+  # ---------------- HCPCS Level II service markers ---------------------------------------
+  hc_personal_care_attendant:
+    code_system: HCPCS
+    label: "Personal care and attendant care services"
+    include: [T1019, T1020, S5125, S5126]
+    rationale: "Hands-on help with ADLs. IFC defines ADLs as bathing, dressing, transferring, walking, toileting, eating (91 FR 33375)."
+  hc_home_health_aide:
+    code_system: HCPCS
+    label: "Home health or hospice aide"
+    include: [G0156]
+  hc_home_health_skilled:
+    code_system: HCPCS
+    label: "Skilled home health or hospice services"
+    include: ["G0151-G0155", "G0157-G0162", G0299, G0300, "G0493-G0496"]
+  hc_adult_day:
+    code_system: HCPCS
+    label: "Adult day care"
+    include: ["S5100-S5105"]
+  hc_habilitation_waiver:
+    code_system: HCPCS
+    label: "Residential or day habilitation (waiver)"
+    include: [T2016, T2017, T2020, T2021]
+    rationale: "Habilitation services for people with intellectual or developmental disabilities."
+  hc_iadl_supports:
+    code_system: HCPCS
+    label: "IADL supports (chore, homemaker, companion, home-delivered meals, emergency response)"
+    include: [S5120, S5121, S5130, S5131, S5135, S5136, S5170, "S5160-S5162"]
+    rationale: "The IFC counts ADLs, not IADLs, for category (D) (91 FR 33375); possible tier only."
+  hc_respite:
+    code_system: HCPCS
+    label: "Respite care"
+    include: [S5150, S5151, T1005]
+    rationale: "IFC criterion 'requiring a major time or effort commitment from caregivers' (42 CFR 435.554(c)(5)(i)(E))."
+  hc_wheelchair:
+    code_system: HCPCS
+    label: "Wheelchairs and power mobility devices"
+    include: ["K0001-K0014", "K0800-K0899", "E1050-E1298"]
+    require_description_regex: "wheel ?chair|power operated vehicle"
+  hc_patient_lift:
+    code_system: HCPCS
+    label: "Patient lifts"
+    include: [E0630, E0635, E0639, E0640]
+  hc_hospital_bed:
+    code_system: HCPCS
+    label: "Hospital beds"
+    include: ["E0250-E0304", E0328, E0329]
+    require_description_regex: "hospital bed"
+  hc_commode:
+    code_system: HCPCS
+    label: "Commode chairs"
+    include: [E0163, E0165, E0168, E0170, E0171]
+  hc_home_oxygen:
+    code_system: HCPCS
+    label: "Home oxygen systems and concentrators"
+    include: ["E0424-E0444", "E1390-E1392"]
+    require_description_regex: "oxygen"
+  hc_home_ventilator:
+    code_system: HCPCS
+    label: "Home ventilators"
+    include: ["E0465-E0468"]
+  hc_enteral_parenteral:
+    code_system: HCPCS
+    label: "Enteral and parenteral nutrition"
+    include: ["B4034-B9999"]
+    require_description_regex: "enteral|parenteral|feeding|gastrostomy|nasogastric|stomach tube|omegaven"
+  hc_hospice:
+    code_system: HCPCS
+    label: "Hospice care by location"
+    include: ["Q5001-Q5010"]
+  hc_dialysis:
+    code_system: HCPCS
+    label: "Dialysis procedures and home dialysis equipment"
+    include: [G0491, G0492, E1590, E1592, E1594, E1629, E1630, E1632, E1635]
+  hc_antineoplastic_drugs:
+    code_system: HCPCS
+    label: "HCPCS J9000-J9999 drug section (predominantly antineoplastic)"
+    include: ["J9000-J9999"]
+    rationale: "Severity marker for cancer within category (E); the J9 section also contains a few non-antineoplastic drugs, so it is never sufficient alone."
+  hc_sud_treatment:
+    code_system: HCPCS
+    label: "Alcohol and/or drug treatment services"
+    include: [H0005, "H0007-H0016", H0020, H0047, "H2034-H2036"]
+    require_description_regex: "alcohol and/or (other )?drug"
+    rationale: "SUD treatment services; also evidence for the separate treatment-program exclusion at 42 CFR 435.554(c)(8)."
+  hc_mh_intensive:
+    code_system: HCPCS
+    label: "Intensive or crisis mental health services"
+    include: ["H0017-H0019", H0035, H0036, H0037, H0039, H0040, H2011, H2012, H2013, H2017, H2018, H2040, H2041, S9480, S9484, S9485]
+    rationale: "Utilization domain named in IFC (inpatient, intensive outpatient; 91 FR 33406)."
+  hc_lai_antipsychotic:
+    code_system: HCPCS
+    label: "Long-acting injectable antipsychotics"
+    include: [J0401, J0402, J1631, J1943, J1944, J2358, J2426, J2427, J2428, J2680, J2794, J2798, J2799, J2801, J1942, C9035, C9037, C9152, C9158, C9470]
+    rationale: "Codes whose official descriptions name a long-acting or decanoate antipsychotic; terminated C-codes kept for older claims."
+
+  # ---------------- CMS Place of Service ---------------------------------------------
+  pos_inpatient: {code_system: POS, label: "Inpatient hospital, inpatient psychiatric facility, inpatient rehabilitation facility", include: [21, 51, 61]}
+  pos_inpatient_psych: {code_system: POS, label: "Inpatient psychiatric facility", include: [51]}
+  pos_psych_partial_hosp: {code_system: POS, label: "Psychiatric facility partial hospitalization", include: [52]}
+  pos_residential_bh: {code_system: POS, label: "Residential substance abuse treatment facility; psychiatric residential treatment center", include: [55, 56]}
+  pos_sud_nonresidential: {code_system: POS, label: "Non-residential substance abuse treatment facility; non-residential opioid treatment facility", include: [57, 58]}
+  pos_nursing_facility: {code_system: POS, label: "Skilled nursing, nursing, or custodial care facility", include: [31, 32, 33]}
+  pos_icf_iid: {code_system: POS, label: "ICF for individuals with intellectual disabilities", include: [54]}
+  pos_hospice: {code_system: POS, label: "Hospice", include: [34]}
+  pos_esrd: {code_system: POS, label: "End-stage renal disease treatment facility", include: [65]}
+  pos_emergency: {code_system: POS, label: "Emergency room - hospital", include: [23]}

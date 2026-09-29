@@ -1,0 +1,73 @@
+# Codes that are not taken from a downloadable code file but are individually cited
+# to a primary CMS document. Type-of-bill (TOB) and revenue codes are NUBC code sets;
+# we store only the prefixes that CMS manuals or ResDAC tables name explicitly.
+# TOB prefixes are the facility-type digit + classification digit (leading zero dropped).
+
+components:
+  cpt_dialysis:
+    code_system: CPT
+    label: "Dialysis procedure codes named in CMS Medicare Claims Processing Manual Ch. 8"
+    codes:
+      - {code: "90935", source: cms_mcpm_ch8, citation: "Ch. 8 sec. 170: 'physicians' inpatient dialysis services procedure codes 90935, 90937, 90945, and 90947'"}
+      - {code: "90937", source: cms_mcpm_ch8, citation: "Ch. 8 sec. 170 (same sentence)"}
+      - {code: "90945", source: cms_mcpm_ch8, citation: "Ch. 8 sec. 170 (same sentence)"}
+      - {code: "90947", source: cms_mcpm_ch8, citation: "Ch. 8 sec. 170 (same sentence)"}
+      - {code: "90999", source: cms_mcpm_ch8, citation: "Ch. 8: 'All ESRD hemodialysis claims must include HCPCS 90999 on the line reporting revenue code 082x'"}
+  tob_inpatient_hospital:
+    code_system: TOB_PREFIX
+    label: "Hospital inpatient type of bill (11x)"
+    codes:
+      - {code: "11", label: "facility 1 hospital + classification 1 inpatient", source: resdac_fac_type, citation: "ResDAC CLM_FAC_TYPE_CD 1 = Hospital; CLM_SRVC_CLSFCTN_TYPE_CD 1 = Inpatient; TOB = concatenation"}
+  tob_snf_icf:
+    code_system: TOB_PREFIX
+    label: "SNF inpatient (21x, 22x) and intermediate care (65x, 66x) type of bill"
+    codes:
+      - {code: "21", label: "SNF inpatient", source: resdac_fac_type, citation: "ResDAC facility 2 = SNF; classification 1 = Inpatient"}
+      - {code: "22", label: "SNF inpatient (Part B)", source: resdac_fac_type, citation: "ResDAC facility 2 = SNF; classification 2 = Inpatient or Home Health (Part B)"}
+      - {code: "65", label: "Intermediate care level I", source: resdac_srvc_cls, citation: "ResDAC facility 6 = Intermediate care; classification 5 = Intermediate care level I"}
+      - {code: "66", label: "Intermediate care level II", source: resdac_srvc_cls, citation: "ResDAC classification 6 = Intermediate care level II"}
+  tob_home_health:
+    code_system: TOB_PREFIX
+    label: "Home health type of bill (32x, 33x)"
+    codes:
+      - {code: "32", label: "Home health under a plan of treatment", source: cms_mcpm_ch10, citation: "Ch. 10: '032x - Home Health Services under a Plan of Treatment'"}
+      - {code: "33", label: "HHA outpatient (Part A)", source: resdac_srvc_cls, citation: "ResDAC facility 3 = HHA; classification 3 = Outpatient (or HHA covered on Part A)"}
+  tob_hospice:
+    code_system: TOB_PREFIX
+    label: "Hospice type of bill (81x, 82x)"
+    codes:
+      - {code: "81", label: "Hospice (non-hospital based)", source: cms_mcpm_ch11, citation: "Ch. 11: '081x - Hospice (non-hospital based)'"}
+      - {code: "82", label: "Hospice (hospital based)", source: cms_mcpm_ch11, citation: "Ch. 11: '082x - Hospice (hospital based)'"}
+  tob_esrd:
+    code_system: TOB_PREFIX
+    label: "Renal dialysis facility type of bill (72x)"
+    codes:
+      - {code: "72", label: "Hospital-based or independent renal dialysis facility", source: resdac_srvc_cls, citation: "ResDAC facility 7 (clinic) classification 2 = renal dialysis facility; Ch. 8 cites the 072X type of bill"}
+  tob_otp:
+    code_system: TOB_PREFIX
+    label: "Freestanding non-residential opioid treatment program type of bill (87x)"
+    codes:
+      - {code: "87", label: "Freestanding non-residential OTP", source: resdac_srvc_cls, citation: "ResDAC facility 8 classification 7 = Freestanding Non-residential Opioid Treatment Programs (eff. 1/2021)"}
+  rev_dialysis:
+    code_system: REV_PREFIX
+    label: "Dialysis revenue codes"
+    codes:
+      - {code: "082", label: "082x hemodialysis", source: cms_mcpm_ch8, citation: "Ch. 8: 'revenue code 082X, 083x, or 088x for the modality of dialysis'"}
+      - {code: "083", label: "083x peritoneal dialysis", source: cms_mcpm_ch8, citation: "Ch. 8 (same sentence)"}
+      - {code: "0841", label: "0841 CAPD", source: cms_mcpm_ch8, citation: "Ch. 8 table: 'Revenue Code (0821, 0831, 0841, 0851, 0880, or 0881)'"}
+      - {code: "0851", label: "0851 CCPD", source: cms_mcpm_ch8, citation: "Ch. 8 table (same list)"}
+      - {code: "088", label: "088x miscellaneous dialysis", source: cms_mcpm_ch8, citation: "Ch. 8 (same sentence as 082X)"}
+  rev_hospice:
+    code_system: REV_PREFIX
+    label: "Hospice level-of-care revenue codes"
+    codes:
+      - {code: "0651", label: "routine home care", source: cms_mcpm_ch11, citation: "Ch. 11: payment rates 'for revenue codes 0651, 0652, 0655, and 0656'"}
+      - {code: "0652", label: "continuous home care", source: cms_mcpm_ch11, citation: "Ch. 11 (same sentence)"}
+      - {code: "0655", label: "inpatient respite care", source: cms_mcpm_ch11, citation: "Ch. 11 (same sentence)"}
+      - {code: "0656", label: "general inpatient care", source: cms_mcpm_ch11, citation: "Ch. 11 (same sentence)"}
+  rev_home_health:
+    code_system: REV_PREFIX
+    label: "Home health skilled nursing and aide revenue codes"
+    codes:
+      - {code: "055", label: "055x skilled nursing", source: cms_mcpm_ch10, citation: "Ch. 10 revenue code table: '055x Skilled Nursing'"}
+      - {code: "057", label: "057x home health aide", source: cms_mcpm_ch10, citation: "Ch. 10 revenue code table: '057x Home Health Aide (Home Health)'"}

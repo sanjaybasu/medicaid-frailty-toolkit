@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+# downloaded source files and any data never belong in this repository
+.source_cache/
+sources_cache/
+data/
+results/
+*.parquet
+*.xlsx
+*.xls
+*.zip
+*.sas7bdat
+*.dta
+*.feather
+*.pkl
+*.csv
+!frailty_toolkit/definitions/codelists/codes.csv
+!frailty_toolkit/definitions/codelists/components.csv
+.env

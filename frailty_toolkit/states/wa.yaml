@@ -1,0 +1,56 @@
+# Washington: Apple Health for Adults (expansion adults 19-64).
+# Federal-floor lists plus the Z codes Washington HCA names in its August 21, 2026 memo.
+extends: template
+rule_version: "wa-2026.09.0 (federal floor + HCA memo 2026-08-21 Z codes; CMS-2454-IFC 2026-06-03)"
+state: WA
+state_name: Washington
+program: "Apple Health for Adults"
+requirement_start: "2027-01-01 (rolling, at each member's renewal)"
+policy_status: >-
+  HCA states it will adopt the diagnosis list and methodology developed by the Harvard T.H.
+  Chan School of Public Health (diagnosis needing ongoing care, then utilization indicating
+  severity: inpatient hospitalization, high-intensity office visit, or procedure), plus
+  additional behavioral health, long-term care services, and ten named Z codes. The Harvard
+  workbook is not bundled here: its cover page permits free use by state agencies with
+  attribution but requires for-profit entities to obtain a license from Harvard's Office of
+  Technology Development. A state agency may load it at run time with external_code_lists.
+  HCA has not published the look-back period ("a defined period").
+sources:
+  - label: "HCA memo, Medically Frail Exclusion from Community Engagement Requirements, 2026-08-21"
+    url: "https://www.hca.wa.gov/assets/program/hr1-medical-frailty-memo.pdf"
+    accessed: "2026-09-29"
+  - label: "HCA medically frail code list (Harvard workbook, last updated 2026-07-31; not bundled)"
+    url: "https://www.hca.wa.gov/assets/billers-and-providers/medically-frail-code-list.xlsx"
+    accessed: "2026-09-29"
+  - label: "HCA H.R. 1 FAQ (April 2026 webinar)"
+    url: "https://www.hca.wa.gov/assets/program/hr1-frequently-asked-questions.pdf"
+    accessed: "2026-09-29"
+notes: >-
+  Washington is a plaintiff in Commonwealth of Massachusetts v. Oz (D. Mass. No.
+  1:26-cv-12962-RGS). Self-attestation under penalty of perjury is accepted through 2027 and
+  the code set is used in the background to verify it (HCA memo).
+categories:
+  blind_or_disabled:
+    extra_codes:
+      - {code: Z02.71, code_system: ICD10CM, role: possible, label: "Encounter for disability determination",
+         citation: "HCA memo 2026-08-21 p.3-4 Z-code list"}
+  physical_idd_disability_adl:
+    extra_codes:
+      - {code: Z73.6, code_system: ICD10CM, role: impairment, label: "Limitation of activities due to disability", citation: "HCA memo 2026-08-21 p.4"}
+      - {code: Z74.01, code_system: ICD10CM, role: impairment, label: "Bed confinement status", citation: "HCA memo 2026-08-21 p.4"}
+      - {code: Z74.09, code_system: ICD10CM, role: impairment, label: "Other reduced mobility", citation: "HCA memo 2026-08-21 p.4"}
+      - {code: Z74.1, code_system: ICD10CM, role: impairment, label: "Need for assistance with personal care", citation: "HCA memo 2026-08-21 p.4"}
+      - {code: Z74.2, code_system: ICD10CM, role: impairment, label: "Need for assistance at home and no other household member able to render care", citation: "HCA memo 2026-08-21 p.4"}
+      - {code: Z74.3, code_system: ICD10CM, role: impairment, label: "Need for continuous supervision", citation: "HCA memo 2026-08-21 p.4"}
+      - {code: Z74.8, code_system: ICD10CM, role: impairment, label: "Other problems related to care provider dependency", citation: "HCA memo 2026-08-21 p.4"}
+      - {code: Z59.3, code_system: ICD10CM, role: impairment, label: "Problems related to living in residential institution", citation: "HCA memo 2026-08-21 p.4"}
+  serious_or_complex_medical:
+    extra_codes:
+      - {code: Z51.5, code_system: ICD10CM, role: impairment, label: "Encounter for palliative care", citation: "HCA memo 2026-08-21 p.3"}
+related_provisions:
+  short_term_hardship_inpatient: {enabled: true}   # HCA FAQ: "A recent stay in a facility such as a hospital or nursing home"
+# To load the HCA workbook as a state agency (licence permits state-agency use), convert it
+# to the external_code_lists CSV format and uncomment:
+# external_code_lists:
+#   - {path: /secure/path/wa_hca_medically_frail_codes.csv,
+#      citation: "HCA medically frail code list, last updated 2026-07-31"}

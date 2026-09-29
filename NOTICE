@@ -1,0 +1,43 @@
+Medicaid Frailty Toolkit (frailty_toolkit)
+Copyright (c) 2026 Waymark, Inc. (https://www.waymarkcare.com)
+
+Required Notice: Copyright (c) 2026 Waymark, Inc. (https://www.waymarkcare.com)
+
+LICENSE
+This software is source-available under the PolyForm Noncommercial License 1.0.0
+(see LICENSE, or https://polyformproject.org/licenses/noncommercial/1.0.0). It is not
+open-source software.
+
+Noncommercial use is permitted under that license. As the license states, use by any
+charitable organization, educational institution, public research organization, public
+safety or health organization, environmental protection organization, or government
+institution is use for a permitted purpose. State Medicaid agencies, public health
+agencies, and public research organizations may therefore use, modify, and share the
+software under the license terms.
+
+Commercial use requires a separate license from Waymark, Inc. This includes use by or
+for a commercial entity, such as a managed care organization, a commercial contractor or
+vendor working for a state, or any for-profit consultancy. Contact:
+sanjay.basu@waymarkcare.com.
+
+TRADEMARKS
+"Waymark" and the Waymark logo are trademarks of Waymark, Inc. The license grants no
+rights to use the Waymark name, logo, or trademarks, except as needed to reproduce this
+notice and to state the origin of the software.
+
+THIRD-PARTY CODE SETS
+The bundled code lists are derived from public U.S. government and public-domain sources
+listed in docs/sources.md (AHRQ HCUP Elixhauser Comorbidity Software Refined, CMS Chronic
+Conditions Data Warehouse algorithms, CMS ICD-10-CM and HCPCS Level II files, the CMS
+Place of Service code set, and CMS manuals). Those source materials remain subject to
+their own terms. CPT codes are copyright the American Medical Association; the toolkit
+stores only the five CPT code numbers cited by CMS manuals and reproduces no CPT
+descriptors. Type-of-bill and revenue-code values are NUBC code sets; the toolkit stores
+only the prefixes named in CMS manuals and ResDAC tables. No NCQA value sets are used.
+The Harvard T.H. Chan School of Public Health medically frail workbook published by the
+Washington Health Care Authority is NOT included; its terms require a license for
+for-profit use.
+
+NOT AN ELIGIBILITY DETERMINATION
+The toolkit is a screening aid for exemption review. It never makes, and must not be used
+as, a final eligibility determination. The state Medicaid agency makes that determination.

@@ -1,0 +1,26 @@
+# Illinois: ACA Adults.
+extends: template
+rule_version: "il-2026.09.0 (federal floor; CMS-2454-IFC 2026-06-03)"
+state: IL
+state_name: Illinois
+program: "ACA Adults"
+requirement_start: "2027-01-01 (applications after 5 pm Dec 31, 2026; redeterminations from March 2027)"
+policy_status: >-
+  HFS (draft Module 4, 2026-07-22): "In many cases, a diagnosis alone will not be sufficient
+  ... additional information will be needed." IDHS memo (2026-09-02): HFS uses application
+  information, HFS claims records, and SNAP/TANF eligibility to verify exemptions. HFS had not
+  published a frailty algorithm, look-back, or code list as of 2026-09-29; this config is the
+  federal floor.
+sources:
+  - label: "HFS HR1 Module 4: Exemptions (draft, 2026-07-22)"
+    url: "https://hfs.illinois.gov/content/dam/soi/en/web/hfs/info/fedresctr/hr1mod4exempteng.pdf"
+    accessed: "2026-09-29"
+  - label: "IDHS information memo (2026-09-02)"
+    url: "https://www.dhs.state.il.us/page.aspx?item=180030"
+    accessed: "2026-09-29"
+notes: >-
+  Illinois is a plaintiff in Commonwealth of Massachusetts v. Oz. Self-attestation under
+  penalty of perjury is accepted in 2027 where data cannot verify an exemption. The short-term
+  hardship exception is available on request.
+related_provisions:
+  short_term_hardship_inpatient: {enabled: true}
