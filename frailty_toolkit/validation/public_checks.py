@@ -104,15 +104,54 @@ def provenance_check(cache_dir: Path) -> pd.DataFrame:
         rows.append({"component_id": cid, "source_id": "hcup_cmr_v2026_1", "n": len(g), "n_found": int(ok.sum())})
 
     # CCW PDFs: the dotted code string must appear in the PDF text; NDCs as 11 digits
-    for sid in ("ccw_otcc_2026_08", "ccw_chronic30_2026_08"):
+    for sid in ("ccw_otcc_2026_08", "ccw_chronic30_2026_08", "samhsa_mhcld_2023"):
         txt = subprocess.run(["pdftotext", "-layout", str(cache_dir / src[sid]["file"]), "-"],
                              capture_output=True, text=True, check=True).stdout
         tokens = set(re.findall(r"[A-Z0-9][A-Z0-9.]{2,10}", txt))
         g0 = codes[codes["source_id"] == sid]
         for cid, g in g0.groupby("component_id"):
-            ok = g.apply(lambda r: (_dotted(r["code"]) if r["code_system"] == "ICD10CM" else r["code"]) in tokens,
-                         axis=1)
+            ok = g.apply(lambda r: any(x in tokens for x in (
+                (_dotted(r["code"]) if r["code_system"] == "ICD10CM" else r["code"]),
+                (_dotted(r["code"]) if r["code_system"] == "ICD10CM" else r["code"]) + ".")), axis=1)
             rows.append({"component_id": cid, "source_id": sid, "n": len(g), "n_found": int(ok.sum())})
+
+    # Nebraska index: undotted codes, or a prefix written as 'X99.x'
+    txt = subprocess.run(["pdftotext", "-layout", str(cache_dir / src["ne_dhhs_mf_index"]["file"]), "-"],
+                         capture_output=True, text=True, check=True).stdout
+    tokens = set(re.findall(r"[A-Z0-9][A-Z0-9.]{2,10}", txt))
+    g0 = codes[codes["source_id"] == "ne_dhhs_mf_index"]
+    for cid, g in g0.groupby("component_id"):
+        ranges = [(a, b) for a, b in re.findall(r"\b([A-Z]?\d{4,5})\s*[\u2013-]\s*([A-Z]?\d{4,5})\b", txt)]
+
+        def ne_found(c):
+            return c in tokens or f"{c}." in tokens or any(f"{c[:k]}.x" in txt for k in range(3, len(c) + 1)) \
+                or any(a <= c <= b and len(a) == len(c) for a, b in ranges)
+        ok = g["code"].map(ne_found)
+        rows.append({"component_id": cid, "source_id": "ne_dhhs_mf_index", "n": len(g), "n_found": int(ok.sum())})
+
+    # AMA maternity code numbers
+    txt = subprocess.run(["pdftotext", "-layout", str(cache_dir / src["ama_cpt2027_maternity"]["file"]), "-"],
+                         capture_output=True, text=True, check=True).stdout
+    g = codes[codes["source_id"] == "ama_cpt2027_maternity"]
+    rows.append({"component_id": "cpt_maternity", "source_id": "ama_cpt2027_maternity", "n": len(g),
+                 "n_found": int(g["code"].map(lambda c: c in txt).sum())})
+
+    # RxNav query log and FDA NDC Directory
+    log = json.loads((cache_dir / src["nlm_rxnav_n05a"]["file"]).read_text())
+    rx = {n for d in log["ingredients"].values() for n in d["ndcs"]}
+    g = codes[codes["source_id"] == "nlm_rxnav_n05a"]
+    rows.append({"component_id": "rxnav_antipsychotic_ndc", "source_id": "nlm_rxnav_n05a", "n": len(g),
+                 "n_found": int(g["code"].isin(rx).sum())})
+    z = zipfile.ZipFile(cache_dir / src["fda_ndc_directory"]["file"])
+    pkg = pd.read_csv(z.open("package.txt"), sep="\t", dtype=str, encoding="latin-1")
+
+    def n11(x):
+        a = str(x).split("-")
+        return a[0].zfill(5) + a[1].zfill(4) + a[2].zfill(2) if len(a) == 3 else None
+    fda = set(pkg["NDCPACKAGECODE"].map(n11))
+    g = codes[codes["source_id"] == "fda_ndc_directory"]
+    rows.append({"component_id": "fda_ndc_antipsychotic_epc", "source_id": "fda_ndc_directory", "n": len(g),
+                 "n_found": int(g["code"].isin(fda).sum())})
 
     # ICD-10-CM order files
     icd = set()
@@ -188,6 +227,17 @@ CONCORDANCE_PAIRS = [
     ("IFC-named ESRD/dialysis", ["ifc_esrd_dialysis"], ["elix_renlfl_sev"]),
     ("Elixhauser dementia (cognitive impairment)", ["elix_dementia"],
      ["ccw30_alzheimer_s_disease", "ccw30_non_alzheimer_s_dementia"]),
+    ("SAMHSA MH-CLD schizophrenia/psychotic vs CCW", ["samhsa_mhcld_schizophrenia_psychotic"],
+     ["ccw_schizophrenia_and_other_psychotic_disorders"]),
+    ("SAMHSA MH-CLD bipolar vs CCW", ["samhsa_mhcld_bipolar"], ["ccw_bipolar_disorder"]),
+    ("SAMHSA MH-CLD depressive vs CCW", ["samhsa_mhcld_depressive"], ["ccw_depressive_disorders"]),
+    ("SAMHSA MH-CLD trauma/stressor vs DSM-5-TR chapter", ["samhsa_mhcld_trauma_stressor"],
+     ["dsm5tr_trauma_stressor", "dsm5tr_adjustment_disorders"]),
+    ("SAMHSA MH-CLD trauma/stressor vs CCW PTSD", ["samhsa_mhcld_trauma_stressor"],
+     ["ccw_post_traumatic_stress_disorder_ptsd"]),
+    ("disabling_mental_disorder: CCW part vs SAMHSA part",
+     ["ccw_schizophrenia_and_other_psychotic_disorders", "ccw_bipolar_disorder", "ccw_depressive_disorders"],
+     ["samhsa_mhcld_schizophrenia_psychotic", "samhsa_mhcld_bipolar", "samhsa_mhcld_depressive"]),
 ]
 
 

@@ -1,8 +1,8 @@
-# Ohio: Group VIII (expansion adults 19-64, income at or below 138% FPL).
+# WORKED EXAMPLE. Ohio: Group VIII (expansion adults 19-64, income at or below 138% FPL).
 # Parameters mirror ODM's published description of its method; the code lists are the
 # toolkit's federal-floor lists because ODM's 1,935-code list was not yet posted.
 extends: template
-rule_version: "oh-2026.09.0 (ODM partner packet v2 Aug 2026 parameters; toolkit federal lists; CMS-2454-IFC 2026-06-03)"
+rule_version: "oh-example-2026.09.0 (ODM partner packet v2 Aug 2026 parameters; toolkit federal lists; CMS-2454-IFC 2026-06-03)"
 state: OH
 state_name: Ohio
 program: "Group VIII"

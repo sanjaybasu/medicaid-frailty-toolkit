@@ -1,0 +1,43 @@
+# WORKED EXAMPLE, Nebraska: expansion adults. Nebraska began enforcing the requirement on
+# May 1, 2026 and has published both its process and its code index. This example uses
+# the Nebraska DHHS index in place of the federal-default diagnosis lists.
+extends: template
+rule_version: "ne-example-2026.09.0 (NE DHHS index as posted 2026-09-29; CMS-2454-IFC 2026-06-03)"
+state: NE
+state_name: Nebraska
+program: "Medicaid expansion adults"
+requirement_start: "2026-05-01"
+policy_status: >-
+  NE DHHS (May 1, 2026): "If qualifying medical conditions or treatment indicators are
+  identified based on diagnosis and procedure codes, the individual will be treated as
+  exempt without needing to take additional action." The index "is not a one-to-one
+  diagnosis list. Individuals who have a diagnosis on the list might have to meet other
+  criteria". Claims are reviewed "approximately 90 days before the end of a member's
+  eligibility period"; no look-back length is stated, so the federal 12-month maximum is
+  used. The index is not organized by federal category; the toolkit assigns F10-F19 to
+  SUD, other F codes to mental disorder, H54 to blindness, and the rest to serious or
+  complex, for reporting only.
+sources:
+  - label: "NE DHHS, Medically Frail and SUD Treatment Program Exemptions (May 1, 2026)"
+    url: "https://dhhs.ne.gov/Documents/NE%20MWR%20-%20Medically%20Frail%20and%20SUD%20Treatment%20Program%20Exemptions.pdf"
+    accessed: "2026-09-29"
+  - label: "NE DHHS, Medically Frail Exemption Conditions Index"
+    url: "https://dhhs.ne.gov/Documents/Nebraska%20Medicaid%20Work%20Requirements%20-%20Medically%20Frail%20and%20SUD%20Conditions.pdf"
+    accessed: "2026-09-29"
+notes: >-
+  This reproduces the published description as closely as the toolkit allows; it is not
+  a statement by Nebraska. Numeric CPT ranges in the index are not expanded (see
+  codelists/build_report.json). The loader warns because the diagnosis-only rule differs
+  from the IFC preamble's reading (91 FR 33373).
+min_distinct_dates: 1
+categories:
+  blind_or_disabled: {replace_dx_components: [ne_dhhs_mf_dx_vision], require_impairment_evidence: false}
+  substance_use_disorder: {replace_dx_components: [ne_dhhs_mf_dx_sud], require_impairment_evidence: false}
+  disabling_mental_disorder: {replace_dx_components: [ne_dhhs_mf_dx_mental], require_impairment_evidence: false}
+  # Category (D) keeps the federal-default lists and ADL markers; the NE index has no
+  # separate ADL rule, and its (D)-type diagnoses are also counted under serious_or_complex.
+  physical_idd_disability_adl: {}
+  serious_or_complex_medical:
+    replace_dx_components: [ne_dhhs_mf_dx_other]
+    require_impairment_evidence: false
+    add_sufficient_components: [ne_dhhs_mf_procedures]

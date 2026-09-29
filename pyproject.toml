@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "frailty-toolkit"
-version = "0.1.0"
+version = "0.2.0"
 description = "Source-available claims-based screening aid for the Medicaid medically frail exclusion (P.L. 119-21 sec. 71119; 42 CFR 435.554(c)(5)), with per-state configuration and a validation harness."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -30,7 +30,7 @@ include = ["frailty_toolkit*"]
 
 [tool.setuptools.package-data]
 "frailty_toolkit.definitions" = ["categories.yaml", "specs/*.yaml", "codelists/*.csv", "codelists/*.json"]
-"frailty_toolkit.states" = ["*.yaml"]
+"frailty_toolkit.states" = ["*.yaml", "examples/*.yaml"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

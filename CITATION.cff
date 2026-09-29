@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the software and the paper it extends."
 title: "Medicaid Frailty Toolkit: claims-based screening for the medically frail exclusion"
-version: 0.1.0
+version: 0.2.0
 date-released: "2026-09-29"
 license: PolyForm-Noncommercial-1.0.0
 type: software
@@ -13,6 +13,7 @@ authors:
     email: sanjay.basu@ucsf.edu
     affiliation: "Waymark; University of California San Francisco"
 repository-code: "https://github.com/sanjaybasu/medicaid-frailty-toolkit"
+url: "https://www.waymarkcare.com"
 keywords: [Medicaid, "community engagement", "medically frail", "work requirements", claims, "Tuva Project"]
 preferred-citation:
   type: article

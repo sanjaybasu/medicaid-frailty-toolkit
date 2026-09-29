@@ -116,6 +116,27 @@ ccw30_parkinson_s_disease_and_secondary_parkinsonism,CCW: Parkinson's Disease an
 ccw30_pneumonia_all_cause,"CCW: Pneumonia, All- cause",ICD10CM,ccw_chronic30_2026_08,"Pneumonia, All- cause",codes parsed from ICD-10 column; qualify rule: 1 OR 2 HOP/carrier with DX codes,93
 ccw30_rheumatoid_arthritis_osteoarthritis,CCW: Rheumatoid Arthritis/ Osteoarthritis,ICD10CM,ccw_chronic30_2026_08,Rheumatoid Arthritis/ Osteoarthritis,codes parsed from ICD-10 column; qualify rule: 1 OR 2 HOP/carrier with DX codes,632
 ccw30_stroke_transient_ischemic_attack,CCW: Stroke/ Transient Ischemic Attack,ICD10CM,ccw_chronic30_2026_08,Stroke/ Transient Ischemic Attack,"codes parsed from ICD-10 column; qualify rule: 1 inpatient, or carrier claim DX codes",270
+samhsa_mhcld_adhd,SAMHSA MH-CLD 2023 Table C-2: adhd,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'adhd',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",17
+samhsa_mhcld_alcohol_related,SAMHSA MH-CLD 2023 Table C-2: alcohol related,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'alcohol_related',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",87
+samhsa_mhcld_anxiety,SAMHSA MH-CLD 2023 Table C-2: anxiety,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'anxiety',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",60
+samhsa_mhcld_bipolar,SAMHSA MH-CLD 2023 Table C-2: bipolar,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'bipolar',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",34
+samhsa_mhcld_conduct,SAMHSA MH-CLD 2023 Table C-2: conduct,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'conduct',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",5
+samhsa_mhcld_delirium_dementia,SAMHSA MH-CLD 2023 Table C-2: delirium dementia,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'delirium_dementia',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",27
+samhsa_mhcld_depressive,SAMHSA MH-CLD 2023 Table C-2: depressive,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'depressive',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",22
+samhsa_mhcld_odd,SAMHSA MH-CLD 2023 Table C-2: odd,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'odd',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",1
+samhsa_mhcld_personality,SAMHSA MH-CLD 2023 Table C-2: personality,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'personality',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",13
+samhsa_mhcld_pervasive_developmental,SAMHSA MH-CLD 2023 Table C-2: pervasive developmental,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'pervasive_developmental',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",6
+samhsa_mhcld_schizophrenia_psychotic,SAMHSA MH-CLD 2023 Table C-2: schizophrenia psychotic,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'schizophrenia_psychotic',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",23
+samhsa_mhcld_substance_related,SAMHSA MH-CLD 2023 Table C-2: substance related,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'substance_related',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",468
+samhsa_mhcld_trauma_stressor,SAMHSA MH-CLD 2023 Table C-2: trauma stressor,ICD10CM,samhsa_mhcld_2023,Table C-2 group 'trauma_stressor',"ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",12
+rxnav_antipsychotic_ndc,Antipsychotic NDCs (ATC N05A via RxNav; lithium and antiemetic-use agents excluded),NDC,nlm_rxnav_n05a,ATC N05A,RxNorm historical NDCs active since 202301,7208
+fda_ndc_antipsychotic_epc,Antipsychotic [EPC] package NDCs in the FDA NDC Directory not already in the RxNav list,NDC,fda_ndc_directory,PHARM_CLASSES contains 'Antipsychotic',cross-check additions,41
+cpt_maternity,Maternity care CPT code numbers (59000-59899 cited by AMA; no descriptors),CPT,ama_cpt2027_maternity,59xxx code numbers,regex on the AMA PDF; E/M and newborn codes excluded,75
+ne_dhhs_mf_dx_sud,Nebraska DHHS medically frail index diagnoses (sud),ICD10CM,ne_dhhs_mf_index,Conditions Index diagnosis section,codes validated against ICD-10-CM FY2024-FY2027; '.x' expanded by prefix; grouped by the toolkit for reporting,146
+ne_dhhs_mf_dx_mental,Nebraska DHHS medically frail index diagnoses (mental),ICD10CM,ne_dhhs_mf_index,Conditions Index diagnosis section,codes validated against ICD-10-CM FY2024-FY2027; '.x' expanded by prefix; grouped by the toolkit for reporting,156
+ne_dhhs_mf_dx_vision,Nebraska DHHS medically frail index diagnoses (vision),ICD10CM,ne_dhhs_mf_index,Conditions Index diagnosis section,codes validated against ICD-10-CM FY2024-FY2027; '.x' expanded by prefix; grouped by the toolkit for reporting,31
+ne_dhhs_mf_dx_other,Nebraska DHHS medically frail index diagnoses (other),ICD10CM,ne_dhhs_mf_index,Conditions Index diagnosis section,codes validated against ICD-10-CM FY2024-FY2027; '.x' expanded by prefix; grouped by the toolkit for reporting,7845
+ne_dhhs_mf_procedures,Nebraska DHHS medically frail index procedure codes (HCPCS; individually listed CPT numbers),mixed,ne_dhhs_mf_index,Conditions Index CPT/HCPC section,HCPCS ranges expanded against the HCPCS file; CPT ranges not expanded,84
 ifc_sarcoidosis,Sarcoidosis (IFC-named serious or complex condition),ICD10CM,cms_icd10cm_fy2024..fy2027,D86,91 FR 33376 names sarcoidosis; ICD-10-CM D86 = Sarcoidosis.,15
 ifc_als,Amyotrophic lateral sclerosis (IFC-named),ICD10CM,cms_icd10cm_fy2024..fy2027,G12.21,91 FR 33376 names ALS; ICD-10-CM G12.21 = Amyotrophic lateral sclerosis.,1
 ifc_huntington,Huntington's disease (IFC-named),ICD10CM,cms_icd10cm_fy2024..fy2027,G10,91 FR 33376 names Huntington's disease; ICD-10-CM G10.,1
@@ -175,6 +196,10 @@ pos_icf_iid,ICF for individuals with intellectual disabilities,POS,cms_pos,54,,1
 pos_hospice,Hospice,POS,cms_pos,34,,1
 pos_esrd,End-stage renal disease treatment facility,POS,cms_pos,65,,1
 pos_emergency,Emergency room - hospital,POS,cms_pos,23,,1
+dsm5tr_trauma_stressor,Trauma- and stressor-related disorders except adjustment disorders (DSM-5-TR chapter),ICD10CM,cms_icd10cm_fy2024..fy2027; selection from dsm5tr_2022; friedman_2011_dsm5_trauma,F43.0; F43.1; F43.8; F43.9; F94.1; F94.2,"Acute stress reaction, PTSD, other and unspecified reactions to severe stress, reactive attachment disorder, disinhibited social engagement disorder.",11
+dsm5tr_adjustment_disorders,Adjustment disorders (DSM-5-TR trauma- and stressor-related chapter),ICD10CM,cms_icd10cm_fy2024..fy2027; selection from dsm5tr_2022,F43.2,Kept as a separate component so a state can drop it; see categories.yaml.,8
+preg_icd10cm_chapter15,"ICD-10-CM Chapter 15, Pregnancy, childbirth and the puerperium (O00-O9A)",ICD10CM,cms_icd10cm_fy2024..fy2027,O00-O9A,SSA 1902(xx)(9)(A)(ii)(IX); 42 CFR 435.554(c)(10). Claims fallback only; the eligibility aid category is the primary source.,3079
+preg_icd10cm_z_codes,"Pregnancy-state, supervision, antenatal screening, gestational-weeks and postpartum encounter Z codes",ICD10CM,cms_icd10cm_fy2024..fy2027,Z33.1; Z34; Z36; Z3A; Z39,"ICD-10-CM Z33.1 Pregnant state, incidental; Z34 supervision of normal pregnancy; Z36 antenatal screening; Z3A weeks of gestation; Z39 postpartum care and examination.",84
 cpt_dialysis,Dialysis procedure codes named in CMS Medicare Claims Processing Manual Ch. 8,CPT,cms_mcpm_ch8,individually cited,,5
 tob_inpatient_hospital,Hospital inpatient type of bill (11x),TOB_PREFIX,resdac_fac_type,individually cited,,1
 tob_snf_icf,"SNF inpatient (21x, 22x) and intermediate care (65x, 66x) type of bill",TOB_PREFIX,"resdac_fac_type,resdac_srvc_cls",individually cited,,4

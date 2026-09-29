@@ -1,6 +1,6 @@
-# Virginia: Medicaid Expansion members.
+# WORKED EXAMPLE. Virginia: Medicaid Expansion members.
 extends: template
-rule_version: "va-2026.09.0 (federal floor; CMS-2454-IFC 2026-06-03)"
+rule_version: "va-example-2026.09.0 (federal floor; CMS-2454-IFC 2026-06-03)"
 state: VA
 state_name: Virginia
 program: "Medicaid Expansion"

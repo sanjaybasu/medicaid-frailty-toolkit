@@ -962,6 +962,172 @@
       ]
     }
   },
+  "samhsa_mhcld_2023": {
+    "samhsa_mhcld_adhd": {
+      "n": 17,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_alcohol_related": {
+      "n": 87,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_anxiety": {
+      "n": 60,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_bipolar": {
+      "n": 34,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_conduct": {
+      "n": 5,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_delirium_dementia": {
+      "n": 27,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_depressive": {
+      "n": 22,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_odd": {
+      "n": 1,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_personality": {
+      "n": 13,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_pervasive_developmental": {
+      "n": 6,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_schizophrenia_psychotic": {
+      "n": 23,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    },
+    "samhsa_mhcld_substance_related": {
+      "n": 468,
+      "rejected_not_in_icd10cm_fy2024_27": [
+        "T401X5A",
+        "T401X5D",
+        "T401X5S",
+        "T407X1A",
+        "T407X1D",
+        "T407X1S",
+        "T407X3A",
+        "T407X3D",
+        "T407X3S",
+        "T407X4A",
+        "T407X4D",
+        "T407X4S",
+        "T407X5A",
+        "T407X5D",
+        "T407X5S",
+        "T407X6A",
+        "T407X6D",
+        "T407X6S",
+        "T408X5A",
+        "T408X5D",
+        "T408X5S"
+      ]
+    },
+    "samhsa_mhcld_trauma_stressor": {
+      "n": 12,
+      "rejected_not_in_icd10cm_fy2024_27": []
+    }
+  },
+  "antipsychotic_ndc_crosscheck": {
+    "n_rxnav": 7208,
+    "n_fda_directory": 3505,
+    "n_both": 3464,
+    "pct_fda_in_rxnav": 98.8,
+    "n_fda_only_added": 41,
+    "fda_ingredients": [
+      "ARIPIPRAZOLE",
+      "ARIPIPRAZOLE LAUROXIL",
+      "ASENAPINE",
+      "ASENAPINE MALEATE",
+      "BREXPIPRAZOLE",
+      "CARIPRAZINE",
+      "CLOZAPINE",
+      "HALOPERIDOL",
+      "HALOPERIDOL DECANOATE",
+      "HALOPERIDOL LACTATE",
+      "ILOPERIDONE",
+      "LUMATEPERONE",
+      "LURASIDONE HYDROCHLORIDE",
+      "MOLINDONE HYDROCHLORIDE",
+      "OLANZAPINE",
+      "OLANZAPINE; FLUOXETINE HYDROCHLORIDE",
+      "OLANZAPINE; SAMIDORPHAN L-MALATE",
+      "PALIPERIDONE",
+      "PALIPERIDONE PALMITATE",
+      "PIMAVANSERIN TARTRATE",
+      "PIMOZIDE",
+      "QUETIAPINE",
+      "QUETIAPINE FUMARATE",
+      "RISPERIDONE",
+      "THIOTHIXENE",
+      "ZIPRASIDONE",
+      "ZIPRASIDONE HYDROCHLORIDE",
+      "ZIPRASIDONE MESYLATE"
+    ]
+  },
+  "ama_cpt2027_maternity": {
+    "n": 75,
+    "deleted_in_2027": [
+      "59050",
+      "59400",
+      "59409",
+      "59410",
+      "59425",
+      "59426",
+      "59430",
+      "59510",
+      "59514",
+      "59515",
+      "59525",
+      "59610",
+      "59612",
+      "59614",
+      "59618",
+      "59620",
+      "59622"
+    ]
+  },
+  "ne_dhhs_mf_index": {
+    "n_dx": 8178,
+    "dx_tokens_not_in_icd10cm": [
+      "A16.x",
+      "C6412",
+      "H4219",
+      "M800XS",
+      "T404X1A",
+      "T404X2A",
+      "T404X3A",
+      "T404X4A",
+      "T407X1A",
+      "T6522A"
+    ],
+    "n_dx_rejected": 10,
+    "n_hcpcs": 67,
+    "n_cpt_individual": 17,
+    "cpt_ranges_not_expanded": [
+      "27220-27228",
+      "27230-27248",
+      "22551-22899",
+      "63001-63048",
+      "63267-63291",
+      "32851-32854",
+      "49082-49083",
+      "32554-32557",
+      "37182-37183",
+      "33975-33983",
+      "33990-33995"
+    ]
+  },
   "selections": {
     "ifc_sarcoidosis": {
       "n": 15,
@@ -1481,6 +1647,43 @@
       "n": 1,
       "include": [
         23
+      ],
+      "exclude": []
+    },
+    "dsm5tr_trauma_stressor": {
+      "n": 11,
+      "include": [
+        "F43.0",
+        "F43.1",
+        "F43.8",
+        "F43.9",
+        "F94.1",
+        "F94.2"
+      ],
+      "exclude": []
+    },
+    "dsm5tr_adjustment_disorders": {
+      "n": 8,
+      "include": [
+        "F43.2"
+      ],
+      "exclude": []
+    },
+    "preg_icd10cm_chapter15": {
+      "n": 3079,
+      "include": [
+        "O00-O9A"
+      ],
+      "exclude": []
+    },
+    "preg_icd10cm_z_codes": {
+      "n": 84,
+      "include": [
+        "Z33.1",
+        "Z34",
+        "Z36",
+        "Z3A",
+        "Z39"
       ],
       "exclude": []
     }

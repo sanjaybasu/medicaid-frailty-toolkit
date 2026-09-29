@@ -6,6 +6,7 @@
     "landing_page": "https://hcup-us.ahrq.gov/toolssoftware/comorbidityicd10/comorbidity_icd10.jsp",
     "version": "v2026.1",
     "file": "CMR-Reference-File-v2026-1.xlsx",
+    "license": "AHRQ HCUP software, freely available; U.S. federal government work",
     "sha256": "5f6171844e450ac36cd7403c4662af7b43a0e540c00328687819b5a9ca69dba1",
     "access_date": "2026-09-29"
   },
@@ -16,6 +17,7 @@
     "landing_page": "https://www2.ccwdata.org/web/guest/condition-categories-other",
     "version": "Revised 08/2026",
     "file": "other-condition-algorithms.pdf",
+    "license": "U.S. federal government work (CMS); public domain",
     "sha256": "4e34e72edf8c7700ba034035c74e04b85004fb874800eff8824a20a97de6bdfd",
     "access_date": "2026-09-29"
   },
@@ -26,6 +28,7 @@
     "landing_page": "https://www2.ccwdata.org/web/guest/condition-categories-chronic",
     "version": "Revised 08/2026",
     "file": "chr-chronic-condition-algorithms.pdf",
+    "license": "U.S. federal government work (CMS); public domain",
     "sha256": "86bb112be52a491fbef8afe0fcd6cafafc9f33a540aa3f8f7263f952ef3002b7",
     "access_date": "2026-09-29"
   },
@@ -36,6 +39,7 @@
     "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
     "version": "FY2027 (effective 2026-10-01)",
     "file": "2027-code-descriptions-tabular-order.zip",
+    "license": "public domain (CMS/NCHS)",
     "sha256": "91c6c9d1117764ce72375a0f3a5493b1725dafbc1ab283b55799076c9e194965",
     "access_date": "2026-09-29"
   },
@@ -46,6 +50,7 @@
     "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
     "version": "FY2026 (effective 2025-10-01)",
     "file": "2026-code-descriptions-tabular-order.zip",
+    "license": "public domain (CMS/NCHS)",
     "sha256": "55a9124a27ca78a4a5c41e1101eda064ec2e08d105ff9e78d1fbd1a83298ef11",
     "access_date": "2026-09-29"
   },
@@ -56,6 +61,7 @@
     "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
     "version": "FY2025 (effective 2024-10-01)",
     "file": "2025-code-descriptions-tabular-order.zip",
+    "license": "public domain (CMS/NCHS)",
     "sha256": "4f6c65f0034736d2b02fa9eb1128aab564fa673dd4d99363f8b2167af3994816",
     "access_date": "2026-09-29"
   },
@@ -66,6 +72,7 @@
     "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
     "version": "FY2024 (effective 2023-10-01)",
     "file": "2024-code-descriptions-tabular-order.zip",
+    "license": "public domain (CMS/NCHS)",
     "sha256": "4b30a68a011edb4aaa5ad3747971ef26f3be09eb925821d78b0d4584be977e3e",
     "access_date": "2026-09-29"
   },
@@ -76,6 +83,7 @@
     "landing_page": "https://www.cms.gov/medicare/coding-billing/healthcare-common-procedure-system/quarterly-update",
     "version": "2026 October (HCPC2026_OCT_ANWEB_09232026)",
     "file": "october-2026-alpha-numeric-hcpcs-file.zip",
+    "license": "HCPCS Level II: public domain (CMS); CPT portions not used",
     "sha256": "08c2202fa92c1d1fb6f31b808b61c767bc487954f6930b6a0f8d09c89af5992f",
     "access_date": "2026-09-29"
   },
@@ -86,6 +94,7 @@
     "landing_page": "https://www.cms.gov/medicare/coding-billing/place-of-service-codes/code-sets",
     "version": "web page as accessed",
     "file": "pos.html",
+    "license": "public domain (CMS)",
     "sha256": "f5ccd35efc625b2fc97cfe31ce237dbe53655ed33f0c60f8b0beaa4fe3002ff3",
     "access_date": "2026-09-29"
   },
@@ -96,6 +105,7 @@
     "landing_page": "https://resdac.org/cms-data/variables/claim-service-classification-type-code-ffs",
     "version": "web page as accessed",
     "file": "resdac_fac.html",
+    "license": "public web page (CMS contractor); prefixes only",
     "sha256": "ba8bf17b9bd2e8fa894d799b5fdfe6ec5ae0c7af12db9e1f231b6d4c3dc26577",
     "access_date": "2026-09-29"
   },
@@ -106,6 +116,7 @@
     "landing_page": "https://resdac.org/cms-data/variables/claim-service-classification-type-code-ffs",
     "version": "file as accessed",
     "file": "resdac_cls_table.txt",
+    "license": "public web page (CMS contractor); prefixes only",
     "sha256": "491af91c96ba4999b87eb6c38f1bd61e3c10b7a2d862b73002a6bdf04d083479",
     "access_date": "2026-09-29"
   },
@@ -116,6 +127,7 @@
     "landing_page": "https://www.cms.gov/medicare/regulations-guidance/manuals/internet-only-manuals-ioms",
     "version": "PDF as accessed",
     "file": "clm104c08.pdf",
+    "license": "public domain (CMS)",
     "sha256": "022a1be1c16d9a2ac8002f18f628288ffea382786601b1a19b6d293b3fdd984d",
     "access_date": "2026-09-29"
   },
@@ -126,6 +138,7 @@
     "landing_page": "https://www.cms.gov/medicare/regulations-guidance/manuals/internet-only-manuals-ioms",
     "version": "PDF as accessed",
     "file": "clm104c10.pdf",
+    "license": "public domain (CMS)",
     "sha256": "9fac4786be8af36ba5fb6a26f4f3c86092b6166737ff0e203e207619d34ebc6c",
     "access_date": "2026-09-29"
   },
@@ -136,6 +149,7 @@
     "landing_page": "https://www.cms.gov/medicare/regulations-guidance/manuals/internet-only-manuals-ioms",
     "version": "PDF as accessed",
     "file": "clm104c11.pdf",
+    "license": "public domain (CMS)",
     "sha256": "74dc3e248b24a7973b2dde707f043fae71083ac71f8a7fdcc2ba75d0ff6aec03",
     "access_date": "2026-09-29"
   },
@@ -146,6 +160,7 @@
     "landing_page": "https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals",
     "version": "Interim final rule, effective 2026-07-31",
     "file": "fr_gi.html",
+    "license": "public domain (Federal Register)",
     "sha256": "93b42b54ce901df32542a1d65b5c8597d4976e25cfb085390c785d75f4067e95",
     "access_date": "2026-09-29"
   },
@@ -156,7 +171,105 @@
     "landing_page": "https://www.congress.gov/bill/119th-congress/house-bill/1/text",
     "version": "Enrolled bill text",
     "file": "chcs_sec71119.pdf",
+    "license": "public law text (public domain)",
     "sha256": "c99f94ca83b92c56a3dd52a60b0bb5c320b5d40850167b87a3e57385cb40c7f5",
+    "access_date": "2026-09-29"
+  },
+  "samhsa_mhcld_2023": {
+    "title": "SAMHSA Mental Health Client-Level Data (MH-CLD) Annual Report 2023, Appendix C Table C-2 'Mental Health Diagnosis Groups and International Classification of Diseases (ICD) Codes Crosswalk' (Publication No. PEP25-07-008)",
+    "publisher": "Substance Abuse and Mental Health Services Administration, Center for Behavioral Health Statistics and Quality",
+    "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56264/2023-MH-CLD-Annual-Report.pdf",
+    "landing_page": "https://www.samhsa.gov/data/data-we-collect/mh-cld-2023/2023-mental-health-client-level-data-mh-cld-annual-release",
+    "version": "MH-CLD 2023 (latest annual report with the ICD-10 crosswalk; supersedes 2018 MH-CLD Appendix E)",
+    "file": "2023-MH-CLD-Annual-Report.pdf",
+    "license": "U.S. federal government work (17 U.S.C. 105); public domain",
+    "sha256": "2f589dbd9d50345311216f3f263c81ff11da147e60fe55a8fc38b3bf984de694",
+    "access_date": "2026-09-29"
+  },
+  "samhsa_mhcld_2018_appe": {
+    "title": "SAMHSA MH-CLD 2018, Appendix E 'Mental Health and Substance Use Diagnosis Codes' (consulted; superseded by the 2023 Table C-2 for code extraction)",
+    "publisher": "Substance Abuse and Mental Health Services Administration",
+    "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt29396/2018-MHCLD/2018-MHCLD-AppE.pdf",
+    "landing_page": "https://www.samhsa.gov/data/data-we-collect/mh-cld-mental-health-client-level-data/annual-releases",
+    "version": "MH-CLD 2018",
+    "file": "2018-MHCLD-AppE.pdf",
+    "license": "U.S. federal government work; public domain",
+    "sha256": "c1666dfad494c8b23405c417dae07c915fec0b6fd2083ac1de9b62dc672438a2",
+    "access_date": "2026-09-29"
+  },
+  "dsm5tr_2022": {
+    "title": "American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR). 2022. Chapter 'Trauma- and Stressor-Related Disorders' (chapter membership only; no DSM text reproduced)",
+    "publisher": "American Psychiatric Association Publishing",
+    "url": "https://doi.org/10.1176/appi.books.9780890425787",
+    "landing_page": "https://www.psychiatry.org/psychiatrists/practice/dsm",
+    "version": "DSM-5-TR (2022)",
+    "file": null,
+    "license": "citation only; codes and titles are taken from the CMS ICD-10-CM files",
+    "access_date": "2026-09-29"
+  },
+  "friedman_2011_dsm5_trauma": {
+    "title": "Friedman MJ, Resick PA, Bryant RA, Strain J, Horowitz M, Spiegel D. Classification of trauma and stressor-related disorders in DSM-5. Depress Anxiety. 2011;28(9):737-749 (verified via Crossref)",
+    "publisher": "Wiley (Depression and Anxiety)",
+    "url": "https://doi.org/10.1002/da.20845",
+    "landing_page": "https://doi.org/10.1002/da.20845",
+    "version": "2011",
+    "file": null,
+    "license": "citation only",
+    "access_date": "2026-09-29"
+  },
+  "nlm_rxnav_n05a": {
+    "title": "NLM RxNav REST API: RxClass ATC class N05A (antipsychotics) ingredient members -> RxNorm SCD/SBD/GPCK/BPCK -> historical NDCs (query log in the cached JSON)",
+    "publisher": "National Library of Medicine",
+    "url": "https://rxnav.nlm.nih.gov/REST/rxclass/classMembers.json?classId=N05A&relaSource=ATC&ttys=IN",
+    "landing_page": "https://lhncbc.nlm.nih.gov/RxNav/APIs/",
+    "version": "API response as of access date",
+    "file": "rxnav_n05a_antipsychotic_ndcs.json",
+    "license": "RxNorm/RxClass data from NLM (U.S. government); ATC classes via RxClass. NDCs are public FDA identifiers",
+    "sha256": "63854af1e16c5d22e47b04e0a82e57f83b8a9be65ec877dc06e86b9c10b133d4",
+    "access_date": "2026-09-29"
+  },
+  "fda_ndc_directory": {
+    "title": "FDA National Drug Code Directory (product.txt, package.txt), products whose PHARM_CLASSES include an 'Antipsychotic [EPC]' class",
+    "publisher": "U.S. Food and Drug Administration",
+    "url": "https://www.accessdata.fda.gov/cder/ndctext.zip",
+    "landing_page": "https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory",
+    "version": "file as downloaded on access date",
+    "file": "ndctext.zip",
+    "license": "U.S. federal government work; public domain",
+    "sha256": "fc6c1fd17b7a798acb3e31e85b19105aa2953dcb6f23c345372db1462c6dd648",
+    "access_date": "2026-09-29"
+  },
+  "ama_cpt2027_maternity": {
+    "title": "AMA, CPT 2027 Maternity Care Services codes and guidelines (early release; code NUMBERS only are used, no descriptors)",
+    "publisher": "American Medical Association",
+    "url": "https://www.ama-assn.org/system/files/cpt-maternity-care-codes-guidelines.pdf",
+    "landing_page": "https://www.ama-assn.org/practice-management/cpt",
+    "version": "CPT 2027 (effective 2027-01-01)",
+    "file": "cpt-maternity-care-codes-guidelines.pdf",
+    "license": "CPT copyright 2026 American Medical Association; descriptors not reproduced",
+    "sha256": "eaf2ea237a7d97ede3417a89d91b4be43e03b130991c8872afbf52e67fb50f76",
+    "access_date": "2026-09-29"
+  },
+  "ne_dhhs_mf_index": {
+    "title": "Nebraska DHHS, Nebraska Medicaid Work Requirements - Medically Frail Exemption Conditions Index (Medically Frail and SUD Conditions)",
+    "publisher": "Nebraska Department of Health and Human Services",
+    "url": "https://dhhs.ne.gov/Documents/Nebraska%20Medicaid%20Work%20Requirements%20-%20Medically%20Frail%20and%20SUD%20Conditions.pdf",
+    "landing_page": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+    "version": "as posted on access date (295 pages)",
+    "file": "ne_mf_conditions_index.pdf",
+    "license": "state government public document; no restriction stated",
+    "sha256": "dd2e17298ea240a5bdcb9660fd2b98dc39445b377832d000f3126fe443f83a98",
+    "access_date": "2026-09-29"
+  },
+  "ne_dhhs_mf_process": {
+    "title": "Nebraska DHHS, Nebraska Medicaid Work Requirements - Medically Frail and SUD Treatment Program Exemptions (May 1, 2026)",
+    "publisher": "Nebraska Department of Health and Human Services",
+    "url": "https://dhhs.ne.gov/Documents/NE%20MWR%20-%20Medically%20Frail%20and%20SUD%20Treatment%20Program%20Exemptions.pdf",
+    "landing_page": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+    "version": "May 1, 2026",
+    "file": "ne_mf_process.pdf",
+    "license": "state government public document; no restriction stated",
+    "sha256": "d382ba164fcf6f589df4b405ab15af40bbf8077514d75cd9e994e6a1f5502796",
     "access_date": "2026-09-29"
   },
   "basu_berkowitz_2026": {
@@ -166,6 +279,7 @@
     "landing_page": "https://academic.oup.com/healthaffairsscholar/article/4/6/qxag108/8672780",
     "version": "vol 4 issue 6, published 2026-05-08",
     "file": null,
+    "license": "citation only",
     "access_date": "2026-09-29"
   }
 }

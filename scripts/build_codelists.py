@@ -53,6 +53,7 @@ SOURCES = {
         "landing_page": "https://hcup-us.ahrq.gov/toolssoftware/comorbidityicd10/comorbidity_icd10.jsp",
         "version": "v2026.1",
         "file": "CMR-Reference-File-v2026-1.xlsx",
+        "license": "AHRQ HCUP software, freely available; U.S. federal government work",
     },
     "ccw_otcc_2026_08": {
         "title": "CCW Other Chronic Health, Mental Health, and Potentially Disabling Chronic Conditions Algorithms (MBSF_OTCC)",
@@ -61,6 +62,7 @@ SOURCES = {
         "landing_page": "https://www2.ccwdata.org/web/guest/condition-categories-other",
         "version": "Revised 08/2026",
         "file": "other-condition-algorithms.pdf",
+        "license": "U.S. federal government work (CMS); public domain",
     },
     "ccw_chronic30_2026_08": {
         "title": "30 CCW Chronic Conditions Algorithms (MBSF_CHRONIC)",
@@ -69,6 +71,7 @@ SOURCES = {
         "landing_page": "https://www2.ccwdata.org/web/guest/condition-categories-chronic",
         "version": "Revised 08/2026",
         "file": "chr-chronic-condition-algorithms.pdf",
+        "license": "U.S. federal government work (CMS); public domain",
     },
     "cms_icd10cm_fy2027": {
         "title": "ICD-10-CM FY2027 code descriptions in tabular order (order file)",
@@ -77,6 +80,7 @@ SOURCES = {
         "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
         "version": "FY2027 (effective 2026-10-01)",
         "file": "2027-code-descriptions-tabular-order.zip",
+        "license": "public domain (CMS/NCHS)",
     },
     "cms_icd10cm_fy2026": {
         "title": "ICD-10-CM FY2026 code descriptions in tabular order (order file)",
@@ -85,6 +89,7 @@ SOURCES = {
         "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
         "version": "FY2026 (effective 2025-10-01)",
         "file": "2026-code-descriptions-tabular-order.zip",
+        "license": "public domain (CMS/NCHS)",
     },
     "cms_icd10cm_fy2025": {
         "title": "ICD-10-CM FY2025 code descriptions in tabular order (order file)",
@@ -93,6 +98,7 @@ SOURCES = {
         "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
         "version": "FY2025 (effective 2024-10-01)",
         "file": "2025-code-descriptions-tabular-order.zip",
+        "license": "public domain (CMS/NCHS)",
     },
     "cms_icd10cm_fy2024": {
         "title": "ICD-10-CM FY2024 code descriptions in tabular order (order file, updated 02/01/2024)",
@@ -101,6 +107,7 @@ SOURCES = {
         "landing_page": "https://www.cms.gov/medicare/coding-billing/icd-10-codes",
         "version": "FY2024 (effective 2023-10-01)",
         "file": "2024-code-descriptions-tabular-order.zip",
+        "license": "public domain (CMS/NCHS)",
     },
     "cms_hcpcs_2026_oct": {
         "title": "HCPCS Level II alpha-numeric file, October 2026 quarterly update",
@@ -109,6 +116,7 @@ SOURCES = {
         "landing_page": "https://www.cms.gov/medicare/coding-billing/healthcare-common-procedure-system/quarterly-update",
         "version": "2026 October (HCPC2026_OCT_ANWEB_09232026)",
         "file": "october-2026-alpha-numeric-hcpcs-file.zip",
+        "license": "HCPCS Level II: public domain (CMS); CPT portions not used",
     },
     "cms_pos": {
         "title": "Place of Service Code Set",
@@ -117,6 +125,7 @@ SOURCES = {
         "landing_page": "https://www.cms.gov/medicare/coding-billing/place-of-service-codes/code-sets",
         "version": "web page as accessed",
         "file": "pos.html",
+        "license": "public domain (CMS)",
     },
     "resdac_fac_type": {
         "title": "ResDAC: Claim Facility Type Code (FFS) and Claim Service Classification Type Code (FFS) tables (type-of-bill digits)",
@@ -125,6 +134,7 @@ SOURCES = {
         "landing_page": "https://resdac.org/cms-data/variables/claim-service-classification-type-code-ffs",
         "version": "web page as accessed",
         "file": "resdac_fac.html",
+        "license": "public web page (CMS contractor); prefixes only",
     },
     "resdac_srvc_cls": {
         "title": "ResDAC: Claim Service Classification Type Code Table",
@@ -133,6 +143,7 @@ SOURCES = {
         "landing_page": "https://resdac.org/cms-data/variables/claim-service-classification-type-code-ffs",
         "version": "file as accessed",
         "file": "resdac_cls_table.txt",
+        "license": "public web page (CMS contractor); prefixes only",
     },
     "cms_mcpm_ch8": {
         "title": "Medicare Claims Processing Manual, Chapter 8 - Outpatient ESRD Hospital, Independent Facility, and Physician/Supplier Claims",
@@ -141,6 +152,7 @@ SOURCES = {
         "landing_page": "https://www.cms.gov/medicare/regulations-guidance/manuals/internet-only-manuals-ioms",
         "version": "PDF as accessed",
         "file": "clm104c08.pdf",
+        "license": "public domain (CMS)",
     },
     "cms_mcpm_ch10": {
         "title": "Medicare Claims Processing Manual, Chapter 10 - Home Health Agency Billing",
@@ -149,6 +161,7 @@ SOURCES = {
         "landing_page": "https://www.cms.gov/medicare/regulations-guidance/manuals/internet-only-manuals-ioms",
         "version": "PDF as accessed",
         "file": "clm104c10.pdf",
+        "license": "public domain (CMS)",
     },
     "cms_mcpm_ch11": {
         "title": "Medicare Claims Processing Manual, Chapter 11 - Processing Hospice Claims",
@@ -157,6 +170,7 @@ SOURCES = {
         "landing_page": "https://www.cms.gov/medicare/regulations-guidance/manuals/internet-only-manuals-ioms",
         "version": "PDF as accessed",
         "file": "clm104c11.pdf",
+        "license": "public domain (CMS)",
     },
     "cms_2454_ifc": {
         "title": "Medicaid Program; Community Engagement Requirement for Certain Individuals (CMS-2454-IFC), 91 FR 33348, June 3, 2026, FR Doc. 2026-11094",
@@ -165,6 +179,7 @@ SOURCES = {
         "landing_page": "https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals",
         "version": "Interim final rule, effective 2026-07-31",
         "file": "fr_gi.html",
+        "license": "public domain (Federal Register)",
     },
     "obbba_sec71119": {
         "title": "Public Law 119-21 (H.R. 1), Sec. 71119, enrolled text reproduced by CHCS",
@@ -173,6 +188,88 @@ SOURCES = {
         "landing_page": "https://www.congress.gov/bill/119th-congress/house-bill/1/text",
         "version": "Enrolled bill text",
         "file": "chcs_sec71119.pdf",
+        "license": "public law text (public domain)",
+    },
+    "samhsa_mhcld_2023": {
+        "title": "SAMHSA Mental Health Client-Level Data (MH-CLD) Annual Report 2023, Appendix C Table C-2 'Mental Health Diagnosis Groups and International Classification of Diseases (ICD) Codes Crosswalk' (Publication No. PEP25-07-008)",
+        "publisher": "Substance Abuse and Mental Health Services Administration, Center for Behavioral Health Statistics and Quality",
+        "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56264/2023-MH-CLD-Annual-Report.pdf",
+        "landing_page": "https://www.samhsa.gov/data/data-we-collect/mh-cld-2023/2023-mental-health-client-level-data-mh-cld-annual-release",
+        "version": "MH-CLD 2023 (latest annual report with the ICD-10 crosswalk; supersedes 2018 MH-CLD Appendix E)",
+        "file": "2023-MH-CLD-Annual-Report.pdf",
+        "license": "U.S. federal government work (17 U.S.C. 105); public domain",
+    },
+    "samhsa_mhcld_2018_appe": {
+        "title": "SAMHSA MH-CLD 2018, Appendix E 'Mental Health and Substance Use Diagnosis Codes' (consulted; superseded by the 2023 Table C-2 for code extraction)",
+        "publisher": "Substance Abuse and Mental Health Services Administration",
+        "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt29396/2018-MHCLD/2018-MHCLD-AppE.pdf",
+        "landing_page": "https://www.samhsa.gov/data/data-we-collect/mh-cld-mental-health-client-level-data/annual-releases",
+        "version": "MH-CLD 2018",
+        "file": "2018-MHCLD-AppE.pdf",
+        "license": "U.S. federal government work; public domain",
+    },
+    "dsm5tr_2022": {
+        "title": "American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR). 2022. Chapter 'Trauma- and Stressor-Related Disorders' (chapter membership only; no DSM text reproduced)",
+        "publisher": "American Psychiatric Association Publishing",
+        "url": "https://doi.org/10.1176/appi.books.9780890425787",
+        "landing_page": "https://www.psychiatry.org/psychiatrists/practice/dsm",
+        "version": "DSM-5-TR (2022)",
+        "file": None,
+        "license": "citation only; codes and titles are taken from the CMS ICD-10-CM files",
+    },
+    "friedman_2011_dsm5_trauma": {
+        "title": "Friedman MJ, Resick PA, Bryant RA, Strain J, Horowitz M, Spiegel D. Classification of trauma and stressor-related disorders in DSM-5. Depress Anxiety. 2011;28(9):737-749 (verified via Crossref)",
+        "publisher": "Wiley (Depression and Anxiety)",
+        "url": "https://doi.org/10.1002/da.20845",
+        "landing_page": "https://doi.org/10.1002/da.20845",
+        "version": "2011",
+        "file": None,
+        "license": "citation only",
+    },
+    "nlm_rxnav_n05a": {
+        "title": "NLM RxNav REST API: RxClass ATC class N05A (antipsychotics) ingredient members -> RxNorm SCD/SBD/GPCK/BPCK -> historical NDCs (query log in the cached JSON)",
+        "publisher": "National Library of Medicine",
+        "url": "https://rxnav.nlm.nih.gov/REST/rxclass/classMembers.json?classId=N05A&relaSource=ATC&ttys=IN",
+        "landing_page": "https://lhncbc.nlm.nih.gov/RxNav/APIs/",
+        "version": "API response as of access date",
+        "file": "rxnav_n05a_antipsychotic_ndcs.json",
+        "license": "RxNorm/RxClass data from NLM (U.S. government); ATC classes via RxClass. NDCs are public FDA identifiers",
+    },
+    "fda_ndc_directory": {
+        "title": "FDA National Drug Code Directory (product.txt, package.txt), products whose PHARM_CLASSES include an 'Antipsychotic [EPC]' class",
+        "publisher": "U.S. Food and Drug Administration",
+        "url": "https://www.accessdata.fda.gov/cder/ndctext.zip",
+        "landing_page": "https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory",
+        "version": "file as downloaded on access date",
+        "file": "ndctext.zip",
+        "license": "U.S. federal government work; public domain",
+    },
+    "ama_cpt2027_maternity": {
+        "title": "AMA, CPT 2027 Maternity Care Services codes and guidelines (early release; code NUMBERS only are used, no descriptors)",
+        "publisher": "American Medical Association",
+        "url": "https://www.ama-assn.org/system/files/cpt-maternity-care-codes-guidelines.pdf",
+        "landing_page": "https://www.ama-assn.org/practice-management/cpt",
+        "version": "CPT 2027 (effective 2027-01-01)",
+        "file": "cpt-maternity-care-codes-guidelines.pdf",
+        "license": "CPT copyright 2026 American Medical Association; descriptors not reproduced",
+    },
+    "ne_dhhs_mf_index": {
+        "title": "Nebraska DHHS, Nebraska Medicaid Work Requirements - Medically Frail Exemption Conditions Index (Medically Frail and SUD Conditions)",
+        "publisher": "Nebraska Department of Health and Human Services",
+        "url": "https://dhhs.ne.gov/Documents/Nebraska%20Medicaid%20Work%20Requirements%20-%20Medically%20Frail%20and%20SUD%20Conditions.pdf",
+        "landing_page": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+        "version": "as posted on access date (295 pages)",
+        "file": "ne_mf_conditions_index.pdf",
+        "license": "state government public document; no restriction stated",
+    },
+    "ne_dhhs_mf_process": {
+        "title": "Nebraska DHHS, Nebraska Medicaid Work Requirements - Medically Frail and SUD Treatment Program Exemptions (May 1, 2026)",
+        "publisher": "Nebraska Department of Health and Human Services",
+        "url": "https://dhhs.ne.gov/Documents/NE%20MWR%20-%20Medically%20Frail%20and%20SUD%20Treatment%20Program%20Exemptions.pdf",
+        "landing_page": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+        "version": "May 1, 2026",
+        "file": "ne_mf_process.pdf",
+        "license": "state government public document; no restriction stated",
     },
     "basu_berkowitz_2026": {
         "title": "Basu S, Berkowitz SA. Redesigning Medicaid frailty algorithms: improved identification of medically frail adults under community engagement. Health Aff Sch. 2026;4(6):qxag108 (redesign families = union of CA and NY recognized_conditions in sanjaybasu/medicaid-frailty-bias frailty_definitions/state_definitions.py)",
@@ -181,6 +278,7 @@ SOURCES = {
         "landing_page": "https://academic.oup.com/healthaffairsscholar/article/4/6/qxag108/8672780",
         "version": "vol 4 issue 6, published 2026-05-08",
         "file": None,
+        "license": "citation only",
     },
 }
 
@@ -454,6 +552,8 @@ def build_selections(icd, hcpcs, pos, rows, comps, report):
         src_label = src or "cms_icd10cm_fy2024..fy2027"
         if cid.startswith("redesign_"):
             src_label += "; selection from basu_berkowitz_2026"
+        if s.get("selection_authority"):
+            src_label += "; selection from " + s["selection_authority"]
         comps.append((cid, s["label"], system, src_label, "; ".join(map(str, s["include"])),
                       s.get("rationale", ""), len(codes)))
         rep[cid] = {"n": len(codes), "include": s["include"], "exclude": s.get("exclude", [])}
@@ -474,6 +574,239 @@ def build_cited(rows, comps, report):
                       "individually cited", s.get("rationale", ""), len(s["codes"])))
 
 
+
+# ---------------------------------------------------------------------------
+# SAMHSA MH-CLD 2023 Table C-2 (ICD-10 column)
+# ---------------------------------------------------------------------------
+MHCLD_GROUPS = [  # first words of each group label in Table C-2, in table order
+    ("Attention-", "adhd"), ("Alcohol-Related", "alcohol_related"), ("Anxiety", "anxiety"),
+    ("Bipolar", "bipolar"), ("Conduct", "conduct"), ("Delirium,", "delirium_dementia"),
+    ("Depressive", "depressive"), ("Oppositional", "odd"), ("Personality", "personality"),
+    ("Pervasive", "pervasive_developmental"), ("Schizophrenia", "schizophrenia_psychotic"),
+    ("Substance-", "substance_related"), ("Trauma-", "trauma_stressor"), ("Other", "other"),
+]
+
+
+def build_mhcld(cache, icd, rows, comps, report):
+    sid = "samhsa_mhcld_2023"
+    pages = _pdf_words(cache / SOURCES[sid]["file"])
+    rep = report.setdefault(sid, {})
+    current, collected = None, {}
+    for words in pages:
+        hdr10 = [w for w in words if w[2] == "ICD-10" and any(v[2] == "Codes" and abs(v[1] - w[1]) < 2 for v in words)]
+        hdr9 = [w for w in words if w[2] == "ICD-9"]
+        if not hdr10 or not any("Crosswalk" in w[2] or w[2] == "Group" for w in words):
+            continue
+        x10 = hdr10[0][0] - 4
+        x9 = min(w[0] for w in hdr9 if abs(w[1] - hdr10[0][1]) < 2) - 4 if hdr9 else 1e9
+        y0 = hdr10[0][1] + 8
+        body = sorted([w for w in words if w[1] > y0], key=lambda w: (round(w[1]), w[0]))
+        prev_name = None
+        for w in body:
+            if w[0] < x10:
+                for start, key in MHCLD_GROUPS:
+                    # "Other" also occurs inside "Schizophrenia and Other Psychotic Disorders"
+                    if w[2] == start and w[0] < x10 - 20 and not (start == "Other" and prev_name == "and"):
+                        current = key
+                prev_name = w[2]
+                continue
+            if current and x10 <= w[0] < x9:
+                tok = w[2].strip(",;()*").rstrip(".")
+                if ICD_RE.match(tok) or re.fullmatch(r"[A-Z][0-9]{2}", tok):
+                    collected.setdefault(current, []).append(tok)
+            if current == "other":
+                current = None
+    for key, toks in collected.items():
+        cid = f"samhsa_mhcld_{key}"
+        ok, bad = [], []
+        for t in toks:
+            c = norm_icd(t)
+            (ok if c in icd.index else bad).append(c)
+        for c in sorted(set(ok)):
+            rows.append((cid, "ICD10CM", c, icd.at[c, "description"], sid))
+        comps.append((cid, f"SAMHSA MH-CLD 2023 Table C-2: {key.replace('_', ' ')}", "ICD10CM", sid,
+                      f"Table C-2 group '{key}'", "ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027",
+                      len(set(ok))))
+        rep[cid] = {"n": len(set(ok)), "rejected_not_in_icd10cm_fy2024_27": sorted(set(bad))}
+
+
+# ---------------------------------------------------------------------------
+# NLM RxNav: ATC N05A antipsychotics -> NDCs; FDA NDC Directory cross-check
+# ---------------------------------------------------------------------------
+RXNAV = "https://rxnav.nlm.nih.gov/REST"
+# Excluded N05A members, with reasons (documented choice):
+N05A_EXCLUDE = {
+    "lithium": "ATC N05AN lithium is a mood stabilizer, not an antipsychotic",
+    "prochlorperazine": "predominantly prescribed as an antiemetic; would mark nausea treatment as SMI evidence",
+    "droperidol": "predominantly antiemetic and procedural sedation use",
+    "acepromazine": "veterinary product",
+}
+NDC_ACTIVE_SINCE = "202301"  # keep NDCs whose RxNorm history reaches January 2023 or later
+
+
+def _get_json(url):
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.loads(r.read().decode())
+
+
+def fetch_rxnav_antipsychotics(cache: Path) -> Path:
+    """Query RxNav and write the full query log and NDC list to the cache (rebuildable)."""
+    import time as _t
+    out = cache / SOURCES["nlm_rxnav_n05a"]["file"]
+    log = {"queried_at": dt.datetime.now().isoformat(timespec="seconds"), "queries": [],
+           "active_since_yyyymm": NDC_ACTIVE_SINCE, "excluded_ingredients": N05A_EXCLUDE, "ingredients": {}}
+    q = f"{RXNAV}/rxclass/classMembers.json?classId=N05A&relaSource=ATC&ttys=IN"
+    log["queries"].append(q)
+    members = _get_json(q)["drugMemberGroup"]["drugMember"]
+    for m in members:
+        name, rxcui = m["minConcept"]["name"], m["minConcept"]["rxcui"]
+        if name in N05A_EXCLUDE:
+            continue
+        rel_q = f"{RXNAV}/rxcui/{rxcui}/related.json?tty=SCD+SBD+GPCK+BPCK"
+        rel = _get_json(rel_q)
+        products = [c for g in rel.get("relatedGroup", {}).get("conceptGroup", []) or []
+                    for c in g.get("conceptProperties", []) or []]
+        ndcs = {}
+        for pr in products:
+            h = _get_json(f"{RXNAV}/rxcui/{pr['rxcui']}/allhistoricalndcs.json?history=1")
+            for t in h.get("historicalNdcConcept", {}).get("historicalNdcTime", []) or []:
+                for nt in t.get("ndcTime", []) or []:
+                    if nt.get("endDate", "000000") >= NDC_ACTIVE_SINCE:
+                        for ndc in nt.get("ndc", []):
+                            ndcs[ndc] = pr["name"]
+            _t.sleep(0.06)
+        log["ingredients"][name] = {"rxcui": rxcui, "n_products": len(products), "ndcs": ndcs}
+    log["query_templates"] = [q, f"{RXNAV}/rxcui/{{IN}}/related.json?tty=SCD+SBD+GPCK+BPCK",
+                              f"{RXNAV}/rxcui/{{product}}/allhistoricalndcs.json?history=1"]
+    out.write_text(json.dumps(log, indent=1))
+    return out
+
+
+def _ndc10_to_11(ndc: str) -> str | None:
+    a = ndc.split("-")
+    if len(a) != 3:
+        return None
+    lab, prod, pkg = a
+    return lab.zfill(5) + prod.zfill(4) + pkg.zfill(2)
+
+
+def build_antipsychotic_ndcs(cache, rows, comps, report):
+    log = json.loads((cache / SOURCES["nlm_rxnav_n05a"]["file"]).read_text())
+    rx = {}
+    for ing, d in log["ingredients"].items():
+        for ndc, prod in d["ndcs"].items():
+            rx[ndc] = f"{ing}: {prod}"[:200]
+    for ndc, desc in sorted(rx.items()):
+        rows.append(("rxnav_antipsychotic_ndc", "NDC", ndc, desc, "nlm_rxnav_n05a"))
+    comps.append(("rxnav_antipsychotic_ndc", "Antipsychotic NDCs (ATC N05A via RxNav; lithium and antiemetic-use agents excluded)",
+                  "NDC", "nlm_rxnav_n05a", "ATC N05A", f"RxNorm historical NDCs active since {NDC_ACTIVE_SINCE}", len(rx)))
+    # FDA NDC Directory cross-check
+    z = zipfile.ZipFile(cache / SOURCES["fda_ndc_directory"]["file"])
+    prod = pd.read_csv(z.open("product.txt"), sep="\t", dtype=str, encoding="latin-1")
+    pkg = pd.read_csv(z.open("package.txt"), sep="\t", dtype=str, encoding="latin-1")
+    ap = prod[prod["PHARM_CLASSES"].fillna("").str.contains("Antipsychotic", case=False)]
+    excl = "|".join(N05A_EXCLUDE)
+    ap = ap[~ap["SUBSTANCENAME"].fillna("").str.contains(excl, case=False)]
+    pk = pkg.merge(ap[["PRODUCTID", "SUBSTANCENAME", "PROPRIETARYNAME"]], on="PRODUCTID")
+    pk["ndc11"] = pk["NDCPACKAGECODE"].map(_ndc10_to_11)
+    fda = dict(zip(pk["ndc11"], (pk["SUBSTANCENAME"].fillna("") + ": " + pk["PROPRIETARYNAME"].fillna("")).str[:200]))
+    fda.pop(None, None)
+    only_fda = sorted(set(fda) - set(rx))
+    for ndc in only_fda:
+        rows.append(("fda_ndc_antipsychotic_epc", "NDC", ndc, fda[ndc], "fda_ndc_directory"))
+    comps.append(("fda_ndc_antipsychotic_epc", "Antipsychotic [EPC] package NDCs in the FDA NDC Directory not already in the RxNav list",
+                  "NDC", "fda_ndc_directory", "PHARM_CLASSES contains 'Antipsychotic'", "cross-check additions", len(only_fda)))
+    report["antipsychotic_ndc_crosscheck"] = {
+        "n_rxnav": len(rx), "n_fda_directory": len(fda), "n_both": len(set(rx) & set(fda)),
+        "pct_fda_in_rxnav": round(100 * len(set(rx) & set(fda)) / max(len(fda), 1), 1),
+        "n_fda_only_added": len(only_fda), "fda_ingredients": sorted(set(ap["SUBSTANCENAME"].dropna()))[:80]}
+
+
+# ---------------------------------------------------------------------------
+# AMA CPT 2027 maternity code numbers (no descriptors)
+# ---------------------------------------------------------------------------
+def build_ama_maternity(cache, rows, comps, report):
+    sid = "ama_cpt2027_maternity"
+    txt = subprocess.run(["pdftotext", "-layout", str(cache / SOURCES[sid]["file"]), "-"], capture_output=True,
+                         text=True, check=True).stdout
+    codes = sorted({c for c in re.findall(r"\b(59\d{3})\b", txt)})
+    deleted = set()
+    for m in re.finditer(r"\(([0-9, ]+?) ha(?:s|ve) been deleted", txt):
+        deleted |= set(re.findall(r"59\d{3}", m.group(1)))
+    for c in codes:
+        label = "CPT code number cited in AMA CPT 2027 maternity guidelines" + \
+            ("; deleted effective 2027-01-01 (valid for earlier dates of service)" if c in deleted else "")
+        rows.append(("cpt_maternity", "CPT", c, label, sid))
+    comps.append(("cpt_maternity", "Maternity care CPT code numbers (59000-59899 cited by AMA; no descriptors)", "CPT",
+                  sid, "59xxx code numbers", "regex on the AMA PDF; E/M and newborn codes excluded", len(codes)))
+    report[sid] = {"n": len(codes), "deleted_in_2027": sorted(deleted)}
+
+
+# ---------------------------------------------------------------------------
+# Nebraska DHHS medically frail conditions index (state published list)
+# ---------------------------------------------------------------------------
+def build_nebraska(cache, icd, hcpcs, rows, comps, report):
+    sid = "ne_dhhs_mf_index"
+    txt = subprocess.run(["pdftotext", "-layout", str(cache / SOURCES[sid]["file"]), "-"], capture_output=True,
+                         text=True, check=True).stdout
+    cpt_at = txt.rfind("CPT/HCPC code")
+    dx_part, proc_part = txt[:cpt_at], txt[cpt_at:]
+    universe = sorted(icd.index)
+    got, bad = set(), set()
+    for line in dx_part.splitlines():
+        m = re.match(r"^([A-Z][0-9][0-9A-Z][0-9A-Z]{0,4})(\.x)?\s", line)
+        if not m:
+            continue
+        code = m.group(1)
+        if m.group(2):
+            ex = [c for c in universe if c.startswith(code)]
+            (got.update(ex) if ex else bad.add(code + ".x"))
+        elif code in icd.index:
+            got.add(code)
+        else:
+            bad.add(code)
+    def cat(c):
+        if "F10" <= c[:3] <= "F19":
+            return "sud"
+        if c[0] == "F":
+            return "mental"
+        if c.startswith("H54"):
+            return "vision"
+        return "other"
+    for c in sorted(got):
+        rows.append((f"ne_dhhs_mf_dx_{cat(c)}", "ICD10CM", c, icd.at[c, "description"], sid))
+    for k in ("sud", "mental", "vision", "other"):
+        n = sum(1 for c in got if cat(c) == k)
+        comps.append((f"ne_dhhs_mf_dx_{k}", f"Nebraska DHHS medically frail index diagnoses ({k})", "ICD10CM", sid,
+                      "Conditions Index diagnosis section", "codes validated against ICD-10-CM FY2024-FY2027; '.x' expanded by prefix; grouped by the toolkit for reporting", n))
+    # procedures: individual CPT numbers and HCPCS codes/ranges; numeric CPT ranges are not expanded
+    proc_codes, hc_codes, cpt_ranges = set(), set(), []
+    hc_universe = sorted(hcpcs.index)
+    for a, b in re.findall(r"\b([A-Z]?\d{4,5})\s*[\u2013-]\s*([A-Z]?\d{4,5})\b", proc_part):
+        if a[0].isalpha():
+            hc_codes |= {c for c in hc_universe if a <= c <= b}
+        else:
+            cpt_ranges.append(f"{a}-{b}")
+    ranged = {x for r in re.findall(r"\b([A-Z]?\d{4,5}\s*[\u2013-]\s*[A-Z]?\d{4,5})\b", proc_part) for x in re.split(r"\s*[\u2013-]\s*", r)}
+    for tok in re.findall(r"\b([A-Z]\d{4}|\d{5})\b", proc_part):
+        if tok in ranged:
+            continue
+        if tok[0].isalpha():
+            if tok in hcpcs.index:
+                hc_codes.add(tok)
+        else:
+            proc_codes.add(tok)
+    for c in sorted(hc_codes):
+        rows.append(("ne_dhhs_mf_procedures", "HCPCS", c, hcpcs.at[c, "description"], sid))
+    for c in sorted(proc_codes):
+        rows.append(("ne_dhhs_mf_procedures", "CPT", c, "CPT code number listed by Nebraska DHHS (descriptor not reproduced)", sid))
+    comps.append(("ne_dhhs_mf_procedures", "Nebraska DHHS medically frail index procedure codes (HCPCS; individually listed CPT numbers)",
+                  "mixed", sid, "Conditions Index CPT/HCPC section", "HCPCS ranges expanded against the HCPCS file; CPT ranges not expanded", len(hc_codes) + len(proc_codes)))
+    report[sid] = {"n_dx": len(got), "dx_tokens_not_in_icd10cm": sorted(bad)[:200], "n_dx_rejected": len(bad),
+                   "n_hcpcs": len(hc_codes), "n_cpt_individual": len(proc_codes), "cpt_ranges_not_expanded": cpt_ranges}
+
+
 def load_pos(cache: Path) -> dict:
     t = open(cache / SOURCES["cms_pos"]["file"], encoding="utf-8", errors="replace").read()
     t = re.sub(r"<script.*?</script>", "", t, flags=re.S)
@@ -490,6 +823,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache-dir", required=True, type=Path)
     ap.add_argument("--download", action="store_true")
+    ap.add_argument("--fetch-rxnav", action="store_true", help="re-query NLM RxNav for antipsychotic NDCs")
     ap.add_argument("--access-date", default=None,
                     help="date the source files were fetched (YYYY-MM-DD); default = file mtime")
     a = ap.parse_args(argv)
@@ -507,6 +841,12 @@ def main(argv=None):
     build_elixhauser(cache, icd, rows, comps, report)
     build_ccw(cache, "ccw_otcc_2026_08", 345.0, "ccw", icd, hcpcs, rows, comps, report)
     build_ccw(cache, "ccw_chronic30_2026_08", 185.0, "ccw30", icd, hcpcs, rows, comps, report)
+    build_mhcld(cache, icd, rows, comps, report)
+    if a.fetch_rxnav or not (cache / SOURCES["nlm_rxnav_n05a"]["file"]).exists():
+        fetch_rxnav_antipsychotics(cache)
+    build_antipsychotic_ndcs(cache, rows, comps, report)
+    build_ama_maternity(cache, rows, comps, report)
+    build_nebraska(cache, icd, hcpcs, rows, comps, report)
     build_selections(icd, hcpcs, pos, rows, comps, report)
     build_cited(rows, comps, report)
 

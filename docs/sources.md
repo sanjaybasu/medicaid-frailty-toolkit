@@ -16,44 +16,59 @@ that retrospective evaluation on 2024-2025 claims sees codes valid on the date o
 Tokens printed in a CCW PDF that are not valid in any of those four fiscal years (codes
 deleted before FY2024) are dropped and listed in `codelists/build_report.json`.
 
-## Not bundled
+## Not bundled, with the terms that decided it
 
-* The Harvard T.H. Chan School of Public Health medically frail workbook that Washington
-  HCA adopted (https://www.hca.wa.gov/assets/billers-and-providers/medically-frail-code-list.xlsx,
-  last updated 2026-07-31). Its cover page permits free use by state agencies with
-  attribution and requires for-profit entities to obtain a license from Harvard's Office of
-  Technology Development. A state agency can load it at run time through
-  `external_code_lists`.
+* **NCQA HEDIS NDC lists** (https://www.ncqa.org/hedis/measures/hedis-2017-national-drug-code-ndc-license/,
+  accessed 2026-09-29). The license page states: "NDC Lists are provided by Cerner Multum, Inc. (“Multum”)
+  and are intended for organizations that use NCQA's HEDIS® information", requires the user to click
+  "AGREE", and includes the term "THE END-USER AGREES TO INDEMNIFY AND HOLD MULTUM HARMLESS FROM ANY
+  CLAIMS". Because use requires accepting an end-user agreement, the lists are not bundled. The
+  antipsychotic NDCs are built instead from NLM RxNav (ATC N05A) and cross-checked against the FDA NDC
+  Directory; a user licensed for the NCQA lists can load them with `external_code_lists`.
+* **Medically frail workbook** prepared by Ne'eman, McIntyre, Smithers, and Sommers (Harvard T.H. Chan
+  School of Public Health and Brigham and Women's Hospital), last updated 07/31/2026, published by
+  Washington HCA (https://www.hca.wa.gov/assets/billers-and-providers/medically-frail-code-list.xlsx).
+  Its cover page states: "These materials are free to use with attribution to the research team for any
+  state agency. However, for-profit entities must contact Harvard University's Office of Technology
+  Development at otd@harvard.edu for a license for permission to use." The terms grant use to state
+  agencies; they grant no right to redistribute, and the workbook reproduces AMA CPT descriptors, so it
+  is not bundled. `scripts/import_hca_workbook.py` converts a copy the user is entitled to use into an
+  `external_code_lists` file (code numbers and categories only) at run time.
 * Ohio's 1,935-code ODM list, which ODM had not posted as of 2026-09-29.
-* NDC lists other than the CCW medication-for-OUD lists. States that want antipsychotic
-  or other pharmacy markers must add a cited list.
-* A SAMHSA code list for serious mental illness. SAMHSA and ISMICC define SMI by functional
-  impairment rather than by a code list; the IFC names ISMICC, DSM-5, and ICD-10 as
-  resources (91 FR 33375) without adopting a list. The disabling-mental-disorder category
-  therefore uses CCW algorithms for the conditions the IFC names.
+* The SAMHSA MH-CLD 2018 Appendix E is recorded as consulted; codes are taken from the later 2023
+  Table C-2 crosswalk, which covers the same diagnostic groups in ICD-10-CM.
 
 
 ## Source registry
 
-| source_id | Title | Publisher | Version | Accessed | URL | SHA-256 of file |
-|---|---|---|---|---|---|---|
-| `hcup_cmr_v2026_1` | Elixhauser Comorbidity Software Refined for ICD-10-CM, v2026.1 (reference file) | Agency for Healthcare Research and Quality, Healthcare Cost and Utilization Project | v2026.1 | 2026-09-29 | https://hcup-us.ahrq.gov/toolssoftware/comorbidityicd10/CMR-Reference-File-v2026-1.xlsx | 5f6171844e450ac3... |
-| `ccw_otcc_2026_08` | CCW Other Chronic Health, Mental Health, and Potentially Disabling Chronic Conditions Algorithms (MBSF_OTCC) | Centers for Medicare & Medicaid Services, Chronic Conditions Data Warehouse | Revised 08/2026 | 2026-09-29 | https://www2.ccwdata.org/documents/10280/19139421/other-condition-algorithms.pdf | 4e34e72edf8c7700... |
-| `ccw_chronic30_2026_08` | 30 CCW Chronic Conditions Algorithms (MBSF_CHRONIC) | Centers for Medicare & Medicaid Services, Chronic Conditions Data Warehouse | Revised 08/2026 | 2026-09-29 | https://www2.ccwdata.org/documents/10280/19139421/chr-chronic-condition-algorithms.pdf | 86bb112be52a491f... |
-| `cms_icd10cm_fy2027` | ICD-10-CM FY2027 code descriptions in tabular order (order file) | Centers for Medicare & Medicaid Services / NCHS | FY2027 (effective 2026-10-01) | 2026-09-29 | https://www.cms.gov/files/zip/2027-code-descriptions-tabular-order.zip | 91c6c9d1117764ce... |
-| `cms_icd10cm_fy2026` | ICD-10-CM FY2026 code descriptions in tabular order (order file) | Centers for Medicare & Medicaid Services / NCHS | FY2026 (effective 2025-10-01) | 2026-09-29 | https://www.cms.gov/files/zip/2026-code-descriptions-tabular-order.zip | 55a9124a27ca78a4... |
-| `cms_icd10cm_fy2025` | ICD-10-CM FY2025 code descriptions in tabular order (order file) | Centers for Medicare & Medicaid Services / NCHS | FY2025 (effective 2024-10-01) | 2026-09-29 | https://www.cms.gov/files/zip/2025-code-descriptions-tabular-order.zip | 4f6c65f0034736d2... |
-| `cms_icd10cm_fy2024` | ICD-10-CM FY2024 code descriptions in tabular order (order file, updated 02/01/2024) | Centers for Medicare & Medicaid Services / NCHS | FY2024 (effective 2023-10-01) | 2026-09-29 | https://www.cms.gov/files/zip/2024-code-descriptions-tabular-order-updated-02/01/2024.zip | 4b30a68a011edb4a... |
-| `cms_hcpcs_2026_oct` | HCPCS Level II alpha-numeric file, October 2026 quarterly update | Centers for Medicare & Medicaid Services | 2026 October (HCPC2026_OCT_ANWEB_09232026) | 2026-09-29 | https://www.cms.gov/files/zip/october-2026-alpha-numeric-hcpcs-file.zip | 08c2202fa92c1d1f... |
-| `cms_pos` | Place of Service Code Set | Centers for Medicare & Medicaid Services | web page as accessed | 2026-09-29 | https://www.cms.gov/medicare/coding-billing/place-of-service-codes/code-sets | f5ccd35efc625b2f... |
-| `resdac_fac_type` | ResDAC: Claim Facility Type Code (FFS) and Claim Service Classification Type Code (FFS) tables (type-of-bill digits) | Research Data Assistance Center (CMS contractor) | web page as accessed | 2026-09-29 | https://resdac.org/cms-data/variables/claim-facility-type-code-ffs | ba8bf17b9bd2e8fa... |
-| `resdac_srvc_cls` | ResDAC: Claim Service Classification Type Code Table | Research Data Assistance Center (CMS contractor) | file as accessed | 2026-09-29 | https://resdac.org/sites/default/files/Claim%20Service%20Classification%20Type%20Code%20Table.txt | 491af91c96ba4999... |
-| `cms_mcpm_ch8` | Medicare Claims Processing Manual, Chapter 8 - Outpatient ESRD Hospital, Independent Facility, and Physician/Supplier Claims | Centers for Medicare & Medicaid Services | PDF as accessed | 2026-09-29 | https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/clm104c08.pdf | 022a1be1c16d9a2a... |
-| `cms_mcpm_ch10` | Medicare Claims Processing Manual, Chapter 10 - Home Health Agency Billing | Centers for Medicare & Medicaid Services | PDF as accessed | 2026-09-29 | https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/clm104c10.pdf | 9fac4786be8af36b... |
-| `cms_mcpm_ch11` | Medicare Claims Processing Manual, Chapter 11 - Processing Hospice Claims | Centers for Medicare & Medicaid Services | PDF as accessed | 2026-09-29 | https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/clm104c11.pdf | 74dc3e248b24a797... |
-| `cms_2454_ifc` | Medicaid Program; Community Engagement Requirement for Certain Individuals (CMS-2454-IFC), 91 FR 33348, June 3, 2026, FR Doc. 2026-11094 | Centers for Medicare & Medicaid Services (Federal Register via GovInfo) | Interim final rule, effective 2026-07-31 | 2026-09-29 | https://www.govinfo.gov/content/pkg/FR-2026-06-03/html/2026-11094.htm | 93b42b54ce901df3... |
-| `obbba_sec71119` | Public Law 119-21 (H.R. 1), Sec. 71119, enrolled text reproduced by CHCS | Center for Health Care Strategies (reproduction of enrolled bill text, H.R. 1 pp. 235-242) | Enrolled bill text | 2026-09-29 | https://www.chcs.org/media/OBBBA-Work-Requirements_Sec.-71119.pdf | c99f94ca83b92c56... |
-| `basu_berkowitz_2026` | Basu S, Berkowitz SA. Redesigning Medicaid frailty algorithms: improved identification of medically frail adults under community engagement. Health Aff Sch. 2026;4(6):qxag108 (redesign families = union of CA and NY recognized_conditions in sanjaybasu/medicaid-frailty-bias frailty_definitions/state_definitions.py) | Health Affairs Scholar (Oxford University Press) | vol 4 issue 6, published 2026-05-08 | 2026-09-29 | https://doi.org/10.1093/haschl/qxag108 | n/a |
+| source_id | Title | Publisher | Version | Accessed | URL | License / terms | SHA-256 of file |
+|---|---|---|---|---|---|---|---|
+| `hcup_cmr_v2026_1` | Elixhauser Comorbidity Software Refined for ICD-10-CM, v2026.1 (reference file) | Agency for Healthcare Research and Quality, Healthcare Cost and Utilization Project | v2026.1 | 2026-09-29 | https://hcup-us.ahrq.gov/toolssoftware/comorbidityicd10/CMR-Reference-File-v2026-1.xlsx | AHRQ HCUP software, freely available; U.S. federal government work | 5f6171844e450ac3... |
+| `ccw_otcc_2026_08` | CCW Other Chronic Health, Mental Health, and Potentially Disabling Chronic Conditions Algorithms (MBSF_OTCC) | Centers for Medicare & Medicaid Services, Chronic Conditions Data Warehouse | Revised 08/2026 | 2026-09-29 | https://www2.ccwdata.org/documents/10280/19139421/other-condition-algorithms.pdf | U.S. federal government work (CMS); public domain | 4e34e72edf8c7700... |
+| `ccw_chronic30_2026_08` | 30 CCW Chronic Conditions Algorithms (MBSF_CHRONIC) | Centers for Medicare & Medicaid Services, Chronic Conditions Data Warehouse | Revised 08/2026 | 2026-09-29 | https://www2.ccwdata.org/documents/10280/19139421/chr-chronic-condition-algorithms.pdf | U.S. federal government work (CMS); public domain | 86bb112be52a491f... |
+| `cms_icd10cm_fy2027` | ICD-10-CM FY2027 code descriptions in tabular order (order file) | Centers for Medicare & Medicaid Services / NCHS | FY2027 (effective 2026-10-01) | 2026-09-29 | https://www.cms.gov/files/zip/2027-code-descriptions-tabular-order.zip | public domain (CMS/NCHS) | 91c6c9d1117764ce... |
+| `cms_icd10cm_fy2026` | ICD-10-CM FY2026 code descriptions in tabular order (order file) | Centers for Medicare & Medicaid Services / NCHS | FY2026 (effective 2025-10-01) | 2026-09-29 | https://www.cms.gov/files/zip/2026-code-descriptions-tabular-order.zip | public domain (CMS/NCHS) | 55a9124a27ca78a4... |
+| `cms_icd10cm_fy2025` | ICD-10-CM FY2025 code descriptions in tabular order (order file) | Centers for Medicare & Medicaid Services / NCHS | FY2025 (effective 2024-10-01) | 2026-09-29 | https://www.cms.gov/files/zip/2025-code-descriptions-tabular-order.zip | public domain (CMS/NCHS) | 4f6c65f0034736d2... |
+| `cms_icd10cm_fy2024` | ICD-10-CM FY2024 code descriptions in tabular order (order file, updated 02/01/2024) | Centers for Medicare & Medicaid Services / NCHS | FY2024 (effective 2023-10-01) | 2026-09-29 | https://www.cms.gov/files/zip/2024-code-descriptions-tabular-order-updated-02/01/2024.zip | public domain (CMS/NCHS) | 4b30a68a011edb4a... |
+| `cms_hcpcs_2026_oct` | HCPCS Level II alpha-numeric file, October 2026 quarterly update | Centers for Medicare & Medicaid Services | 2026 October (HCPC2026_OCT_ANWEB_09232026) | 2026-09-29 | https://www.cms.gov/files/zip/october-2026-alpha-numeric-hcpcs-file.zip | HCPCS Level II: public domain (CMS); CPT portions not used | 08c2202fa92c1d1f... |
+| `cms_pos` | Place of Service Code Set | Centers for Medicare & Medicaid Services | web page as accessed | 2026-09-29 | https://www.cms.gov/medicare/coding-billing/place-of-service-codes/code-sets | public domain (CMS) | f5ccd35efc625b2f... |
+| `resdac_fac_type` | ResDAC: Claim Facility Type Code (FFS) and Claim Service Classification Type Code (FFS) tables (type-of-bill digits) | Research Data Assistance Center (CMS contractor) | web page as accessed | 2026-09-29 | https://resdac.org/cms-data/variables/claim-facility-type-code-ffs | public web page (CMS contractor); prefixes only | ba8bf17b9bd2e8fa... |
+| `resdac_srvc_cls` | ResDAC: Claim Service Classification Type Code Table | Research Data Assistance Center (CMS contractor) | file as accessed | 2026-09-29 | https://resdac.org/sites/default/files/Claim%20Service%20Classification%20Type%20Code%20Table.txt | public web page (CMS contractor); prefixes only | 491af91c96ba4999... |
+| `cms_mcpm_ch8` | Medicare Claims Processing Manual, Chapter 8 - Outpatient ESRD Hospital, Independent Facility, and Physician/Supplier Claims | Centers for Medicare & Medicaid Services | PDF as accessed | 2026-09-29 | https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/clm104c08.pdf | public domain (CMS) | 022a1be1c16d9a2a... |
+| `cms_mcpm_ch10` | Medicare Claims Processing Manual, Chapter 10 - Home Health Agency Billing | Centers for Medicare & Medicaid Services | PDF as accessed | 2026-09-29 | https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/clm104c10.pdf | public domain (CMS) | 9fac4786be8af36b... |
+| `cms_mcpm_ch11` | Medicare Claims Processing Manual, Chapter 11 - Processing Hospice Claims | Centers for Medicare & Medicaid Services | PDF as accessed | 2026-09-29 | https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/clm104c11.pdf | public domain (CMS) | 74dc3e248b24a797... |
+| `cms_2454_ifc` | Medicaid Program; Community Engagement Requirement for Certain Individuals (CMS-2454-IFC), 91 FR 33348, June 3, 2026, FR Doc. 2026-11094 | Centers for Medicare & Medicaid Services (Federal Register via GovInfo) | Interim final rule, effective 2026-07-31 | 2026-09-29 | https://www.govinfo.gov/content/pkg/FR-2026-06-03/html/2026-11094.htm | public domain (Federal Register) | 93b42b54ce901df3... |
+| `obbba_sec71119` | Public Law 119-21 (H.R. 1), Sec. 71119, enrolled text reproduced by CHCS | Center for Health Care Strategies (reproduction of enrolled bill text, H.R. 1 pp. 235-242) | Enrolled bill text | 2026-09-29 | https://www.chcs.org/media/OBBBA-Work-Requirements_Sec.-71119.pdf | public law text (public domain) | c99f94ca83b92c56... |
+| `samhsa_mhcld_2023` | SAMHSA Mental Health Client-Level Data (MH-CLD) Annual Report 2023, Appendix C Table C-2 'Mental Health Diagnosis Groups and International Classification of Diseases (ICD) Codes Crosswalk' (Publication No. PEP25-07-008) | Substance Abuse and Mental Health Services Administration, Center for Behavioral Health Statistics and Quality | MH-CLD 2023 (latest annual report with the ICD-10 crosswalk; supersedes 2018 MH-CLD Appendix E) | 2026-09-29 | https://www.samhsa.gov/data/sites/default/files/reports/rpt56264/2023-MH-CLD-Annual-Report.pdf | U.S. federal government work (17 U.S.C. 105); public domain | 2f589dbd9d503453... |
+| `samhsa_mhcld_2018_appe` | SAMHSA MH-CLD 2018, Appendix E 'Mental Health and Substance Use Diagnosis Codes' (consulted; superseded by the 2023 Table C-2 for code extraction) | Substance Abuse and Mental Health Services Administration | MH-CLD 2018 | 2026-09-29 | https://www.samhsa.gov/data/sites/default/files/reports/rpt29396/2018-MHCLD/2018-MHCLD-AppE.pdf | U.S. federal government work; public domain | c1666dfad494c8b2... |
+| `dsm5tr_2022` | American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR). 2022. Chapter 'Trauma- and Stressor-Related Disorders' (chapter membership only; no DSM text reproduced) | American Psychiatric Association Publishing | DSM-5-TR (2022) | 2026-09-29 | https://doi.org/10.1176/appi.books.9780890425787 | citation only; codes and titles are taken from the CMS ICD-10-CM files | n/a |
+| `friedman_2011_dsm5_trauma` | Friedman MJ, Resick PA, Bryant RA, Strain J, Horowitz M, Spiegel D. Classification of trauma and stressor-related disorders in DSM-5. Depress Anxiety. 2011;28(9):737-749 (verified via Crossref) | Wiley (Depression and Anxiety) | 2011 | 2026-09-29 | https://doi.org/10.1002/da.20845 | citation only | n/a |
+| `nlm_rxnav_n05a` | NLM RxNav REST API: RxClass ATC class N05A (antipsychotics) ingredient members -> RxNorm SCD/SBD/GPCK/BPCK -> historical NDCs (query log in the cached JSON) | National Library of Medicine | API response as of access date | 2026-09-29 | https://rxnav.nlm.nih.gov/REST/rxclass/classMembers.json?classId=N05A&relaSource=ATC&ttys=IN | RxNorm/RxClass data from NLM (U.S. government); ATC classes via RxClass. NDCs are public FDA identifiers | 63854af1e16c5d22... |
+| `fda_ndc_directory` | FDA National Drug Code Directory (product.txt, package.txt), products whose PHARM_CLASSES include an 'Antipsychotic [EPC]' class | U.S. Food and Drug Administration | file as downloaded on access date | 2026-09-29 | https://www.accessdata.fda.gov/cder/ndctext.zip | U.S. federal government work; public domain | fc6c1fd17b7a798a... |
+| `ama_cpt2027_maternity` | AMA, CPT 2027 Maternity Care Services codes and guidelines (early release; code NUMBERS only are used, no descriptors) | American Medical Association | CPT 2027 (effective 2027-01-01) | 2026-09-29 | https://www.ama-assn.org/system/files/cpt-maternity-care-codes-guidelines.pdf | CPT copyright 2026 American Medical Association; descriptors not reproduced | eaf2ea237a7d97ed... |
+| `ne_dhhs_mf_index` | Nebraska DHHS, Nebraska Medicaid Work Requirements - Medically Frail Exemption Conditions Index (Medically Frail and SUD Conditions) | Nebraska Department of Health and Human Services | as posted on access date (295 pages) | 2026-09-29 | https://dhhs.ne.gov/Documents/Nebraska%20Medicaid%20Work%20Requirements%20-%20Medically%20Frail%20and%20SUD%20Conditions.pdf | state government public document; no restriction stated | dd2e17298ea240a5... |
+| `ne_dhhs_mf_process` | Nebraska DHHS, Nebraska Medicaid Work Requirements - Medically Frail and SUD Treatment Program Exemptions (May 1, 2026) | Nebraska Department of Health and Human Services | May 1, 2026 | 2026-09-29 | https://dhhs.ne.gov/Documents/NE%20MWR%20-%20Medically%20Frail%20and%20SUD%20Treatment%20Program%20Exemptions.pdf | state government public document; no restriction stated | d382ba164fcf6f58... |
+| `basu_berkowitz_2026` | Basu S, Berkowitz SA. Redesigning Medicaid frailty algorithms: improved identification of medically frail adults under community engagement. Health Aff Sch. 2026;4(6):qxag108 (redesign families = union of CA and NY recognized_conditions in sanjaybasu/medicaid-frailty-bias frailty_definitions/state_definitions.py) | Health Affairs Scholar (Oxford University Press) | vol 4 issue 6, published 2026-05-08 | 2026-09-29 | https://doi.org/10.1093/haschl/qxag108 | citation only | n/a |
 
 ## Category to component to source
 
@@ -78,12 +93,20 @@ deleted before FY2024) are dropped and listed in `codelists/build_report.json`.
 | disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | dx | `ccw_bipolar_disorder` (CCW: Bipolar Disorder) | 42 | ccw_otcc_2026_08 |
 | disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | dx | `ccw_depressive_disorders` (CCW: Depressive Disorders) | 19 | ccw_otcc_2026_08 |
 | disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | dx | `ccw_anxiety_disorders:F410` (CCW: Anxiety Disorders) | 1 | ccw_otcc_2026_08 |
+| disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | dx | `samhsa_mhcld_schizophrenia_psychotic` (SAMHSA MH-CLD 2023 Table C-2: schizophrenia psychotic) | 23 | samhsa_mhcld_2023 |
+| disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | dx | `samhsa_mhcld_bipolar` (SAMHSA MH-CLD 2023 Table C-2: bipolar) | 34 | samhsa_mhcld_2023 |
+| disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | dx | `samhsa_mhcld_depressive` (SAMHSA MH-CLD 2023 Table C-2: depressive) | 22 | samhsa_mhcld_2023 |
+| disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | dx | `samhsa_mhcld_anxiety:F410` (SAMHSA MH-CLD 2023 Table C-2: anxiety) | 1 | samhsa_mhcld_2023 |
+| disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | dx | `samhsa_mhcld_trauma_stressor` (SAMHSA MH-CLD 2023 Table C-2: trauma stressor) | 12 | samhsa_mhcld_2023 |
+| disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | dx | `dsm5tr_trauma_stressor` (Trauma- and stressor-related disorders except adjustment disorders (DSM-5-TR chapter)) | 11 | dsm5tr_2022; friedman_2011_dsm5_trauma |
+| disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | dx | `dsm5tr_adjustment_disorders` (Adjustment disorders (DSM-5-TR trauma- and stressor-related chapter)) | 8 | dsm5tr_2022 |
 | disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | impairment | `pos_inpatient_psych` (Inpatient psychiatric facility) | 1 | cms_pos |
 | disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | impairment | `pos_psych_partial_hosp` (Psychiatric facility partial hospitalization) | 1 | cms_pos |
 | disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | impairment | `pos_residential_bh` (Residential substance abuse treatment facility; psychiatric residential treatment center) | 2 | cms_pos |
 | disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | impairment | `hc_mh_intensive` (Intensive or crisis mental health services) | 18 | cms_hcpcs_2026_oct |
 | disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | impairment | `hc_lai_antipsychotic` (Long-acting injectable antipsychotics) | 20 | cms_hcpcs_2026_oct |
-| disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | optional_dx | `ccw_post_traumatic_stress_disorder_ptsd` (CCW: Post-Traumatic Stress Disorder (PTSD)) | 3 | ccw_otcc_2026_08 |
+| disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | impairment | `rxnav_antipsychotic_ndc` (Antipsychotic NDCs (ATC N05A via RxNav; lithium and antiemetic-use agents excluded)) | 7208 | nlm_rxnav_n05a |
+| disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | impairment | `fda_ndc_antipsychotic_epc` (Antipsychotic [EPC] package NDCs in the FDA NDC Directory not already in the RxNav list) | 41 | fda_ndc_directory |
 | disabling_mental_disorder | 42 CFR 435.554(c)(5)(i)(C) | optional_dx | `ccw_personality_disorders` (CCW: Personality Disorders) | 19 | ccw_otcc_2026_08 |
 | physical_idd_disability_adl | 42 CFR 435.554(c)(5)(i)(D) | dx | `ccw_intellectual_disabilities_and_related_conditions` (CCW: Intellectual Disabilities and Related Conditions) | 67 | ccw_otcc_2026_08 |
 | physical_idd_disability_adl | 42 CFR 435.554(c)(5)(i)(D) | dx | `ccw_cerebral_palsy` (CCW: Cerebral Palsy) | 7 | ccw_otcc_2026_08 |
@@ -279,6 +302,27 @@ deleted before FY2024) are dropped and listed in `codelists/build_report.json`.
 | `ccw30_pneumonia_all_cause` | CCW: Pneumonia, All- cause | ICD10CM | ccw_chronic30_2026_08 | codes parsed from ICD-10 column; qualify rule: 1 OR 2 HOP/carrier with DX codes | 93 |
 | `ccw30_rheumatoid_arthritis_osteoarthritis` | CCW: Rheumatoid Arthritis/ Osteoarthritis | ICD10CM | ccw_chronic30_2026_08 | codes parsed from ICD-10 column; qualify rule: 1 OR 2 HOP/carrier with DX codes | 632 |
 | `ccw30_stroke_transient_ischemic_attack` | CCW: Stroke/ Transient Ischemic Attack | ICD10CM | ccw_chronic30_2026_08 | codes parsed from ICD-10 column; qualify rule: 1 inpatient, or carrier claim DX codes | 270 |
+| `samhsa_mhcld_adhd` | SAMHSA MH-CLD 2023 Table C-2: adhd | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 17 |
+| `samhsa_mhcld_alcohol_related` | SAMHSA MH-CLD 2023 Table C-2: alcohol related | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 87 |
+| `samhsa_mhcld_anxiety` | SAMHSA MH-CLD 2023 Table C-2: anxiety | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 60 |
+| `samhsa_mhcld_bipolar` | SAMHSA MH-CLD 2023 Table C-2: bipolar | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 34 |
+| `samhsa_mhcld_conduct` | SAMHSA MH-CLD 2023 Table C-2: conduct | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 5 |
+| `samhsa_mhcld_delirium_dementia` | SAMHSA MH-CLD 2023 Table C-2: delirium dementia | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 27 |
+| `samhsa_mhcld_depressive` | SAMHSA MH-CLD 2023 Table C-2: depressive | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 22 |
+| `samhsa_mhcld_odd` | SAMHSA MH-CLD 2023 Table C-2: odd | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 1 |
+| `samhsa_mhcld_personality` | SAMHSA MH-CLD 2023 Table C-2: personality | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 13 |
+| `samhsa_mhcld_pervasive_developmental` | SAMHSA MH-CLD 2023 Table C-2: pervasive developmental | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 6 |
+| `samhsa_mhcld_schizophrenia_psychotic` | SAMHSA MH-CLD 2023 Table C-2: schizophrenia psychotic | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 23 |
+| `samhsa_mhcld_substance_related` | SAMHSA MH-CLD 2023 Table C-2: substance related | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 468 |
+| `samhsa_mhcld_trauma_stressor` | SAMHSA MH-CLD 2023 Table C-2: trauma stressor | ICD10CM | samhsa_mhcld_2023 | ICD-10 column of Table C-2, validated against ICD-10-CM FY2024-FY2027 | 12 |
+| `rxnav_antipsychotic_ndc` | Antipsychotic NDCs (ATC N05A via RxNav; lithium and antiemetic-use agents excluded) | NDC | nlm_rxnav_n05a | RxNorm historical NDCs active since 202301 | 7208 |
+| `fda_ndc_antipsychotic_epc` | Antipsychotic [EPC] package NDCs in the FDA NDC Directory not already in the RxNav list | NDC | fda_ndc_directory | cross-check additions | 41 |
+| `cpt_maternity` | Maternity care CPT code numbers (59000-59899 cited by AMA; no descriptors) | CPT | ama_cpt2027_maternity | regex on the AMA PDF; E/M and newborn codes excluded | 75 |
+| `ne_dhhs_mf_dx_sud` | Nebraska DHHS medically frail index diagnoses (sud) | ICD10CM | ne_dhhs_mf_index | codes validated against ICD-10-CM FY2024-FY2027; '.x' expanded by prefix; grouped by the toolkit for reporting | 146 |
+| `ne_dhhs_mf_dx_mental` | Nebraska DHHS medically frail index diagnoses (mental) | ICD10CM | ne_dhhs_mf_index | codes validated against ICD-10-CM FY2024-FY2027; '.x' expanded by prefix; grouped by the toolkit for reporting | 156 |
+| `ne_dhhs_mf_dx_vision` | Nebraska DHHS medically frail index diagnoses (vision) | ICD10CM | ne_dhhs_mf_index | codes validated against ICD-10-CM FY2024-FY2027; '.x' expanded by prefix; grouped by the toolkit for reporting | 31 |
+| `ne_dhhs_mf_dx_other` | Nebraska DHHS medically frail index diagnoses (other) | ICD10CM | ne_dhhs_mf_index | codes validated against ICD-10-CM FY2024-FY2027; '.x' expanded by prefix; grouped by the toolkit for reporting | 7845 |
+| `ne_dhhs_mf_procedures` | Nebraska DHHS medically frail index procedure codes (HCPCS; individually listed CPT numbers) | mixed | ne_dhhs_mf_index | HCPCS ranges expanded against the HCPCS file; CPT ranges not expanded | 84 |
 | `ifc_sarcoidosis` | Sarcoidosis (IFC-named serious or complex condition) | ICD10CM | cms_icd10cm_fy2024..fy2027 | 91 FR 33376 names sarcoidosis; ICD-10-CM D86 = Sarcoidosis. | 15 |
 | `ifc_als` | Amyotrophic lateral sclerosis (IFC-named) | ICD10CM | cms_icd10cm_fy2024..fy2027 | 91 FR 33376 names ALS; ICD-10-CM G12.21 = Amyotrophic lateral sclerosis. | 1 |
 | `ifc_huntington` | Huntington's disease (IFC-named) | ICD10CM | cms_icd10cm_fy2024..fy2027 | 91 FR 33376 names Huntington's disease; ICD-10-CM G10. | 1 |
@@ -338,6 +382,10 @@ deleted before FY2024) are dropped and listed in `codelists/build_report.json`.
 | `pos_hospice` | Hospice | POS | cms_pos |  | 1 |
 | `pos_esrd` | End-stage renal disease treatment facility | POS | cms_pos |  | 1 |
 | `pos_emergency` | Emergency room - hospital | POS | cms_pos |  | 1 |
+| `dsm5tr_trauma_stressor` | Trauma- and stressor-related disorders except adjustment disorders (DSM-5-TR chapter) | ICD10CM | cms_icd10cm_fy2024..fy2027; selection from dsm5tr_2022; friedman_2011_dsm5_trauma | Acute stress reaction, PTSD, other and unspecified reactions to severe stress, reactive attachment disorder, disinhibited social engagement  | 11 |
+| `dsm5tr_adjustment_disorders` | Adjustment disorders (DSM-5-TR trauma- and stressor-related chapter) | ICD10CM | cms_icd10cm_fy2024..fy2027; selection from dsm5tr_2022 | Kept as a separate component so a state can drop it; see categories.yaml. | 8 |
+| `preg_icd10cm_chapter15` | ICD-10-CM Chapter 15, Pregnancy, childbirth and the puerperium (O00-O9A) | ICD10CM | cms_icd10cm_fy2024..fy2027 | SSA 1902(xx)(9)(A)(ii)(IX); 42 CFR 435.554(c)(10). Claims fallback only; the eligibility aid category is the primary source. | 3079 |
+| `preg_icd10cm_z_codes` | Pregnancy-state, supervision, antenatal screening, gestational-weeks and postpartum encounter Z codes | ICD10CM | cms_icd10cm_fy2024..fy2027 | ICD-10-CM Z33.1 Pregnant state, incidental; Z34 supervision of normal pregnancy; Z36 antenatal screening; Z3A weeks of gestation; Z39 postpa | 84 |
 | `cpt_dialysis` | Dialysis procedure codes named in CMS Medicare Claims Processing Manual Ch. 8 | CPT | cms_mcpm_ch8 |  | 5 |
 | `tob_inpatient_hospital` | Hospital inpatient type of bill (11x) | TOB_PREFIX | resdac_fac_type |  | 1 |
 | `tob_snf_icf` | SNF inpatient (21x, 22x) and intermediate care (65x, 66x) type of bill | TOB_PREFIX | resdac_fac_type,resdac_srvc_cls |  | 4 |

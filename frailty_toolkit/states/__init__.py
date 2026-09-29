@@ -26,12 +26,12 @@ TOP_LEVEL_KEYS = {
     "sources", "notes", "lookback_months", "min_distinct_dates", "single_inpatient_sufficient",
     "include_claim_statuses", "categories", "optional_domains", "related_provisions",
     "eligibility_markers", "extends", "diagnosis_positions", "external_code_lists",
-    "thin_record_max_service_dates",
+    "thin_record_max_service_dates", "specified_exemptions", "exemption_markers", "min_impairment_dates",
 }
 CATEGORY_KEYS = {
     "enabled", "require_impairment_evidence", "min_distinct_dates", "single_inpatient_sufficient",
     "remission_codes", "inpatient_with_dx_counts_as_impairment", "extra_codes", "notes",
-    "use_optional_dx_components", "diagnosis_positions",
+    "use_optional_dx_components", "diagnosis_positions", "min_impairment_dates", "replace_dx_components",
 } | {f"{op}_{k}" for op in ("add", "remove") for k in COMPONENT_LIST_KEYS}
 
 
@@ -58,6 +58,7 @@ class CategorySpec:
     remission_codes: str = "count"
     marker_alone_is_partial: bool = True
     diagnosis_positions: int = 25
+    min_impairment_dates: int = 1
     extra_codes: list[dict] = field(default_factory=list)
 
 
@@ -79,6 +80,8 @@ class StateConfig:
     diagnosis_positions: int = 25
     external_code_lists: list[dict] = field(default_factory=list)
     thin_record_max_service_dates: int = 2
+    specified_exemptions: dict = field(default_factory=dict)
+    exemption_markers: list[dict] = field(default_factory=list)
 
     @property
     def enabled_categories(self) -> list[str]:
@@ -97,19 +100,27 @@ def _check_components(refs: list[str], where: str, known: set[str]) -> None:
 
 
 def available_states() -> list[str]:
-    d = resources.files(__name__)
-    return sorted(p.name[:-5] for p in d.iterdir() if p.name.endswith(".yaml") and not p.name.startswith("_"))
+    """'template' (the federal default, the primary product) plus the worked state examples."""
+    return ["template"] + available_examples()
+
+
+def available_examples() -> list[str]:
+    d = resources.files(__name__).joinpath("examples")
+    return sorted(p.name[:-5] for p in d.iterdir() if p.name.endswith(".yaml"))
 
 
 def _read_yaml(path_or_name: str | Path) -> dict:
     p = Path(path_or_name)
     if p.suffix in (".yaml", ".yml") and p.exists():
         return yaml.safe_load(p.read_text()) or {}
-    name = str(path_or_name).lower()
-    res = resources.files(__name__).joinpath(f"{name}.yaml")
-    if not res.is_file():
-        raise ConfigError(f"no state config '{path_or_name}'; available: {available_states()}")
-    return yaml.safe_load(res.read_text()) or {}
+    name = str(path_or_name).lower().removeprefix("examples/")
+    if name in ("federal", "federal_default"):
+        name = "template"
+    base = resources.files(__name__)
+    for res in (base.joinpath(f"{name}.yaml"), base.joinpath("examples", f"{name}.yaml")):
+        if res.is_file():
+            return yaml.safe_load(res.read_text()) or {}
+    raise ConfigError(f"no state config '{path_or_name}'; available: {available_states()}")
 
 
 def load_state_config(path_or_name: str | Path) -> StateConfig:
@@ -178,6 +189,8 @@ def validate_config(raw: dict[str, Any]) -> StateConfig:
         if extra:
             raise ConfigError(f"categories.{name}: unknown keys {sorted(extra)}")
         lists = {k: list(d.get(k, [])) for k in COMPONENT_LIST_KEYS}
+        if c.get("replace_dx_components") is not None:
+            lists["dx_components"] = list(c["replace_dx_components"])
         if c.get("use_optional_dx_components"):
             lists["dx_components"] += list(d.get("optional_dx_components", []))
         for k in COMPONENT_LIST_KEYS:
@@ -213,6 +226,7 @@ def validate_config(raw: dict[str, Any]) -> StateConfig:
             remission_codes=rem,
             marker_alone_is_partial=bool(d.get("marker_alone_is_partial", True)),
             diagnosis_positions=int(c.get("diagnosis_positions", dpos)),
+            min_impairment_dates=int(c.get("min_impairment_dates", raw.get("min_impairment_dates", 1))),
             extra_codes=list(c.get("extra_codes", []) or []),
         )
         if spec.enabled and not spec.require_impairment_evidence:
@@ -257,6 +271,26 @@ def validate_config(raw: dict[str, Any]) -> StateConfig:
     thin = raw.get("thin_record_max_service_dates", 2)
     if not isinstance(thin, int) or thin < 0:
         raise ConfigError("thin_record_max_service_dates must be an integer >= 0 (0 disables the tier)")
+    se_raw = raw.get("specified_exemptions", {}) or {}
+    se_defs = defs.get("specified_exemptions", {})
+    bad = set(se_raw) - set(se_defs)
+    if bad:
+        raise ConfigError(f"unknown specified_exemptions {sorted(bad)}")
+    se = {}
+    for k, d in se_defs.items():
+        o = se_raw.get(k, {}) or {}
+        pm = o.get("postpartum_months", 12)
+        if k == "pregnancy_postpartum" and (not isinstance(pm, int) or not 1 <= pm <= 24):
+            raise ConfigError("specified_exemptions.pregnancy_postpartum.postpartum_months must be 1-24")
+        se[k] = {**d, "enabled": bool(o.get("enabled", True)), "postpartum_months": pm}
+        for r in d.get("components", []):
+            _check_components([r], f"specified_exemptions.{k}", known)
+    xm = raw.get("exemption_markers", []) or []
+    for m in xm:
+        if not {"exemption", "column", "values", "citation"} <= set(m):
+            raise ConfigError("exemption_markers entries need exemption, column, values, citation")
+        if m["exemption"] not in se_defs:
+            raise ConfigError(f"exemption_markers: unknown exemption {m['exemption']}")
     ext = raw.get("external_code_lists", []) or []
     for x in ext:
         if not {"path", "citation"} <= set(x):
@@ -264,6 +298,7 @@ def validate_config(raw: dict[str, Any]) -> StateConfig:
 
     return StateConfig(
         diagnosis_positions=dpos, external_code_lists=list(ext), thin_record_max_service_dates=thin,
+        specified_exemptions=se, exemption_markers=list(xm),
         rule_version=rv.strip(), state=state, state_name=raw.get("state_name", state),
         lookback_months=lb, min_distinct_dates=mdd, single_inpatient_sufficient=sis,
         include_claim_statuses=list(statuses), categories=cats, optional_domains=opt,
@@ -272,5 +307,5 @@ def validate_config(raw: dict[str, Any]) -> StateConfig:
     )
 
 
-__all__ = ["CategorySpec", "ConfigError", "StateConfig", "available_states", "load_state_config",
+__all__ = ["CategorySpec", "ConfigError", "StateConfig", "available_examples", "available_states", "load_state_config",
            "validate_config", "MAX_LOOKBACK_MONTHS"]

@@ -79,7 +79,14 @@ class FrailtyResult:
     def summary(self) -> pd.DataFrame:
         s = self.persons["tier"].value_counts().rename_axis("tier").reset_index(name="n")
         s["pct"] = (100 * s["n"] / max(len(self.persons), 1)).round(1)
+        s["note"] = SCREENING_NOTE
         return s
+
+    def metadata(self) -> dict:
+        """Run metadata written next to every output file."""
+        return {"note": SCREENING_NOTE, "disclaimer": "See the Disclaimer section of README.md and NOTICE.",
+                "state": self.config.state, "rule_version": self.config.rule_version,
+                "as_of": self.as_of.date().isoformat(), "window_start": self.window_start.date().isoformat()}
 
     def tier_by_group(self) -> pd.DataFrame:
         """Tier sizes (n and % of the group) by race/ethnicity and by rurality, for whichever
@@ -94,7 +101,8 @@ class FrailtyResult:
                 n = int(r.sum())
                 for tier, k in r.items():
                     rows.append({"dimension": col, "group": grp, "tier": tier, "n": int(k), "n_group": n,
-                                 "pct_of_group": round(100 * k / n, 1) if n else float("nan")})
+                                 "pct_of_group": round(100 * k / n, 1) if n else float("nan"),
+                                 "note": SCREENING_NOTE})
         return pd.DataFrame(rows)
 
 
@@ -442,6 +450,9 @@ def evaluate(medical_claims: pd.DataFrame, config: StateConfig, as_of,
             persons[f"related_{k}_last_date"] = pd.to_datetime(
                 pd.Series([last.get(p) for p in persons["person_id"]], index=persons.index, dtype="object"))
 
+    _add_specified_exemptions(persons, mc_all, config, as_of, eligibility,
+                              persons_related=persons.get("related_sud_treatment_program_last_date"))
+
     if eligibility is not None:
         persons["enrolled_months_in_window"] = persons["person_id"].map(
             _enrolled_months(eligibility, start, as_of)).fillna(0).astype(int)
@@ -467,6 +478,49 @@ def evaluate(medical_claims: pd.DataFrame, config: StateConfig, as_of,
     return FrailtyResult(persons=persons, evidence=evidence, config=config, as_of=as_of, window_start=start)
 
 
+def _add_specified_exemptions(persons, mc_all, config, as_of, eligibility, persons_related=None):
+    """Specified exclusions that are not medical frailty. Kept out of the tier entirely.
+
+    exemptions_claims       claims-supported exclusions found in claims (fallback source)
+    exemptions_eligibility  exclusions found through state-configured eligibility markers
+                            (the primary source for every exclusion)
+    """
+    claims = {p: [] for p in persons["person_id"]}
+    elig = {p: [] for p in persons["person_id"]}
+    se = config.specified_exemptions
+    preg = se.get("pregnancy_postpartum", {})
+    persons["pregnancy_last_service_date"] = pd.NaT
+    if preg.get("enabled"):
+        start = as_of - pd.DateOffset(months=preg["postpartum_months"]) + pd.Timedelta(days=1)
+        win = _status_filter(mc_all[(mc_all["claim_start_date"] >= start) & (mc_all["claim_start_date"] <= as_of)],
+                             config.include_claim_statuses)
+        lk = pd.concat([component_codes(r)[["code_system", "code"]] for r in preg["components"]]).drop_duplicates()
+        ev = _medical_events(win, lk.assign(group="x", role="x"))
+        ev = ev.merge(lk, on=["code_system", "code"])
+        last = ev.groupby("person_id")["claim_start_date"].max().to_dict()
+        persons["pregnancy_last_service_date"] = pd.to_datetime(
+            pd.Series([last.get(p) for p in persons["person_id"]], index=persons.index, dtype="object"))
+        for p in last:
+            if p in claims:
+                claims[p].append("pregnancy_postpartum")
+    if se.get("sud_treatment_program", {}).get("enabled") and persons_related is not None:
+        for p, d in zip(persons["person_id"], persons_related):
+            if pd.notna(d):
+                claims[p].append("sud_treatment_program")
+    if eligibility is not None and config.exemption_markers:
+        el = eligibility.copy()
+        el["person_id"] = el["person_id"].astype("string")
+        for m in config.exemption_markers:
+            if m["column"] not in el.columns or not se.get(m["exemption"], {}).get("enabled", True):
+                continue
+            got = el[el[m["column"]].astype("string").isin({str(v) for v in m["values"]})]
+            for p in set(got["person_id"]):
+                if p in elig and m["exemption"] not in elig[p]:
+                    elig[p].append(m["exemption"])
+    persons["exemptions_claims"] = [";".join(claims[p]) for p in persons["person_id"]]
+    persons["exemptions_eligibility"] = [";".join(elig[p]) for p in persons["person_id"]]
+
+
 def _evaluate_category(hits: pd.DataFrame, spec) -> tuple[dict, dict]:
     h = hits[hits["group"] == spec.name]
     if spec.diagnosis_positions < N_DX and "dx_position" in h.columns:
@@ -490,6 +544,9 @@ def _evaluate_category(hits: pd.DataFrame, spec) -> tuple[dict, dict]:
     dx_ip = set(dx.index[dx["ip"]]) if len(dx) else set()
 
     imp_h = h[h["role"] == "impairment"]
+    if spec.min_impairment_dates > 1 and len(imp_h):
+        nd = imp_h.groupby("person_id")["service_date"].nunique()
+        imp_h = imp_h[imp_h["person_id"].isin(nd.index[nd >= spec.min_impairment_dates])]
     imp = imp_h.groupby("person_id")["component_id"].apply(lambda s: ",".join(sorted(set(s))))
     suf = h[h["role"] == "sufficient"].groupby("person_id")["component_id"].apply(lambda s: ",".join(sorted(set(s))))
     pos = h[h["role"] == "possible"].groupby("person_id")["component_id"].apply(lambda s: ",".join(sorted(set(s))))
@@ -548,6 +605,7 @@ def _evidence_table(hits: pd.DataFrame, elig_rows: list, config: StateConfig) ->
     if elig_rows:
         ev = pd.concat([ev, pd.DataFrame(elig_rows)], ignore_index=True)
     ev = ev.reindex(columns=cols + (["citation"] if elig_rows else []))
+    ev["note"] = SCREENING_NOTE
     return ev.sort_values(["person_id", "group", "service_date"], na_position="last").reset_index(drop=True)
 
 

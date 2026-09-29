@@ -30,21 +30,27 @@ that retrospective evaluation on 2024-2025 claims sees codes valid on the date o
 Tokens printed in a CCW PDF that are not valid in any of those four fiscal years (codes
 deleted before FY2024) are dropped and listed in `codelists/build_report.json`.
 
-## Not bundled
+## Not bundled, with the terms that decided it
 
-* The Harvard T.H. Chan School of Public Health medically frail workbook that Washington
-  HCA adopted (https://www.hca.wa.gov/assets/billers-and-providers/medically-frail-code-list.xlsx,
-  last updated 2026-07-31). Its cover page permits free use by state agencies with
-  attribution and requires for-profit entities to obtain a license from Harvard's Office of
-  Technology Development. A state agency can load it at run time through
-  `external_code_lists`.
+* **NCQA HEDIS NDC lists** (https://www.ncqa.org/hedis/measures/hedis-2017-national-drug-code-ndc-license/,
+  accessed 2026-09-29). The license page states: "NDC Lists are provided by Cerner Multum, Inc. (“Multum”)
+  and are intended for organizations that use NCQA's HEDIS® information", requires the user to click
+  "AGREE", and includes the term "THE END-USER AGREES TO INDEMNIFY AND HOLD MULTUM HARMLESS FROM ANY
+  CLAIMS". Because use requires accepting an end-user agreement, the lists are not bundled. The
+  antipsychotic NDCs are built instead from NLM RxNav (ATC N05A) and cross-checked against the FDA NDC
+  Directory; a user licensed for the NCQA lists can load them with `external_code_lists`.
+* **Medically frail workbook** prepared by Ne'eman, McIntyre, Smithers, and Sommers (Harvard T.H. Chan
+  School of Public Health and Brigham and Women's Hospital), last updated 07/31/2026, published by
+  Washington HCA (https://www.hca.wa.gov/assets/billers-and-providers/medically-frail-code-list.xlsx).
+  Its cover page states: "These materials are free to use with attribution to the research team for any
+  state agency. However, for-profit entities must contact Harvard University's Office of Technology
+  Development at otd@harvard.edu for a license for permission to use." The terms grant use to state
+  agencies; they grant no right to redistribute, and the workbook reproduces AMA CPT descriptors, so it
+  is not bundled. `scripts/import_hca_workbook.py` converts a copy the user is entitled to use into an
+  `external_code_lists` file (code numbers and categories only) at run time.
 * Ohio's 1,935-code ODM list, which ODM had not posted as of 2026-09-29.
-* NDC lists other than the CCW medication-for-OUD lists. States that want antipsychotic
-  or other pharmacy markers must add a cited list.
-* A SAMHSA code list for serious mental illness. SAMHSA and ISMICC define SMI by functional
-  impairment rather than by a code list; the IFC names ISMICC, DSM-5, and ICD-10 as
-  resources (91 FR 33375) without adopting a list. The disabling-mental-disorder category
-  therefore uses CCW algorithms for the conditions the IFC names.
+* The SAMHSA MH-CLD 2018 Appendix E is recorded as consulted; codes are taken from the later 2023
+  Table C-2 crosswalk, which covers the same diagnostic groups in ICD-10-CM.
 
 """
 
@@ -53,12 +59,12 @@ def main():
     src = load_sources()
     comps = load_components()
     lines = [HEADER, "## Source registry\n",
-             "| source_id | Title | Publisher | Version | Accessed | URL | SHA-256 of file |",
-             "|---|---|---|---|---|---|---|"]
+             "| source_id | Title | Publisher | Version | Accessed | URL | License / terms | SHA-256 of file |",
+             "|---|---|---|---|---|---|---|---|"]
     for sid, s in src.items():
         sha = s.get("sha256", "")
         lines.append(f"| `{sid}` | {s['title']} | {s['publisher']} | {s['version']} | {s.get('access_date', '')} | "
-                     f"{s['url']} | {sha[:16] + '...' if sha else 'n/a'} |")
+                     f"{s['url']} | {s.get('license', '')} | {sha[:16] + '...' if sha else 'n/a'} |")
     lines += ["", "## Category to component to source\n",
               "| Category | CFR | Role | Component | Codes | Source(s) |", "|---|---|---|---|---|---|"]
     for r in category_source_table().itertuples():

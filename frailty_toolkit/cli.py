@@ -35,6 +35,7 @@ def cmd_screen(a):
     res.persons.to_csv(out / "persons.csv", index=False)
     res.evidence.to_csv(out / "evidence.csv", index=False)
     res.summary().to_csv(out / "tier_summary.csv", index=False)
+    (out / "run_metadata.json").write_text(json.dumps(res.metadata(), indent=2))
     print(res.summary().to_string(index=False))
 
 
@@ -62,11 +63,15 @@ def cmd_demo(a):
     out.mkdir(parents=True, exist_ok=True)
     res.persons.merge(exp, on="person_id").to_csv(out / "persons.csv", index=False)
     res.evidence.to_csv(out / "evidence.csv", index=False)
+    (out / "run_metadata.json").write_text(json.dumps(res.metadata(), indent=2))
     print(res.persons.merge(exp, on="person_id")[["scenario", "tier", "categories_met"]].to_string(index=False))
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(prog="frailty-toolkit", description=f"frailty_toolkit {__version__}")
+    ap = argparse.ArgumentParser(
+        prog="frailty-toolkit", description=f"frailty_toolkit {__version__}",
+        epilog="Screening aid, not a determination. Provided as is, without warranty; see the Disclaimer "
+               "in README.md and NOTICE.")
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("list-states").set_defaults(fn=lambda a: print("\n".join(available_states())))
     c = sub.add_parser("check-config")

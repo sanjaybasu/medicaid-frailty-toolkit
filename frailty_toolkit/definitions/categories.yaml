@@ -89,11 +89,26 @@ federal_categories:
     # IFC examples (91 FR 33375): schizophrenia, schizotypal disorder, delusional disorder,
     # other non-mood psychotic disorders, moderate or severe bipolar disorder, major
     # depressive disorder, panic disorder.
+    # Two federal sources, each recorded per code in the evidence table: CMS CCW algorithms
+    # and the SAMHSA MH-CLD 2023 Table C-2 crosswalk. Trauma- and stressor-related
+    # disorders ("trauma disorders", 91 FR 33376) follow the DSM-5-TR chapter.
     dx_components:
       - ccw_schizophrenia_and_other_psychotic_disorders
       - ccw_bipolar_disorder
       - ccw_depressive_disorders
       - ccw_anxiety_disorders:F410
+      - samhsa_mhcld_schizophrenia_psychotic
+      - samhsa_mhcld_bipolar
+      - samhsa_mhcld_depressive
+      - samhsa_mhcld_anxiety:F410
+      - samhsa_mhcld_trauma_stressor
+      - dsm5tr_trauma_stressor
+      # Adjustment disorders (F43.2x) are, by DSM-5-TR definition, reactions expected to
+      # resolve within months of the stressor ending, so they are too broad to qualify on
+      # their own. No category (C) diagnosis qualifies on its own here: every diagnosis,
+      # including these, needs an impairment or service marker below. A state can drop
+      # the component with remove_dx_components.
+      - dsm5tr_adjustment_disorders
     strong_dx_prefixes: []
     impairment_components:
       - pos_inpatient_psych
@@ -101,10 +116,13 @@ federal_categories:
       - pos_residential_bh
       - hc_mh_intensive
       - hc_lai_antipsychotic
+      # Antipsychotic dispensing (pharmacy claims): ATC N05A via NLM RxNav, plus FDA NDC
+      # Directory 'Antipsychotic [EPC]' packages not yet mapped in RxNorm.
+      - rxnav_antipsychotic_ndc
+      - fda_ndc_antipsychotic_epc
     sufficient_components: []
     possible_components: []
     optional_dx_components:
-      - ccw_post_traumatic_stress_disorder_ptsd
       - ccw_personality_disorders
     notes: >-
       `component:PREFIX` restricts a component to codes starting with PREFIX
@@ -263,6 +281,70 @@ related_provisions:
     cfr: "42 CFR 435.555(d)(1)"
     components: [pos_inpatient, pos_nursing_facility, pos_icf_iid, tob_inpatient_hospital, tob_snf_icf]
     notes: "Reported as calendar months with any qualifying claim; a state must elect the option."
+
+# Specified exclusions other than medical frailty (42 CFR 435.554(c)) and the mandatory
+# exceptions of 42 CFR 435.553. These are NOT frailty categories and never enter the tier.
+# `claims_supported` exclusions are evaluated from claims as a fallback; eligibility data
+# are the primary source for all of them. `eligibility_only` exclusions can be reported
+# only through state-configured `exemption_markers` on the eligibility file.
+specified_exemptions:
+  pregnancy_postpartum:
+    label: "Pregnant or entitled to postpartum medical assistance"
+    statute: "SSA 1902(xx)(9)(A)(ii)(IX): 'who is pregnant or entitled to postpartum medical assistance under paragraph (5) or (16) of subsection (e)'"
+    cfr: "42 CFR 435.554(c)(10): 'The individual is pregnant or entitled to postpartum medical assistance under section 1902(e)(5) or (16) of the Act.'"
+    evidence: claims_supported
+    components: [preg_icd10cm_chapter15, preg_icd10cm_z_codes, cpt_maternity]
+    notes: "Claims fallback: a pregnancy-related service within the state's postpartum coverage period (postpartum_months, default 12) before the evaluation date."
+  sud_treatment_program:
+    label: "Participating in a drug addiction or alcoholic treatment and rehabilitation program"
+    statute: "SSA 1902(xx)(9)(A)(ii)(VII)"
+    cfr: "42 CFR 435.554(c)(8)"
+    evidence: claims_supported
+    components_from_related_provision: sud_treatment_program
+  former_foster_youth:
+    label: "Former foster care youth (eligibility group at SSA 1902(a)(10)(A)(i)(IX))"
+    statute: "SSA 1902(xx)(9)(A)(ii)(I)"
+    cfr: "42 CFR 435.554(c)(1)"
+    evidence: eligibility_only
+  indian:
+    label: "Indian, Urban Indian, California Indian, or IHS-eligible (definition at 42 CFR 447.51)"
+    statute: "SSA 1902(xx)(9)(A)(ii)(II)"
+    cfr: "42 CFR 435.554(c)(2)"
+    evidence: eligibility_only
+    notes: "Receiving care at an IHS or tribal facility (POS 05-08) does not establish Indian status and is not used."
+  parent_caretaker:
+    label: "Parent, guardian, caretaker relative, or family caregiver of a dependent child 13 or under or of a disabled individual"
+    statute: "SSA 1902(xx)(9)(A)(ii)(III)"
+    cfr: "42 CFR 435.554(c)(3)"
+    evidence: eligibility_only
+  veteran_total_disability:
+    label: "Veteran with a disability rated as total under 38 U.S.C. 1155"
+    statute: "SSA 1902(xx)(9)(A)(ii)(IV)"
+    cfr: "42 CFR 435.554(c)(4)"
+    evidence: eligibility_only
+  tanf_compliant:
+    label: "Compliant with TANF (section 407) work requirements"
+    statute: "SSA 1902(xx)(9)(A)(ii)(VI)(aa)"
+    cfr: "42 CFR 435.554(c)(6)"
+    evidence: eligibility_only
+  snap_household:
+    label: "Member of a SNAP household and not exempt from SNAP work requirements"
+    statute: "SSA 1902(xx)(9)(A)(ii)(VI)(bb)"
+    cfr: "42 CFR 435.554(c)(7)"
+    evidence: eligibility_only
+  inmate:
+    label: "Inmate of a public institution"
+    statute: "SSA 1902(xx)(9)(A)(ii)(VIII)"
+    cfr: "42 CFR 435.554(c)(9)"
+    evidence: eligibility_only
+  recently_incarcerated:
+    label: "Inmate of a public institution at any point in the prior 3 months (mandatory exception)"
+    cfr: "42 CFR 435.553(b)"
+    evidence: eligibility_only
+  medicare:
+    label: "Entitled to Medicare Part A or enrolled in Part B (mandatory exception)"
+    cfr: "42 CFR 435.553(a)(2)"
+    evidence: eligibility_only
 
 # Inpatient claim definition used for the single-inpatient rule.
 inpatient_definition:

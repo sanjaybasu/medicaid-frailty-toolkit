@@ -1,3 +1,5 @@
+Disclaimer. This software, its code lists, and its documentation are provided "as is," without warranty of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, accuracy, completeness, and non-infringement. Waymark, Inc. and the contributors are not liable for any claim, damages, or other liability arising from the software or its use, including any eligibility, exemption, or coverage decision. The toolkit is a screening aid. It does not make, and must not be used as the sole basis for, a determination of medical frailty, exemption, or Medicaid eligibility; the state Medicaid agency remains responsible for every determination and for compliance with federal and state law. Nothing in this repository is legal or medical advice. Code lists are drawn from third-party sources that may change; users must verify them against current official sources. Use of the toolkit does not imply endorsement by, or affiliation with, any government agency or other organization.
+
 Medicaid Frailty Toolkit (frailty_toolkit)
 Copyright (c) 2026 Waymark, Inc. (https://www.waymarkcare.com)
 
@@ -25,18 +27,35 @@ TRADEMARKS
 rights to use the Waymark name, logo, or trademarks, except as needed to reproduce this
 notice and to state the origin of the software.
 
-THIRD-PARTY CODE SETS
-The bundled code lists are derived from public U.S. government and public-domain sources
-listed in docs/sources.md (AHRQ HCUP Elixhauser Comorbidity Software Refined, CMS Chronic
-Conditions Data Warehouse algorithms, CMS ICD-10-CM and HCPCS Level II files, the CMS
-Place of Service code set, and CMS manuals). Those source materials remain subject to
-their own terms. CPT codes are copyright the American Medical Association; the toolkit
-stores only the five CPT code numbers cited by CMS manuals and reproduces no CPT
-descriptors. Type-of-bill and revenue-code values are NUBC code sets; the toolkit stores
-only the prefixes named in CMS manuals and ResDAC tables. No NCQA value sets are used.
-The Harvard T.H. Chan School of Public Health medically frail workbook published by the
-Washington Health Care Authority is NOT included; its terms require a license for
-for-profit use.
+THIRD-PARTY MATERIAL (not covered by the PolyForm license)
+The bundled code lists are derived from the sources listed in docs/sources.md. Those
+materials remain subject to their own terms:
+- U.S. federal government works (public domain): AHRQ HCUP Elixhauser Comorbidity
+  Software Refined; CMS Chronic Conditions Data Warehouse algorithms; CMS ICD-10-CM and
+  HCPCS Level II files; the CMS Place of Service code set; CMS manuals; SAMHSA MH-CLD
+  report crosswalks; NLM RxNav/RxNorm data; the FDA National Drug Code Directory.
+- Nebraska Department of Health and Human Services medically frail conditions index, a
+  public state document, used for the Nebraska worked example.
+- CPT: CPT five-digit codes, descriptors, and other material are copyright American
+  Medical Association (CPT copyright 2026 American Medical Association. All rights
+  reserved.). The toolkit stores only CPT code numbers cited by CMS manuals, by the AMA
+  CPT 2027 maternity guidelines, or by Nebraska DHHS, and reproduces no CPT descriptors.
+  Users who need CPT descriptors must license them from the AMA.
+- DSM-5-TR (American Psychiatric Association, 2022) is cited for chapter membership
+  only; no DSM text is reproduced.
+- Type-of-bill and revenue-code values are NUBC code sets; the toolkit stores only the
+  prefixes named in CMS manuals and ResDAC tables.
+
+NOT BUNDLED
+- NCQA HEDIS NDC lists: provided by Cerner Multum under an end-user agreement that must
+  be accepted, with indemnity terms. Not included; can be loaded at run time by a user
+  licensed to use them.
+- The medically frail workbook prepared at the Harvard T.H. Chan School of Public Health
+  and Brigham and Women's Hospital and published by the Washington Health Care Authority.
+  Its terms: "These materials are free to use with attribution to the research team for
+  any state agency. However, for-profit entities must contact Harvard University's Office
+  of Technology Development at otd@harvard.edu for a license for permission to use."
+  Not included; scripts/import_hca_workbook.py converts a copy the user is entitled to use.
 
 NOT AN ELIGIBILITY DETERMINATION
 The toolkit is a screening aid for exemption review. It never makes, and must not be used

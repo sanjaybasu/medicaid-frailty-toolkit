@@ -165,9 +165,15 @@ def write_report(results: dict[str, pd.DataFrame], outdir) -> list:
     from pathlib import Path
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=True)
+    import json
+    from ..engine import SCREENING_NOTE
     paths = []
     for k, v in results.items():
         p = outdir / f"{k}.csv"
         v.to_csv(p, index=False)
         paths.append(p)
+    m = outdir / "validation_metadata.json"
+    m.write_text(json.dumps({"note": SCREENING_NOTE, "files": [x.name for x in paths],
+                             "disclaimer": "See the Disclaimer section of README.md and NOTICE."}, indent=2))
+    paths.append(m)
     return paths

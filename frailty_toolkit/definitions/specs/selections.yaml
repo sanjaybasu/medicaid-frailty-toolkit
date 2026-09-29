@@ -217,3 +217,33 @@ components:
   pos_hospice: {code_system: POS, label: "Hospice", include: [34]}
   pos_esrd: {code_system: POS, label: "End-stage renal disease treatment facility", include: [65]}
   pos_emergency: {code_system: POS, label: "Emergency room - hospital", include: [23]}
+
+  # ---------------- DSM-5-TR Trauma- and Stressor-Related Disorders ----------------------
+  # Chapter membership from APA DSM-5-TR (2022; doi:10.1176/appi.books.9780890425787) and
+  # Friedman et al., Depress Anxiety 2011;28(9):737-749 (doi:10.1002/da.20845). Codes and
+  # titles come from the CMS ICD-10-CM files. The IFC names "trauma disorders" among its
+  # examples (91 FR 33376).
+  dsm5tr_trauma_stressor:
+    code_system: ICD10CM
+    label: "Trauma- and stressor-related disorders except adjustment disorders (DSM-5-TR chapter)"
+    include: [F43.0, F43.1, F43.8, F43.9, F94.1, F94.2]
+    selection_authority: "dsm5tr_2022; friedman_2011_dsm5_trauma"
+    rationale: "Acute stress reaction, PTSD, other and unspecified reactions to severe stress, reactive attachment disorder, disinhibited social engagement disorder."
+  dsm5tr_adjustment_disorders:
+    code_system: ICD10CM
+    label: "Adjustment disorders (DSM-5-TR trauma- and stressor-related chapter)"
+    include: [F43.2]
+    selection_authority: "dsm5tr_2022"
+    rationale: "Kept as a separate component so a state can drop it; see categories.yaml."
+
+  # ---------------- Pregnancy and postpartum (separate statutory exclusion) -------------
+  preg_icd10cm_chapter15:
+    code_system: ICD10CM
+    label: "ICD-10-CM Chapter 15, Pregnancy, childbirth and the puerperium (O00-O9A)"
+    include: ["O00-O9A"]
+    rationale: "SSA 1902(xx)(9)(A)(ii)(IX); 42 CFR 435.554(c)(10). Claims fallback only; the eligibility aid category is the primary source."
+  preg_icd10cm_z_codes:
+    code_system: ICD10CM
+    label: "Pregnancy-state, supervision, antenatal screening, gestational-weeks and postpartum encounter Z codes"
+    include: [Z33.1, Z34, Z36, Z3A, Z39]
+    rationale: "ICD-10-CM Z33.1 Pregnant state, incidental; Z34 supervision of normal pregnancy; Z36 antenatal screening; Z3A weeks of gestation; Z39 postpartum care and examination."
