@@ -435,10 +435,12 @@ def evaluate(medical_claims: pd.DataFrame, config: StateConfig, as_of,
         if k == "short_term_hardship_inpatient":
             months = h.assign(m=h["service_date"].dt.strftime("%Y-%m")).groupby("person_id")["m"].apply(
                 lambda s: ";".join(sorted(set(s))))
-            persons["hardship_inpatient_months"] = persons["person_id"].map(months).fillna("")
+            months = months.to_dict()
+            persons["hardship_inpatient_months"] = [months.get(p, "") for p in persons["person_id"]]
         else:
-            last = h.groupby("person_id")["service_date"].max()
-            persons[f"related_{k}_last_date"] = persons["person_id"].map(last)
+            last = h.groupby("person_id")["service_date"].max().to_dict()
+            persons[f"related_{k}_last_date"] = pd.to_datetime(
+                pd.Series([last.get(p) for p in persons["person_id"]], index=persons.index, dtype="object"))
 
     if eligibility is not None:
         persons["enrolled_months_in_window"] = persons["person_id"].map(
