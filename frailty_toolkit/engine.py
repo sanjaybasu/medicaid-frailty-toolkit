@@ -332,12 +332,24 @@ def _inpatient_claims(events: pd.DataFrame, lookup: pd.DataFrame) -> set:
 # ---------------------------------------------------------------------------
 def evaluate(medical_claims: pd.DataFrame, config: StateConfig, as_of,
              pharmacy_claims: pd.DataFrame | None = None,
-             eligibility: pd.DataFrame | None = None) -> FrailtyResult:
-    """Screen every person in the inputs as of `as_of` (the evaluation date)."""
+             eligibility: pd.DataFrame | None = None,
+             allow_no_diagnoses: bool = False) -> FrailtyResult:
+    """Screen every person in the inputs as of `as_of` (the evaluation date).
+
+    medical_claims must carry diagnosis_code_1 .. diagnosis_code_25. Tuva's core
+    medical_claim table does not; use frailty_toolkit.tuva.attach_conditions first. A table
+    with no diagnosis columns raises ValueError unless allow_no_diagnoses=True, because
+    screening would silently run on non-diagnosis markers only."""
     as_of = pd.Timestamp(as_of).normalize()
     start = as_of - pd.DateOffset(months=config.lookback_months) + pd.Timedelta(days=1)
 
     mc_all = _prepare(medical_claims, "medical_claim", ["person_id", "claim_start_date"])
+    if not any(c.startswith("diagnosis_code_") for c in mc_all.columns) and not allow_no_diagnoses:
+        raise ValueError("medical_claim has no diagnosis_code_1..25 columns, so no diagnosis could match. "
+                         "Tuva core stores diagnoses in the condition table: use "
+                         "frailty_toolkit.tuva.attach_conditions(medical_claim, condition). "
+                         "Pass allow_no_diagnoses=True only if the input truly has no diagnoses.")
+
     mc = _status_filter(_window(mc_all, start, as_of), config.include_claim_statuses)
     pc = None
     if pharmacy_claims is not None:

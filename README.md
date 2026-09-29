@@ -108,7 +108,7 @@ frailty-toolkit validate --persons results/persons.csv --reference reference.csv
 | `pharmacy_claim` | `person_id`, `dispensing_date` (or `claim_start_date`), `ndc_code` (11 digits) | `claim_id`, `claim_status` |
 | `eligibility` | `person_id`, `enrollment_start_date`, `enrollment_end_date` | `race_ethnicity` or `race`, `rurality`, and any column named in `eligibility_markers` or `exemption_markers` |
 
-Diagnosis codes may be written with or without the dot. Encounter records from a health information exchange or another source can be appended to `medical_claim`.
+Diagnosis codes may be written with or without the dot. Tuva's core `medical_claim` table does not carry diagnosis columns; its diagnoses are in the core `condition` table, so attach them first with `frailty_toolkit.tuva.attach_conditions(medical_claim, condition)`. The engine raises an error if the medical claims carry no diagnosis columns at all, rather than screening silently on non-diagnosis markers. Encounter records from a health information exchange or another source can be appended to `medical_claim`.
 
 ## Code lists and sources
 

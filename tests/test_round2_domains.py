@@ -109,7 +109,8 @@ def test_eligibility_only_exemption_markers():
     raw = _raw()
     raw["exemption_markers"] = [{"exemption": "former_foster_youth", "column": "aid_group", "values": ["FFY"],
                                  "citation": "synthetic fixture"}]
-    med = pd.DataFrame([{"person_id": "SYN-F", "claim_id": "c1", "claim_start_date": "2026-12-01"}])
+    med = pd.DataFrame([{"person_id": "SYN-F", "claim_id": "c1", "claim_start_date": "2026-12-01",
+                         "diagnosis_code_1": None}])
     el = pd.DataFrame([{"person_id": "SYN-F", "enrollment_start_date": "2026-01-01", "enrollment_end_date": None,
                         "aid_group": "FFY"}])
     p = evaluate(med, validate_config(raw), AS_OF, eligibility=el).persons.iloc[0]

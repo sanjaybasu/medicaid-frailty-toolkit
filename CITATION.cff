@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the software and the paper it extends."
 title: "Medicaid Frailty Toolkit: claims-based screening for the medically frail exclusion"
-version: 0.2.0
+version: 0.2.1
 date-released: "2026-09-29"
 license: PolyForm-Noncommercial-1.0.0
 type: software

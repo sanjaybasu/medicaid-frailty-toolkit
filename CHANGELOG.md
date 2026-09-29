@@ -4,6 +4,19 @@ All notable changes to this project are recorded here. Versions follow semantic 
 Each state configuration also carries its own `rule_version`, which changes whenever that
 state's lists or logic change.
 
+## [0.2.1] - 2026-09-29
+
+### Fixed
+- Tuva core `medical_claim` has no `diagnosis_code_1..25` columns; Tuva stores claim
+  diagnoses in the core `condition` table (undotted `normalized_code`, `condition_rank`).
+  Screening such a table silently matched no diagnoses, so only non-diagnosis markers
+  (hospice, dialysis, MOUD, antipsychotic dispensing) could fire and state configs that
+  differ only in diagnosis rules produced identical output. `evaluate()` now raises a
+  ValueError when the medical claims carry no diagnosis columns (override with
+  `allow_no_diagnoses=True`), and the new `frailty_toolkit.tuva.attach_conditions()`
+  pivots the Tuva condition table onto the claims. Regression tests use synthetic data in
+  Tuva's core column layout and code format.
+
 ## [0.2.0] - 2026-09-29
 
 ### Added

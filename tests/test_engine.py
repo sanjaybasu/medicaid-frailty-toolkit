@@ -122,7 +122,8 @@ def test_eligibility_marker(quiet):
     raw["eligibility_markers"] = [{"category": "blind_or_disabled", "column": "aid_category", "values": ["D1"],
                                    "label": "synthetic disability aid category", "citation": "test fixture"}]
     cfg = validate_config(raw)
-    med = pd.DataFrame([{"person_id": "SYN-E", "claim_id": "c1", "claim_start_date": "2026-12-01"}])
+    med = pd.DataFrame([{"person_id": "SYN-E", "claim_id": "c1", "claim_start_date": "2026-12-01",
+                         "diagnosis_code_1": None}])
     el = pd.DataFrame([{"person_id": "SYN-E", "enrollment_start_date": "2026-01-01", "enrollment_end_date": None,
                         "aid_category": "D1"}])
     r = evaluate(med, cfg, AS_OF, eligibility=el)
