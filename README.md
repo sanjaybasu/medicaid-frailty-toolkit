@@ -4,9 +4,37 @@
 
 # Medicaid Frailty Toolkit
 
+## In plain language
+
+### What it does
+
+Starting January 1, 2027, states must exempt medically frail adults from Medicaid's new work requirement, and the federal rule tells states to look for the evidence in claims before asking the person for paperwork. This toolkit reads a state's Medicaid claims and sorts each adult into one of four groups. The first group likely meets a medically frail category. The second possibly meets one and should be asked to confirm. The third has too few claims to tell and should be contacted, and the fourth shows no evidence in claims. Every result lists the claims behind it, so a caseworker can check why a person was flagged.
+
+### Who it is for
+
+It is for state Medicaid agencies and other government programs that run exemption review. It works in any state. The default settings follow the federal rule as written, and a state can change them to match its own published method. Worked examples for Washington, Virginia, Ohio, Illinois, and Nebraska are included.
+
+### What it costs
+
+It is free for government agencies, academic researchers, and other noncommercial users, under the PolyForm Noncommercial License 1.0.0. Commercial use, including use by a health plan or vendor, needs a separate agreement with Waymark.
+
+### Why we built it
+
+People who qualify for the exemption but are not identified from their claims get a paperwork request, and people who are too sick to answer it in time can lose coverage. In our 17-state study in *Health Affairs Scholar*, existing state screening methods identified 31% of Medicaid adults with a functional disability, on average, and a redesigned method identified 46% in simulation. The redesign also narrowed the identification gap between American Indian and Alaska Native adults and White adults by nearly half. This toolkit puts the redesign's lessons into code that follows the federal rule, so states do not have to build their own before January.
+
+### What it does not do
+
+It does not decide eligibility. The state does. A result of "no evidence in claims" does not mean a person is not frail, and the federal rule does not allow missing claims to be used to deny the exemption. The toolkit has not yet been checked against a reference standard, such as clinician review, in a state's own data.
+
+### Getting started
+
+A state's data team can run it on claims stored in the [Tuva Project](https://thetuvaproject.com) format, an open data model for claims, with a single command (see [Install and quick start](#install-and-quick-start)). State agencies that want help getting started can write to partnerships@waymarkcare.com.
+
+## Technical overview
+
 `frailty_toolkit` is a source-available Python package that screens Medicaid claims for adults who may qualify for the medically frail exclusion from the community engagement ("work") requirement. The requirement was added to the Social Security Act at section 1902(xx) by Public Law 119-21, section 71119, and states must implement it by January 1, 2027. CMS implemented it in the interim final rule CMS-2454-IFC (91 FR 33348, June 3, 2026; Federal Register document 2026-11094), which defines "medically frail" at 42 CFR 435.554(c)(5).
 
-The toolkit is built for use in any state. Its primary product is the federal default configuration (`template`), which implements the statute and the IFC as written; the state configurations under `frailty_toolkit/states/examples/` are worked examples of adapting that default to a state's published method. The toolkit reads claims in the [Tuva Project](https://thetuvaproject.com) data model, applies a YAML configuration, and returns, for each person, a screening tier, the categories met, and an evidence table listing every code, claim, and date behind the result so that a caseworker can audit it. A validation harness reports accuracy against reference labels, race-stratified sensitivity gaps, and convergent validity against later acute care and cost.
+The toolkit is built for use in any state. Its primary product is the federal default configuration (`template`), which implements the statute and the IFC as written; the state configurations under `frailty_toolkit/states/examples/` are worked examples of adapting that default to a state's published method. The toolkit reads claims in the [Tuva Project](https://thetuvaproject.com) data model, applies a YAML configuration, and returns, for each person, a screening tier, the categories met, and an evidence table listing every code, claim, and date behind the result so that a caseworker can audit it. Validation tools report accuracy against reference labels, race-stratified sensitivity gaps, and convergent validity against later acute care and cost.
 
 The toolkit extends Basu S, Berkowitz SA. Redesigning Medicaid frailty algorithms: improved identification of medically frail adults under community engagement. *Health Affairs Scholar*. 2026;4(6):qxag108. doi:[10.1093/haschl/qxag108](https://doi.org/10.1093/haschl/qxag108) ([article](https://academic.oup.com/healthaffairsscholar/article/4/6/qxag108/8672780)). That paper used a microsimulation on public survey data; this package works on claims. As published, the paper reported that existing state algorithms identified 31.4% of functionally disabled Medicaid adults as medically frail and that its redesigned algorithm identified 45.6% (published values).
 
@@ -186,7 +214,7 @@ The fourth change removed physician certification. The engine has no certificati
 
 The claims-visibility channel carries the paper's main equity lesson. Conditions that are real can be under-documented in claims, and the paper's simulation parameterized that under-documentation as larger for American Indian and Alaska Native, Black, and rural enrollees, with Z codes recorded less often for people who use less care. In claims, the absence of evidence is not evidence of absence, and the IFC says as much: "the absence of adjudicated claims or encounter data altogether ... may not be used to determine ineligibility for the exclusion" (91 FR 33406). The toolkit therefore places people with no qualifying evidence and fewer than `thin_record_max_service_dates` distinct service dates in the window (default 2, state-configurable, 0 to disable), including people with no claims at all, in a separate `thin_record_outreach` tier. That tier routes to proactive attestation outreach and never to non-exemption. `FrailtyResult.tier_by_group()` reports the size of every tier by race and ethnicity and by rurality whenever the eligibility input carries those columns.
 
-The validation harness applies the paper's equity evaluation to claims. It reports sensitivity by race and ethnicity with the gap from a reference group and a bootstrap 95% CI, sensitivity by rurality when a `rurality` column is supplied, a third operating point (`any_outreach`) that counts the thin-record tier as reached, and the share of reference-positive people who land in the thin-record tier in each group. That last share is the claims-visibility gap measured directly.
+The validation tools apply the paper's equity evaluation to claims. It reports sensitivity by race and ethnicity with the gap from a reference group and a bootstrap 95% CI, sensitivity by rurality when a `rurality` column is supplied, a third operating point (`any_outreach`) that counts the thin-record tier as reached, and the share of reference-positive people who land in the thin-record tier in each group. That last share is the claims-visibility gap measured directly.
 
 ## License
 
